@@ -35,6 +35,7 @@ The list of ideas is divided into several categories.
 ### Fast(er) register allocator for Cranelift
 
 **Description**
+
 The Rust compiler uses various codegen backends to generate executable code (LLVM, GCC, Cranelift).
 The Cranelift backend should provide very quick compile times, however its performance is currently
 relatively bottlenecked by its register allocator.
@@ -45,16 +46,20 @@ simply create an allocator that spills all registers to stack, and a possible fo
 It would be useful to compare the compilation vs runtime performance trade-offs of various register allocation approaches.
 
 **Expected result**
+
 It will be possible to use a new register allocator in Cranelift that will work at least for simple programs and that
 will improve Rust compilation times.
 
 **Desirable skills**
+
 Intermediate knowledge of Rust. Basic knowledge of assembly. Familiarity with compiler technologies is a bonus.
 
 **Project size**
+
 Medium or large.
 
 **Difficulty**
+
 Medium.
 
 **Mentors**
