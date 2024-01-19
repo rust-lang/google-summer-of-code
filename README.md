@@ -73,6 +73,7 @@ Medium.
 ### C codegen backend for `rustc`
 
 **Description**
+
 `rustc` currently has three in-tree codegen backends: LLVM (the default), Cranelift, and GCC.
 These live at <https://github.com/rust-lang/rust/tree/master/compiler>, as `rustc_codegen_*` crates.
 
@@ -82,6 +83,7 @@ to use benefits of existing `C` compilers (better platform support, optimization
 cannot be used.
 
 **Expected result**
+
 The minimum viable product is to turn `rustc` data structures that represent a Rust program into `C` code, and write the
 output to the location specified by `--out-dir`. This involves figuring out how to produce buildable `C` code from the
 inputs provided by `rustc_codegen_ssa::traits::CodegenBackend`.
@@ -90,12 +92,15 @@ A second step is to have `rustc` invoke a `C` compiler on these produced files. 
 such that any `C` compiler can be dropped in.
 
 **Desirable skills**
+
 Knowledge of Rust and `C`, basic familiarity with compiler functionality.
 
 **Project size**
+
 Large.
 
 **Difficulty**
+
 Hard.
 
 **Mentor**
@@ -108,21 +113,26 @@ Hard.
 ### Extend `annotate-snippets` with features required by rustc
 
 **Description**
+
 `rustc` currently has incomplete support for using [`annotate-snippets`](https://github.com/rust-lang/annotate-snippets-rs/)
 to emit errors, but it doesn't support all the features that `rustc`'s built-in diagnostic rendering does. The goal
 of this project is to execute the `rustc` test suite using `annotate-snippets`, identify missing features or bugs,
 fix those, and repeat until at feature-parity.
 
 **Expected result**
+
 More of the `rustc` test suite passes with `annotate-snippets`.
 
 **Desirable skills**
+
 Knowledge of Rust.
 
 **Project size**
+
 Medium.
 
 **Difficulty**
+
 Medium to hard.
 
 **Mentor**
@@ -137,6 +147,7 @@ Medium to hard.
 ### Add support for multiple collectors to the Rust benchmark suite
 
 **Description**
+
 Rust has an extensive [benchmark suite](https://github.com/rust-lang/rustc-perf) that measures the performance of the Rust compiler and Rust programs and
 visualizes the results in an interactive web application. Currently, the benchmarks are gathered on a single physical
 machine, however we are hitting the limits of how many benchmark runs we can perform per day on a single machine,
@@ -147,15 +158,19 @@ require a refactoring of the existing suite and potentially also database schema
 features.
 
 **Expected result**
+
 It will be possible to parallelize the execution of the benchmark suite across multiple machines.
 
 **Desirable skills**
+
 Intermediate knowledge of Rust and database technologies (SQL).
 
 **Project size**
+
 Medium or large.
 
 **Difficulty**
+
 Medium.
 
 **Mentor**
@@ -166,7 +181,9 @@ Medium.
 - [Compiler performance working group](https://rust-lang.zulipchat.com/#narrow/stream/247081-t-compiler.2Fperformance)
 
 ### Improve Rust benchmark suite analysis & frontend
+
 **Description**
+
 Rust has an extensive [benchmark suite](https://github.com/rust-lang/rustc-perf) that measures the performance of the Rust compiler and Rust programs and
 visualizes the results in an interactive web application. It received a lot of new features in the past few years, however
 some of them are not as polished as they could be.
@@ -183,16 +200,20 @@ how well are threads utilized. It would be nice to add analysis and visualisatio
 - Some pages of the website still use HTML templates. It would be great to port these to the Vue-based frontend.
 
 **Expected result**
+
 New analyses will be available in the Rust benchmark suite, and/or the suite website will contain more useful data and
 visualizations.
 
 **Desirable skills**
+
 Basic knowledge of Rust, intermediate knowledge of frontend web technologies (TypeScript, HTML, CSS, Vue).
 
 **Project size**
+
 Medium.
 
 **Difficulty**
+
 Medium.
 
 **Mentor**
@@ -203,7 +224,9 @@ Medium.
 - [Compiler performance working group](https://rust-lang.zulipchat.com/#narrow/stream/247081-t-compiler.2Fperformance)
 
 ### Improve bootstrap
+
 **Description**
+
 The Rust compiler it bootstrapped using a complex set of scripts and programs generally called just `bootstrap`.
 This tooling is constantly changing, and it has accrued a lot of technical debt. It could be improved in many areas, for example:
 
@@ -212,15 +235,19 @@ This tooling is constantly changing, and it has accrued a lot of technical debt.
 - Remove unnecessary hacks.
 
 **Expected result**
+
 The `bootstrap` tooling will have less technical debt, more tests, and better documentation.
 
 **Desirable skills**
+
 Intermediate knowledge of Rust. Knowledge of the Rust compiler bootstrap process is welcome, but not required.
 
 **Project size**
+
 Medium or large.
 
 **Difficulty**
+
 Medium.
 
 **Mentor**
@@ -231,7 +258,9 @@ Medium.
 - [Bootstreap team](https://rust-lang.zulipchat.com/#narrow/stream/326414-t-infra.2Fbootstrap)
 
 ### Improve infrastructure automation tools
+
 **Description**
+
 Rust infrastructure uses many custom tools designed for automating pull request merging, handling discussions on Zulip,
 managing GitHub permissions etc. It would be a great help to Rust maintainers if these tools were improved. Here are a
 few possible tasks that could be implemented:
@@ -243,15 +272,19 @@ bot for GitHub. It currently lacks support for performing merges (it can only pe
 - Implement a GitHub app for [sync-team](https://github.com/rust-lang/sync-team), our tool for managing permissions of Rust maintainers.
 
 **Expected result**
+
 Rust infrastructure management tools will receive new features, better documentation and tests.
 
 **Desirable skills**
+
 Intermediate knowledge of Rust. Familiarity with GitHub APIs is a bonus.
 
 **Project size**
+
 Medium.
 
 **Difficulty**
+
 Medium.
 
 **Mentors**
@@ -267,21 +300,26 @@ Medium.
 ### Move cargo shell completions to Rust
 
 **Description**
+
 Cargo maintains Bash and Zsh completions, but they are duplicated and limited in features.
 We want to implement completions in Cargo itself, so we can have a single implementation with per-shell skins ([rust-lang/cargo#6645](https://github.com/rust-lang/cargo/issues/6645)).
 Most of the implementation will be in clap ([clap-rs/clap#3166](https://github.com/clap-rs/clap/issues/3166)), allowing many tools to benefit from this improvement.
 
 **Expected result**
+
 Cargo shell completion will be extended and implemented in Rust.
 This will allow access to easier to add new commands / arguments to commands, richer results, and easier testing.
 
 **Desirable skills**
+
 Intermediate knowledge of Rust. Shell familiarity is a bonus.
 
 **Project size**
+
 Medium.
 
 **Difficulty**
+
 Medium.
 
 **Mentor**
@@ -294,23 +332,28 @@ Medium.
 ### Implement workspace publish in Cargo
 
 **Description**
+
 Today, developers can group Rust packages into a workspace to make it easier to operate on all of them at once.
 However, `cargo package` and `cargo publish` do not support operating on workspaces ([rust-lang/cargo#1169](https://github.com/rust-lang/cargo/issues/1169)).
 
 The goal of this project is to modify the Cargo build tool to add support for packaging and publishing Cargo workspaces.
 
 **Expected result**
+
 Milestone 1: `cargo package` can be run, with verification, with the standard package selection flags
 Milestone 2: `cargo publish` can do the same as above, but also serially post the `.crate` files to the registry when done,
 reporting to the user what was posted/failed if interrupted.
 
 **Desirable skills**
+
 Intermediate knowledge of Rust.
 
 **Project size**
+
 Medium.
 
 **Difficulty**
+
 Medium.
 
 **Mentor**
@@ -325,6 +368,7 @@ Medium.
 ### Modernize the libc crate
 
 **Description**
+
 The [libc](https://github.com/rust-lang/libc) crate is one of the oldest crates of the Rust ecosystem, long predating
 Rust 1.0. Additionally, it is one of the most widely used crates in the ecosystem (#4 most downloaded on crates.io).
 This combinations means that the current version of the libc crate (`v0.2`) is very conservative with breaking changes and
@@ -340,15 +384,19 @@ simple mistakes that we cannot correct without breaking existing code.
 The goal of this project is to prepare and release the next major version of the libc crate.
 
 **Expected result**
+
 The libc crate is cleaned up and modernized, and released as version 0.3.
 
 **Desirable skills**
+
 Intermediate knowledge of Rust.
 
 **Project size**
+
 Medium.
 
 **Difficulty**
+
 Medium.
 
 **Mentor**
@@ -359,6 +407,9 @@ Medium.
 - [Library team](https://rust-lang.zulipchat.com/#narrow/stream/219381-t-libs)
 
 ### Allow customizing lint levels and reporting in `cargo-semver-checks`
+
+**Description**
+
 [`cargo-semver-checks`](https://github.com/obi1kenobi/cargo-semver-checks) is a linter for semantic versioning. It ensures
 that Rust crates adhere to semantic versioning by looking for breaking changes in APIs.
 
@@ -381,16 +432,20 @@ flagging code that is suspect (and deserving of closer scrutiny) but possibly st
 opt-in / "warn" tier to avoid annoying users, which is something this project would enable us to do.
 
 **Expected result**
+
 `cargo-semver-checks` lints will be configurable via the [`package.metadata`](https://doc.rust-lang.org/cargo/reference/manifest.html#the-metadata-table) table in `Cargo.toml`
 using a clear, simple and expressive way. The design will be suitable for both single-crate projects and workspaces.
 
 **Desirable skills**
+
 Intermediate knowledge of Rust.
 
 **Project size**
+
 Medium to large.
 
 **Difficulty**
+
 Medium.
 
 **Mentor**
@@ -403,6 +458,9 @@ Medium.
 - [GitHub issue](https://github.com/obi1kenobi/cargo-semver-checks/issues/537)
 
 ### Add more lints to `cargo-semver-checks`
+
+**Description**
+
 [`cargo-semver-checks`](https://github.com/obi1kenobi/cargo-semver-checks) is a linter for semantic versioning. It ensures
 that Rust crates adhere to semantic versioning by looking for breaking changes in APIs.
 
@@ -412,17 +470,21 @@ still cannot catch! The goal of this project is to extend its abilities, so that
 - extending the schema, so more Rust functionality is made available for linting
 
 **Expected result**
+
 `cargo-semver-checks` will contain new lints, together with test cases that both ensure the lint triggers when expected
 and does not trigger in situations where it shouldn't (AKA false-positives).
 
 **Desirable skills**
+
 Intermediate knowledge of Rust. Familiarity with databases, query engines, or query language design is welcome but
 not required.
 
 **Project size**
+
 Small to large (depends on how many lints will be implemented).
 
 **Difficulty**
+
 Small to medium (depends on the choice of implemented lints or schema extensions).
 
 **Mentor**
