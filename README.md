@@ -109,7 +109,7 @@ Hard.
 - [Trevor Gross](https://github.com/tgross35)
 
 **Zulip streams**
-- [Idea discussion](TODO)
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20C.20codegen.20backend.20for.20.60rustc.60)
 - [Compiler team](https://rust-lang.zulipchat.com/#narrow/stream/131828-t-compiler)
 
 ### Extend `annotate-snippets` with features required by rustc
