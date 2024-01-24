@@ -5,12 +5,12 @@ This document contains a short guide on how to structure your Rust Google Summer
 ## Choosing a project
 
 You should start by deciding on which project do you want to work on. You can use our [list of project ideas](README.md)
-as an inspiration, or you can come up with your own project idea. However, you should keep in mind that each GSoC project needs at least one mentor available. Therefore, if you come with a completely new project idea, you should also try to find someone from the Rust community who could mentor you on the project.
+as an inspiration, or you can come up with your own project idea. However, you should keep in mind that each GSoC project needs at least one mentor available. Therefore, if you come up with a completely new project idea, you should also try to find someone from the Rust community who could mentor you on the project.
 
 ## Interacting with the Rust community
 
 If you want to discuss our suggested project ideas or your own idea, you can do so on the Rust Zulip. We have a dedicated
-[#gsoc](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc) stream for this that you can use. Either try to find a Zulip topic that already discusses the project idea that you are interested about, or create a new topic about your idea (`Start new conversion` -> Enter `Topic` name -> Write the initial message of the topic). You can use this Zulip stream to ask mentors about the project ideas. Make sure to listen to the feedback of the mentors, and try to incorporate it in your project proposals.
+[#gsoc](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc) stream for this that you can use. Either try to find a Zulip topic that already discusses the project idea that you are interested in, or create a new topic about your idea (`Start new conversion` -> Enter `Topic` name -> Write the initial message of the topic). You can use this Zulip stream to ask mentors about the project ideas. Make sure to listen to the feedback of the mentors, and try to incorporate it in your project proposal.
 
 The Rust Project also has three [organization admins](https://developers.google.com/open-source/gsoc/help/responsibilities) whose goal is to facilitate the communication of potential GSoC contributors and the mentors, and to manage the administration of the GSoC projects:
 - Jakub Beránek ([GitHub](https://github.com/Kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
@@ -37,9 +37,9 @@ The proposal should contain (at least) the following things:
 
 ## Project information and timeline
 
-This is the most important part of your project proposal. You should include an abstract that explains your project in one or two paragraphs, and then a very detailed description that explains what exactly do you want to achieve in the proposed project. 
+This is the most important part of your project proposal. You should include an abstract that explains your project in one or two paragraphs, and then a very detailed description that explains what exactly do you want to achieve in the proposed project. The proposal should also clearly state the designated mentor(s) for your project (you should get in touch with them before submitting the proposal).
 
-In addition to describing what do you intend to work on during the project, you should also specify the size of the project, according to the GSoC [documentation](https://google.github.io/gsocguides/student/time-management-for-students):
+In addition to describing what do you intend to work on in the project, you should also specify the size of the project, according to the GSoC [documentation](https://google.github.io/gsocguides/student/time-management-for-students):
 - Small: ~90 hours
 - Medium: ~175 hours
 - Large: ~350 hours
@@ -59,13 +59,13 @@ There is a [Community bonding](https://google.github.io/gsocguides/student/how-g
 
 ## How to increase your chance of being accepted?
 
-You can demonstrate your dedication (and ability) to work on the selected project proposal by contributing something related to it before your project has been accepted. This can encompass e.g. sending a pull request to the relevant repository, fixing a bug, writing documentation, etc. There is no specific template for these kinds of contributions, and it might not be possible to do for all types of projects. You can coordinate with the project mentors to find out if they can suggest some entry-level task for you.
+You can demonstrate your dedication (and ability) to work on the selected project proposal by contributing something related to it before your proposal is evaluted. This can encompass e.g. sending a pull request to the relevant repository, fixing a bug, writing documentation, etc. There is no specific template for these kinds of contributions, and it might not be possible to do for all types of projects. You can coordinate with the project mentors to find out if they can suggest some entry-level task for you.
 
 You can also tell us more about your motivation in your proposal. Why did you choose Rust for a GSoC project specifically? Do you like the Rust language? Is the specific project that you want to work on sympathetic to you for some reason? We would like to know!
 
 ## Don't forget to submit!
 
-You will need to submit your project proposal through the [Google Summer of Code](https://summerofcode.withgoogle.com/) website. Please keep the **deadline** (**2nd April 2024**) in mind, there will be no extensions!
+You will need to submit your project proposal through the [Google Summer of Code](https://summerofcode.withgoogle.com/) website. Please keep the **deadline** (**2nd April 2024**) in mind, as there will be no extensions!
 
 Good luck! :)
 
@@ -75,7 +75,7 @@ There are some actions and behaviours that will make it much less likely that yo
 
 - Spamming or harrassing mentors or other members of the Rust community.
 - Letting AI automatically generate your project proposal (you should put effort in it, don't be lazy!).
-- Suggesting unreasonably grandiose project proposals, e.g. adding a garbage collector to Rust. The [RFC process](https://github.com/rust-lang/rfcs) should be used for suggesting large change to Rust.
-- Suggesting unreasonably trivial project proposals (e.g. fixing a typo in the Rust documentation). Remember that even the smallest [project size](https://google.github.io/gsocguides/student/time-management-for-students) should take about ~90 hours!
+- Suggesting unreasonably grandiose project proposals, e.g. adding a garbage collector to Rust. The [RFC process](https://github.com/rust-lang/rfcs) should be used for suggesting large changes to Rust.
+- Suggesting unreasonably trivial project proposals, e.g. fixing a typo in the Rust documentation. Remember that even the smallest [project size](https://google.github.io/gsocguides/student/time-management-for-students) should take about 90 hours!
 
 > This guide was inspired by https://github.com/python-gsoc/python-gsoc.github.io/blob/main/ApplicationTemplate.md.
