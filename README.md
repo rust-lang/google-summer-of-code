@@ -8,6 +8,8 @@ an improvement of some Rust crate. However, please note that ultimately, each pr
 tried to make sure that all the ideas listed here would have a mentor available, but if you propose a different project,
 you might have to find someone who would be willing to mentor you.
 
+You can find some tips for applying for a Rust GSoC project [here](proposal-guide.md).
+
 If you would like to discuss projects ideas or anything related to the Rust Project's involvement in GSoC 2024, you can
 do so on the [`#gsoc`](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc) Zulip stream.
 
