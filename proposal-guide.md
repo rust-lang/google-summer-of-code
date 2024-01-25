@@ -7,6 +7,12 @@ This document contains a short guide on how to structure your Rust Google Summer
 You should start by deciding on which project do you want to work on. You can use our [list of project ideas](README.md)
 as an inspiration, or you can come up with your own project idea. However, you should keep in mind that each GSoC project needs at least one mentor available. Therefore, if you come up with a completely new project idea, you should also try to find someone from the Rust community who could mentor you on the project.
 
+If you decide to propose your own project idea, you're most likely to be able to find a mentor if one or both of these is true:
+- It aligns with existing open or planned work within the Project. For example, there are a number of [tracking issues](https://github.com/rust-lang/rust/issues?page=29&q=is%3Aissue+is%3Aopen+label%3AC-tracking-issue) for ongoing work.
+- You can describe clearly the utility of the project to either the Rust language, the tooling, the Project itself, or to the community.
+
+We encourage you to think of your own interesting project ideas! There are plenty of things that can be done within the Rust Project and contributors are generally happy to discuss and help you narrow down your thoughts into a concrete proposal. Don't be shy!
+
 ## Interacting with the Rust community
 
 If you want to discuss our suggested project ideas or your own idea, you can do so on the Rust Zulip. We have a dedicated
