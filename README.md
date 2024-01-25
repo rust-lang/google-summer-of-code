@@ -65,8 +65,8 @@ Medium or large.
 Medium.
 
 **Mentors**
-- [Amanieu d'Antras](https://github.com/Amanieu)
-- [Chris Fallin](https://github.com/cfallin)
+- Amanieu d'Antras ([GitHub](https://github.com/Amanieu), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/143274-Amanieu))
+- Chris Fallin ([GitHub](https://github.com/cfallin), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/327027-Chris-Fallin))
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20fast.20register.20allocator.20for.20Cranelift)
@@ -106,7 +106,7 @@ Large.
 Hard.
 
 **Mentor**
-- [Trevor Gross](https://github.com/tgross35)
+- Trevor Gross ([GitHub](https://github.com/tgross35), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/532317-Trevor-Gross))
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20C.20codegen.20backend.20for.20.60rustc.60)
@@ -138,7 +138,7 @@ Medium.
 Medium to hard.
 
 **Mentor**
-- [David Wood](https://github.com/davidtwco)
+- David Wood ([GitHub](https://github.com/davidtwco), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/116107-davidtwco))
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20extend.20annotate-snippets)
@@ -176,7 +176,7 @@ Medium or large.
 Medium.
 
 **Mentor**
-- [Jakub Beránek](https://github.com/kobzol)
+- Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
 
 **Zulip stream**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20multiple.20collectors.20for.20Rust.20benchmark.20suite)
@@ -219,7 +219,7 @@ Medium.
 Medium.
 
 **Mentor**
-- [Jakub Beránek](https://github.com/kobzol)
+- Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20Rust.20benchmark.20suite)
@@ -253,7 +253,7 @@ Medium or large.
 Medium.
 
 **Mentor**
-- [AlbertLarsan68](https://github.com/albertlarsan68)
+- AlbertLarsan68 ([GitHub](https://github.com/albertlarsan68), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/510016-Albert-Larsan))
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20bootstrap)
@@ -290,8 +290,8 @@ Medium.
 Medium.
 
 **Mentors**
-- [Jakub Beránek](https://github.com/kobzol) (bors, sync-team)
-- [Jack Huey](https://github.com/jackh726) (triagebot)
+- Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek)) (bors, sync-team)
+- Jack Huey ([GitHub](https://github.com/jackh726), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/232957-Jack-Huey)) (triagebot)
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20infrastructure.20automation.20tools)
@@ -325,7 +325,7 @@ Medium.
 Medium.
 
 **Mentor**
-- [epage](https://github.com/epage)
+- Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20move.20cargo.20shell.20completions.20to.20Rust)
@@ -359,7 +359,7 @@ Medium.
 Medium.
 
 **Mentor**
-- [epage](https://github.com/epage)
+- Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20implement.20workspace.20publish.20in.20Cargo)
@@ -402,7 +402,7 @@ Medium.
 Medium.
 
 **Mentor**
-- [Amanieu d'Antras](https://github.com/Amanieu)
+- Amanieu d'Antras ([GitHub](https://github.com/Amanieu), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/143274-Amanieu))
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20modernize.20the.20libc.20crate)
@@ -451,7 +451,7 @@ Medium to large.
 Medium.
 
 **Mentor**
-- [obi1kenobi](https://github.com/obi1kenobi/)
+- Predrag Gruevski ([GitHub](https://github.com/obi1kenobi/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/474284-Predrag-Gruevski-(he-him)))
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20allow.20customizing.20.60cargo-semver-checks.60.20lint.20levels)
@@ -490,7 +490,7 @@ Small to large (depends on how many lints will be implemented).
 Small to medium (depends on the choice of implemented lints or schema extensions).
 
 **Mentor**
-- [obi1kenobi](https://github.com/obi1kenobi/)
+- Predrag Gruevski ([GitHub](https://github.com/obi1kenobi/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/474284-Predrag-Gruevski-(he-him)))
 
 **Zulip streams**
 - [Idea discussion]()
