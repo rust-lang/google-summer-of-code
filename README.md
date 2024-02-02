@@ -30,6 +30,7 @@ do so on the [`#gsoc`](https://rust-lang.zulipchat.com/#narrow/stream/421156-gso
     - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Allow customizing lint levels and reporting in `cargo-semver-checks`](#allow-customizing-lint-levels-and-reporting-in-cargo-semver-checks)
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
+    - [Internationalizing the Rust language]()
 
 # Project ideas
 The list of ideas is divided into several categories.
@@ -502,3 +503,69 @@ Small to medium (depends on the choice of implemented lints or schema extensions
 - [GitHub issues describing not-yet-implemented lints](https://github.com/obi1kenobi/cargo-semver-checks/issues?q=is%3Aissue+is%3Aopen+label%3AE-mentor+label%3AA-lint+)
 - [Opportunities to add new schema, enabling new lints](https://github.com/obi1kenobi/cargo-semver-checks/issues/241)
 - [Query engine adapter](https://github.com/obi1kenobi/trustfall-rustdoc-adapter)
+
+### Internationalizing English Rust
+
+**Description**
+
+Rust -like most programming languages- is an intermediate language between English and Machine Language. If a non-English speaker wishes to learn programming, they now have to learn 2 languages: English and Rust. The goal of this project is not to *translate* Rust, but rather to put the tooling in place to *allow for* translation to happen smoothly (Internationalization in stead of Localization). Even if someone speaks general English well, it could still be beneficial to be able to program and reason about specific field knowledge in their native tongue, and translate it later.
+
+Once internationalization is implemented, it would allow for the following workflow:
+
+> Imagine Aagje, Bas and Carol are working on a mathematical project. Aagje is a mathematician and speaks only Dutch. Bas is intermediate in both computer science and maths and speaks both English and Dutch. Carol is a super smart computer scientist and speaks only English. Aagje thinks she can make a program to solve the Riemann hypothesis. She starts working in Dutch Rust on an implementation -asking Bas for help on computer science-, but the program is too slow. Bas asks Carol for help, but she cannot understand the program too well, since all function names and comments are in Dutch. Luckily, this GSoC project has already been completed. Therefore, the crate has a canonical language set to Dutch. Bas and aagje install the tooling (developed in this project) and translate the relevant names and comments using fluent.rs and . Now, the project is also (partially) available in English! Carol reads the source code and makes some changes (in English). She commits her changes (in English) and the linter gives warnings that her functions and comments are not available in the canonical crate language. This is OK, Bas comes in and translates them, understanding from Carol and explaining the changes to Alice. Then, they jointly earn one million dollars because they have solved the Riemann hypothesis.
+
+Internationalizing Rust is a big, gradual project with many facets:
+- A lot of work is currently being done on internationalizing the compiler output ([tracking issue](https://github.com/rust-lang/rust/issues/100717), [dev docs](https://rustc-dev-guide.rust-lang.org/diagnostics/translation.html)). This is important work and both orthogonal to as well as a prerequisite for this project to work well.
+- There is [rouille](https://github.com/bnjbvr/rouille), which is both a joke and a starting point: It provides a procedural macro that translates all French keywords and function names to English before compilation. This means that error messages from the compiler will still have English function names.
+
+This project could go as follows:
+1. Implement one internationalization from the [tracking issue](https://github.com/rust-lang/rust/issues/100717) (if still available) to get accustomed to the compiler and tooling.
+2. Add a compiler plugin/patch so that it understands that tokens have a "canonical" and "local" description.
+3. Add a `Cargo.toml` entry for the canonical language and cargo commands for:
+   - Setting up an internationalized crate (source code, not output) This:
+     - `rustup install`s fluent.rs
+     - Creates relevant folders/files.
+     - Fills said files with all function names in the canonical language
+     - Adds a pre-commit hook for switching back to the canonical language.
+     - (stretch) checks all upstream crates for available translations.
+     - (further stretches) allows for translating used function names/structs from upstream crates and automatically creates a pull request, adding the translations to the upstream crate. Alternatively, integrate with pontoon.
+   - Switching locales: This translates *the entire crate* to another language and emits warnings for all names that are not translated.
+4. Implement the developed internationalization tooling in a fork of [rustlings](https://github.com/rust-lang/rustlings) as a testing ground.
+
+**Expected result**
+
+Rustlings can be -and maybe is- partially translated to another language.
+
+**Desirable skills**
+
+Intermediate-good knowledge of Rust. Especially being able to read and understand Rust source code (well-documented). Being a non-native English speaker probably helps with motivation. In any case, there will be a second language to translate to ;)
+
+**Project size**
+
+Medium to large (depending on how far the stretches are taken).
+
+**Difficulty**
+
+Medium to hard.
+
+**Mentor**
+- Fee (Fairy) Fladder ([GitHub](https://github.com/feefladder/), [Zulip](HELP))
+
+**Zulip streams**
+- [Idea discussion]()
+
+**Related Links**
+Inspiration:
+- [article that explains the needs much better than I can](https://www.wired.com/story/coding-is-for-everyoneas-long-as-you-speak-english/)
+- [Comment](https://internals.rust-lang.org/t/internationalization-of-crate-metadata/13478/21?u=feefladder) on one of many discussions on Rust internals for internationalization.
+- [hedy](https://hedy.org/) Multilingual education platform for gradually teaching Python to children.
+- [koro](https://github.com/ChimeraCoder/koro) Bengali Go language version
+- [babylscript](https://babylscript.plom.dev/) Multilingual Javascript through transpilation. Allows for creating a big multilingual-mess program.
+- [plutojl](https://plutojl.org/) Educational environment for Julia. Since it works in-browser, Google translate browser plugins can do their magic.
+- [Rust by example](https://doc.rust-lang.org/rust-by-example/) and [Rustlings](https://github.com/rust-lang/rustlings) Of course Rust educational tooling is inspirational!
+
+Pointers:
+- [cyn](https://docs.rs/syn/latest/syn/) The Rust parser.
+- [Procedural macro blog](https://blog.logrocket.com/procedural-macros-in-rust/) For creating procedural macros.
+- [fluent.rs](https://docs.rs/crate/fluent/latest) Translation crate that is used by the compiler.
+- [rustc Dev docs](https://rustc-dev-guide.rust-lang.org/part-3-intro.html) parsing section.
