@@ -23,6 +23,7 @@ do so on the [`#gsoc`](https://rust-lang.zulipchat.com/#narrow/stream/421156-gso
     - [Improve Rust benchmark suite analysis & frontend](#Improve-Rust-benchmark-suite-analysis--frontend)
     - [Improve bootstrap](#Improve-bootstrap)
     - [Improve infrastructure automation tools](#Improve-infrastructure-automation-tools)
+    - [Rewrite the Rust compiler's integration tests in Rust](#rewrite-the-rust-compilers-integration-tests-in-rust)
 - **Cargo**
     - [Move cargo shell completions to Rust](#Move-cargo-shell-completions-to-Rust)
     - [Implement workspace publish in Cargo](#implement-workspace-publish-in-cargo)
@@ -137,7 +138,7 @@ Medium.
 
 **Difficulty**
 
-Medium to hard.
+Medium or hard.
 
 **Mentor**
 - David Wood ([GitHub](https://github.com/davidtwco), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/116107-davidtwco))
@@ -299,6 +300,52 @@ Medium.
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20infrastructure.20automation.20tools)
 - [Infra team](https://rust-lang.zulipchat.com/#narrow/stream/242791-t-infra)
 
+### Rewrite the Rust compiler's integration tests in Rust
+
+**Description**
+
+The Rust compiler currently uses a so-called `run-make` test suite for complex test scenarios that involve other tools (e.g. bash utilities, linkers, etc.) in addition to the compiler itself. As the name suggests, these tests are based on `make`, and they invoke various tools to test complex situations.
+
+However, this approach has a number of drawbacks:
+
+- Because the tests are based on commandline tools like `nm` and `grep`, test authors and reviewers have to know the syntax of these tools, which can be quite arcane and is often interleaved with Makefile's own syntax.
+- Tests are hard to read because they are based on commandline tool exit codes.
+- It is quite hard to write these tests in a cross-platform way, since each implementation often behaves slightly differently. This leads to various issues and workarounds, especially on non-Unix platforms.
+- In many cases, when a test fails, it is quite hard to find where exactly it failed.
+- It is quite easy to write a test that looks fine, but actually does not test anything (e.g. testing that certain text is not present in the output passes because a program silently fails to produce any output).
+
+The goal of this project is to replace these Makefile tests with a new test harness, where the tests would be written using regular Rust code. To support these tests, a support library should be implemented, which will be used by the tests to perform common actions, such as invoking the compiler, grepping files, checking symbols, finding tools, and providing readable error messages when a test fails. The support library can rely on commandline tools under the hood, but it should provide a nice Rust API that behaves the same on all platforms. The tests can be ported to the new framework one at a time, and the old Makefile framework can be removed once all tests are ported.
+
+There is currently already an open [PR](https://github.com/rust-lang/rust/pull/113026) that has initiated some of what is
+described here, however there is still a lot of follow-up work left to be done.
+
+**Expected result**
+
+`run-make` tests are replaced with an ergonomic and well-documented Rust-based test infrastructure. A fraction of the old
+`run-make` tests are ported to the new Rust-based test infrastructure.
+
+**Desirable skills**
+
+Intermediate knowledge of Rust.
+
+**Project size**
+
+Medium or large.
+
+**Difficulty**
+
+Medium.
+
+**Mentors**
+- Teapot ([GitHub](https://github.com/Teapot4195), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/583581-Teapot))
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20rewrite.20the.20Rust.20compiler's.20integration.20tests.20in.20Rust)
+- [Compiler team](https://rust-lang.zulipchat.com/#narrow/stream/131828-t-compiler)
+
+**Related links**
+- [PR with initial test infrastructure](https://github.com/rust-lang/rust/pull/113026)
+
 ## Cargo
 
 ### Move cargo shell completions to Rust
@@ -446,7 +493,7 @@ Intermediate knowledge of Rust.
 
 **Project size**
 
-Medium to large.
+Medium or large.
 
 **Difficulty**
 
@@ -485,11 +532,11 @@ not required.
 
 **Project size**
 
-Small to large (depends on how many lints will be implemented).
+Small or large (depends on how many lints will be implemented).
 
 **Difficulty**
 
-Small to medium (depends on the choice of implemented lints or schema extensions).
+Small or medium (depends on the choice of implemented lints or schema extensions).
 
 **Mentor**
 - Predrag Gruevski ([GitHub](https://github.com/obi1kenobi/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/474284-Predrag-Gruevski-(he-him)))
