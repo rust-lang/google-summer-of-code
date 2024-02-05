@@ -1,4 +1,4 @@
-# Rust Google Summer of Code project ideas
+# Rust Google Summer of Code 2024 project ideas
 The Rust project has decided to join [Google Summer of Code 2024](https://summerofcode.withgoogle.com/) (GSoC) for the
 first time in 2024! This page contains project ideas that could benefit Rust maintainers and the whole Rust community.
 
