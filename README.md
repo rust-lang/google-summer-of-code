@@ -13,6 +13,11 @@ You can find some tips for applying for a Rust GSoC project [here](proposal-guid
 If you would like to discuss projects ideas or anything related to the Rust Project's involvement in GSoC 2024, you can
 do so on the [`#gsoc`](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc) Zulip stream.
 
+As a reminder, the individual project sizes have the following expected amounts of hours:
+- Small: 90 hours
+- Medium: 175 hours
+- Large: 350 hours
+
 ## Index
 - **Rust Compiler**
     - [Fast(er) register allocator for Cranelift](#Faster-register-allocator-for-Cranelift)
