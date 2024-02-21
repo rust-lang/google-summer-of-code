@@ -32,6 +32,9 @@ As a reminder, the individual project sizes have the following expected amounts 
 - **Cargo**
     - [Move cargo shell completions to Rust](#Move-cargo-shell-completions-to-Rust)
     - [Implement workspace publish in Cargo](#implement-workspace-publish-in-cargo)
+- **Rustfmt**
+    - [Improve rustfmt infrastructure and automation](#improve-rustfmt-infrastructure-and-automation)
+    - [Improve handling of silent failures in rustfmt](#improve-handling-of-silent-failures-in-rustfmt)
 - **Crate ecosystem**
     - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Allow customizing lint levels and reporting in `cargo-semver-checks`](#allow-customizing-lint-levels-and-reporting-in-cargo-semver-checks)
@@ -547,7 +550,7 @@ Small or medium (depends on the choice of implemented lints or schema extensions
 - Predrag Gruevski ([GitHub](https://github.com/obi1kenobi/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/474284-Predrag-Gruevski-(he-him)))
 
 **Zulip streams**
-- [Idea discussion]()
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20add.20more.20lints.20to.20.60cargo-semver-checks.60)
 
 **Related Links**
 - [Playground where you can try querying Rust data](https://play.predr.ag/rustdoc)
@@ -585,12 +588,12 @@ Small or medium.
 - Yacin Tmimi ([GitHub](https://github.com/ytmimi), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/441976-Yacin-Tmimi))
 
 **Zulip streams**
-- [Idea discussion]()
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20rustfmt.20infrastructure.20and.20automation)
 
 **Related Links**
 - [Previous discussion around the idea](https://rust-lang.zulipchat.com/#narrow/stream/357797-t-rustfmt/topic/meeting.202023-01-08/near/411836200)
 
-### Improve rustfmt around silent failures
+### Improve handling of silent failures in rustfmt
 
 **Description**
 
@@ -604,7 +607,7 @@ Improved user experience with less silent failures (provide context as to how an
 
 **Desirable skills**
 
-Intermediate knowledge of Rust. Understanding of AST structures are welcomed, but not required.
+Intermediate knowledge of Rust. Understanding of AST (Abstract Syntax Tree) structures are welcomed, but not required.
 
 **Project size**
 
@@ -618,7 +621,7 @@ Medium.
 - Yacin Tmimi ([GitHub](https://github.com/ytmimi), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/441976-Yacin-Tmimi))
 
 **Zulip streams**
-- [Idea discussion]()
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20handling.20of.20silent.20failures.20in.20rustfmt)
 
 **Related Links**
 - [Previous discussion around the idea #1](https://rust-lang.zulipchat.com/#narrow/stream/357797-t-rustfmt/topic/meeting.202023-05-22/near/3604084950)
