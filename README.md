@@ -337,6 +337,8 @@ described here, however there is still a lot of follow-up work left to be done.
 
 Intermediate knowledge of Rust.
 
+Familiarity with standard bash utilities and their behavior preferred (e.g. `grep`, `nm` and others).
+
 **Project size**
 
 Medium or large.
