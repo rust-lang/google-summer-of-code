@@ -39,7 +39,7 @@ As a reminder, the individual project sizes have the following expected amounts 
     - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Allow customizing lint levels and reporting in `cargo-semver-checks`](#allow-customizing-lint-levels-and-reporting-in-cargo-semver-checks)
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
-    - [Implement a cryptographic algorithm in RustCrypto](#implement-a-cryptographic-algorithm-in-rust)
+    - [Implement a cryptographic algorithm in RustCrypto](#implement-a-cryptographic-algorithm-in-rustcrypto)
 
 # Project ideas
 The list of ideas is divided into several categories.
@@ -673,7 +673,7 @@ Will also vary depending on the algorithm/project selected, but expected difficu
 - Tony Arcieri ([GitHub](https://github.com/tarcieri/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/132721-Tony-Arcieri))
 
 **Zulip streams**
-- [Idea discussion]()
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20implement.20a.20cryptographic.20algorithm.20in.20RustCrypto)
 
 **Related Links**
 - [Potential AEAD cipher projects](https://github.com/RustCrypto/AEADs/issues/1)
