@@ -18,6 +18,8 @@ As a reminder, the individual project sizes have the following expected amounts 
 - Medium: 175 hours
 - Large: 350 hours
 
+The Rust Project can provide remote access to powerful cloud-based [Linux machines](https://forge.rust-lang.org/infra/docs/dev-desktop.html) to contributors that will be accepted for a GSoC 2024 Rust project. This can help overcome potential contribution barriers caused e.g. by an unsupported operating system or not performant enough hardware.
+
 ## Index
 - **Rust Compiler**
     - [Fast(er) register allocator for Cranelift](#Faster-register-allocator-for-Cranelift)
