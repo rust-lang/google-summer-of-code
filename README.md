@@ -350,7 +350,6 @@ Medium or large.
 Medium.
 
 **Mentors**
-- Teapot ([GitHub](https://github.com/Teapot4195), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/583581-Teapot))
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20rewrite.20the.20Rust.20compiler's.20integration.20tests.20in.20Rust)
