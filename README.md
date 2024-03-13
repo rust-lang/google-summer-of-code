@@ -350,6 +350,7 @@ Medium or large.
 Medium.
 
 **Mentors**
+- Jieyou Xu ([GitHub](https://github.com/jieyouxu), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/259697-Jieyou-Xu))
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20rewrite.20the.20Rust.20compiler's.20integration.20tests.20in.20Rust)
