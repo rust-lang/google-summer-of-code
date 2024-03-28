@@ -6,7 +6,8 @@ We invite contributors that would like to participate in GSoC to examine the pro
 for your project proposals. **You can also propose a project that is not included in this list**, for example
 an improvement of some Rust crate. However, please note that ultimately, each project needs at least one mentor. We have
 tried to make sure that all the ideas listed here would have a mentor available, but if you propose a different project,
-you might have to find someone who would be willing to mentor you.
+you have to find someone who would be willing to mentor you. All new project ideas also have to be discussed with Rust mentors,
+ideally on the [Rust Zulip](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc), before you send a proposal for them.
 
 You can find some tips for applying for a Rust GSoC project [here](proposal-guide.md).
 
