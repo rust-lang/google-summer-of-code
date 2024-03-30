@@ -14,6 +14,10 @@ You can find some tips for applying for a Rust GSoC project [here](proposal-guid
 If you would like to discuss projects ideas or anything related to the Rust Project's involvement in GSoC 2024, you can
 do so on the [`#gsoc`](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc) Zulip stream.
 
+**Do not harrass and/or spam Rust Project members and mentors, or other members of the Rust community! If you do so, we will not consider your proposal.
+It is fine to send a direct message (DM) to a mentor that you want to communicate with, but do not spam multiple people with DMs,
+asking them to be a mentor for your project proposal! Post a topic in some Zulip stream instead.**
+
 As a reminder, the individual project sizes have the following expected amounts of hours:
 - Small: 90 hours
 - Medium: 175 hours
