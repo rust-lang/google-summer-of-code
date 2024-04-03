@@ -31,13 +31,14 @@ Ultimately, the project proposal is the main deciding factor on whether your pro
 
 The proposal should contain (at least) the following things:
 1) A descriptive title of the project that you want to work on
+   - Use the same title in the proposal PDF as what you enter in the GSoC dashbaord!
 2) Information about yourself, including:
    - Description of your programming experience, attained education, university and study programme that you're currently studying, etc. (a short CV would be ideal)
    - Link to a portfolio of projects that you have worked on (e.g. a GitHub profile or a personal website)
    - Your knowledge of Rust, since most projects will probably require at least some Rust knowledge
    - Your existing open-source contribution experience. If you have already contributed to some open-source repositories, make sure to include a link to these contributions in your proposal!
    - Your preferred time zone (for communicating with the mentor(s))
-   - Contact information
+   - Contact information, especially e-mail address. Use the same e-mail address in the proposal PDF as the one you enter in the GSoC dashboard/the one with which you logged into GSoC.
 3) **Information about your proposed project**. This should be as detailed as possible, see more details [below](#project-information-and-timeline).
 4) Information about other commitments that might affect your ability to work on the project during the GSoC period. These can include vacations, exams, other jobs or internships etc. It's not necessarily an issue to have other commitments, but it would be great to know about them in advance, if possible.
 
