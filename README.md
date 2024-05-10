@@ -2,6 +2,8 @@
 The Rust project has decided to join [Google Summer of Code 2024](https://summerofcode.withgoogle.com/) (GSoC) for the
 first time in 2024! This page contains project ideas that could benefit Rust maintainers and the whole Rust community.
 
+**The accepted GSoC Rust 2024 projects have been announced [here](https://blog.rust-lang.org/2024/05/01/gsoc-2024-selected-projects.html).**
+
 We invite contributors that would like to participate in GSoC to examine the project list and use it as an inspiration
 for your project proposals. **You can also propose a project that is not included in this list**, for example
 an improvement of some Rust crate. However, please note that ultimately, each project needs at least one mentor. We have
