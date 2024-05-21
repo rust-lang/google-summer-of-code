@@ -21,6 +21,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 - **Rust Compiler**
     - [C codegen backend for rustc](#C-codegen-backend-for-rustc)
     - [Extend annotate-snippets with features required by rustc](#Extend-annotate-snippets-with-features-required-by-rustc)
+    - [Reproducible builds](#reproducible-builds)
 - **Infrastructure**
     - [Add support for multiple collectors to the Rust benchmark suite](#Add-support-for-multiple-collectors-to-the-Rust-benchmark-suite)
     - [Improve bootstrap](#Improve-bootstrap)
@@ -111,6 +112,45 @@ Medium or hard.
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20extend.20annotate-snippets)
 - [Compiler team](https://rust-lang.zulipchat.com/#narrow/stream/131828-t-compiler)
+
+### Reproducible builds
+
+**Description**
+
+Recent OSS attacks such as the [XZ backdoor](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
+have shown the importance of having reproducible builds.
+
+Currently, the Rust toolchain distributed to Rust developers is not very reproducible.
+Our source code archives should be reproducible as of [this pull request](https://github.com/rust-lang/rust/pull/123246),
+however making the actual binary artifacts reproducible is a much more difficult effort.
+
+The goal of this project is to investigate what exactly makes Rust builds not reproducible,
+and try to resolve as many such issues as possible.
+
+While the main motivation is to make the Rust toolchain (compiler, standard library, etc.) releases
+reproducible, any improvements on this front should benefit the reproducibility of all Rust programs.
+
+**Expected result**
+
+Rust builds are more reproducible, ideally the Rust toolchain can be compiled in a reproducible manner.
+
+**Desirable skills**
+
+Knowledge of Rust and ideally also build systems.
+
+**Project size**
+
+Medium.
+
+**Difficulty**
+
+Large.
+
+**Mentor**
+- Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
+
+**Related links**
+- [Prior art in Go](https://go.dev/blog/rebuild)
 
 ## Infrastructure
 
