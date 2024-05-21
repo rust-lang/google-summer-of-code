@@ -4,7 +4,7 @@ This document contains a short guide on how to structure your Rust Google Summer
 
 ## Choosing a project
 
-You should start by deciding on which project do you want to work on. You can use our [list of project ideas](README.md)
+You should start by deciding on which project do you want to work on. You can use our [list of project ideas](../README.md)
 as an inspiration, or you can come up with your own project idea. However, you should keep in mind that each GSoC project needs at least one mentor available. Therefore, if you come up with a completely new project idea, you should also try to find someone from the Rust community who could mentor you on the project.
 
 If you decide to propose your own project idea, you're most likely to be able to find a mentor if one or both of these is true:

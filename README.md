@@ -1,52 +1,36 @@
-# Rust Google Summer of Code 2024 project ideas
-The Rust project has decided to join [Google Summer of Code 2024](https://summerofcode.withgoogle.com/) (GSoC) for the
-first time in 2024! This page contains project ideas that could benefit Rust maintainers and the whole Rust community.
+# Rust project ideas
+This page contains a list of ideas for medium-sized projects that could help improve
+the Rust Project and potentially also the wider Rust community.
 
-**The accepted GSoC Rust 2024 projects have been announced [here](https://blog.rust-lang.org/2024/05/01/gsoc-2024-selected-projects.html).**
+Some of these projects were used as inspiration for various OSS contribution programs,
+such as [Google Summer of Code](https://summerofcode.withgoogle.com/) and [OSPP](https://summer-ospp.ac.cn/).
 
-We invite contributors that would like to participate in GSoC to examine the project list and use it as an inspiration
-for your project proposals. **You can also propose a project that is not included in this list**, for example
-an improvement of some Rust crate. However, please note that ultimately, each project needs at least one mentor. We have
-tried to make sure that all the ideas listed here would have a mentor available, but if you propose a different project,
-you have to find someone who would be willing to mentor you. All new project ideas also have to be discussed with Rust mentors,
-ideally on the [Rust Zulip](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc), before you send a proposal for them.
+- Google Summer of Code projects
+  - [2024](gsoc/2024.md)
 
-You can find some tips for applying for a Rust GSoC project [here](proposal-guide.md).
+We invite contributors that would like to participate in projects such as GSoC or that would just want to find a Rust project that they would like to work on to examine the project list and use it as an inspiration.
 
-If you would like to discuss projects ideas or anything related to the Rust Project's involvement in GSoC 2024, you can
-do so on the [`#gsoc`](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc) Zulip stream.
+If you would like to discuss projects ideas or anything related to them, you can do so on our [Zulip](https://rust-lang.zulipchat.com/).
 
-**Do not harrass and/or spam Rust Project members and mentors, or other members of the Rust community! If you do so, we will not consider your proposal.
-It is fine to send a direct message (DM) to a mentor that you want to communicate with, but do not spam multiple people with DMs,
-asking them to be a mentor for your project proposal! Post a topic in some Zulip stream instead.**
-
-As a reminder, the individual project sizes have the following expected amounts of hours:
+We use the GSoC project size parameters for estimating the expected time complexity of the project ideas. The individual project sizes have the following expected amounts of hours:
 - Small: 90 hours
 - Medium: 175 hours
 - Large: 350 hours
 
-The Rust Project can provide remote access to powerful cloud-based [Linux machines](https://forge.rust-lang.org/infra/docs/dev-desktop.html) to contributors that will be accepted for a GSoC 2024 Rust project. This can help overcome potential contribution barriers caused e.g. by an unsupported operating system or not performant enough hardware.
-
 ## Index
 - **Rust Compiler**
-    - [Fast(er) register allocator for Cranelift](#Faster-register-allocator-for-Cranelift)
     - [C codegen backend for rustc](#C-codegen-backend-for-rustc)
     - [Extend annotate-snippets with features required by rustc](#Extend-annotate-snippets-with-features-required-by-rustc)
 - **Infrastructure**
     - [Add support for multiple collectors to the Rust benchmark suite](#Add-support-for-multiple-collectors-to-the-Rust-benchmark-suite)
-    - [Improve Rust benchmark suite analysis & frontend](#Improve-Rust-benchmark-suite-analysis--frontend)
     - [Improve bootstrap](#Improve-bootstrap)
     - [Improve infrastructure automation tools](#Improve-infrastructure-automation-tools)
-    - [Rewrite the Rust compiler's integration tests in Rust](#rewrite-the-rust-compilers-integration-tests-in-rust)
 - **Cargo**
-    - [Move cargo shell completions to Rust](#Move-cargo-shell-completions-to-Rust)
     - [Implement workspace publish in Cargo](#implement-workspace-publish-in-cargo)
 - **Rustfmt**
     - [Improve rustfmt infrastructure and automation](#improve-rustfmt-infrastructure-and-automation)
-    - [Improve handling of silent failures in rustfmt](#improve-handling-of-silent-failures-in-rustfmt)
 - **Crate ecosystem**
     - [Modernize the libc crate](#Modernize-the-libc-crate)
-    - [Allow customizing lint levels and reporting in `cargo-semver-checks`](#allow-customizing-lint-levels-and-reporting-in-cargo-semver-checks)
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
     - [Implement a cryptographic algorithm in RustCrypto](#implement-a-cryptographic-algorithm-in-rustcrypto)
 
@@ -54,44 +38,6 @@ The Rust Project can provide remote access to powerful cloud-based [Linux machin
 The list of ideas is divided into several categories.
 
 ## Rust Compiler
-
-### Fast(er) register allocator for Cranelift
-
-**Description**
-
-The Rust compiler uses various codegen backends to generate executable code (LLVM, GCC, Cranelift).
-The Cranelift backend should provide very quick compile times, however its performance is currently
-relatively bottlenecked by its register allocator.
-
-The goal of this project is to implement a new register allocator for Cranelift, that would be tuned for very
-quick compilation times (rather than optimal runtime performance of the compiled program). A first attempt could
-simply create an allocator that spills all registers to stack, and a possible follow-up could be a linear scan allocator.
-It would be useful to compare the compilation vs runtime performance trade-offs of various register allocation approaches.
-
-**Expected result**
-
-It will be possible to use a new register allocator in Cranelift that will work at least for simple programs and that
-will improve Rust compilation times.
-
-**Desirable skills**
-
-Intermediate knowledge of Rust. Basic knowledge of assembly. Familiarity with compiler technologies is a bonus.
-
-**Project size**
-
-Medium or large.
-
-**Difficulty**
-
-Medium.
-
-**Mentors**
-- Amanieu d'Antras ([GitHub](https://github.com/Amanieu), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/143274-Amanieu))
-- Chris Fallin ([GitHub](https://github.com/cfallin), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/327027-Chris-Fallin))
-
-**Zulip streams**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20fast.20register.20allocator.20for.20Cranelift)
-- [Compiler team](https://rust-lang.zulipchat.com/#narrow/stream/131828-t-compiler)
 
 ### C codegen backend for `rustc`
 
@@ -204,49 +150,6 @@ Medium.
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20multiple.20collectors.20for.20Rust.20benchmark.20suite)
 - [Compiler performance working group](https://rust-lang.zulipchat.com/#narrow/stream/247081-t-compiler.2Fperformance)
 
-### Improve Rust benchmark suite analysis & frontend
-
-**Description**
-
-Rust has an extensive [benchmark suite](https://github.com/rust-lang/rustc-perf) that measures the performance of the Rust compiler and Rust programs and
-visualizes the results in an interactive web application. It received a lot of new features in the past few years, however
-some of them are not as polished as they could be.
-
-The goal of this project is to improve both the frontend website and its various dashboards, and also profiling and analysis
-tools used to examine benchmarks in the suite. As an example, improvements could be made in the following areas:
-- Runtime benchmarks. The suite recently got support for runtime benchmarks that measure the performance of Rust programs
-compiled by a specific version of `rustc` (the Rust compiler). There is a lot of features that could be added to get
-runtime benchmarks to the same support level as compile-time benchmarks, like adding and visualizing benchmark variance
-analysis for them or adding runtime benchmark results to various dashboards in the frontend.
-- Analysis of multithreaded performance. The Rust compiler has recently gained support for using multiple threads for its
-frontend, but there is no configuration in the suite to parametrize how many threads will be used, nor any analysis of
-how well are threads utilized. It would be nice to add analysis and visualisation for this.
-- Some pages of the website still use HTML templates. It would be great to port these to the Vue-based frontend.
-
-**Expected result**
-
-New analyses will be available in the Rust benchmark suite, and/or the suite website will contain more useful data and
-visualizations.
-
-**Desirable skills**
-
-Basic knowledge of Rust, intermediate knowledge of frontend web technologies (TypeScript, HTML, CSS, Vue).
-
-**Project size**
-
-Medium.
-
-**Difficulty**
-
-Medium.
-
-**Mentor**
-- Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
-
-**Zulip streams**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20Rust.20benchmark.20suite)
-- [Compiler performance working group](https://rust-lang.zulipchat.com/#narrow/stream/247081-t-compiler.2Fperformance)
-
 ### Improve bootstrap
 
 **Description**
@@ -319,87 +222,7 @@ Medium.
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20infrastructure.20automation.20tools)
 - [Infra team](https://rust-lang.zulipchat.com/#narrow/stream/242791-t-infra)
 
-### Rewrite the Rust compiler's integration tests in Rust
-
-**Description**
-
-The Rust compiler currently uses a so-called `run-make` test suite for complex test scenarios that involve other tools (e.g. bash utilities, linkers, etc.) in addition to the compiler itself. As the name suggests, these tests are based on `make`, and they invoke various tools to test complex situations.
-
-However, this approach has a number of drawbacks:
-
-- Because the tests are based on commandline tools like `nm` and `grep`, test authors and reviewers have to know the syntax of these tools, which can be quite arcane and is often interleaved with Makefile's own syntax.
-- Tests are hard to read because they are based on commandline tool exit codes.
-- It is quite hard to write these tests in a cross-platform way, since each implementation often behaves slightly differently. This leads to various issues and workarounds, especially on non-Unix platforms.
-- In many cases, when a test fails, it is quite hard to find where exactly it failed.
-- It is quite easy to write a test that looks fine, but actually does not test anything (e.g. testing that certain text is not present in the output passes because a program silently fails to produce any output).
-
-The goal of this project is to replace these Makefile tests with a new test harness, where the tests would be written using regular Rust code. To support these tests, a support library should be implemented, which will be used by the tests to perform common actions, such as invoking the compiler, grepping files, checking symbols, finding tools, and providing readable error messages when a test fails. The support library can rely on commandline tools under the hood, but it should provide a nice Rust API that behaves the same on all platforms. The tests can be ported to the new framework one at a time, and the old Makefile framework can be removed once all tests are ported.
-
-There is currently already an open [PR](https://github.com/rust-lang/rust/pull/113026) that has initiated some of what is
-described here, however there is still a lot of follow-up work left to be done.
-
-**Expected result**
-
-`run-make` tests are replaced with an ergonomic and well-documented Rust-based test infrastructure. A fraction of the old
-`run-make` tests are ported to the new Rust-based test infrastructure.
-
-**Desirable skills**
-
-Intermediate knowledge of Rust.
-
-Familiarity with standard bash utilities and their behavior preferred (e.g. `grep`, `nm` and others).
-
-**Project size**
-
-Medium or large.
-
-**Difficulty**
-
-Medium.
-
-**Mentors**
-- Jieyou Xu ([GitHub](https://github.com/jieyouxu), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/259697-Jieyou-Xu))
-
-**Zulip streams**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20rewrite.20the.20Rust.20compiler's.20integration.20tests.20in.20Rust)
-- [Compiler team](https://rust-lang.zulipchat.com/#narrow/stream/131828-t-compiler)
-
-**Related links**
-- [PR with initial test infrastructure](https://github.com/rust-lang/rust/pull/113026)
-
 ## Cargo
-
-### Move cargo shell completions to Rust
-
-**Description**
-
-Cargo maintains Bash and Zsh completions, but they are duplicated and limited in features.
-We want to implement completions in Cargo itself, so we can have a single implementation with per-shell skins ([rust-lang/cargo#6645](https://github.com/rust-lang/cargo/issues/6645)).
-Most of the implementation will be in clap ([clap-rs/clap#3166](https://github.com/clap-rs/clap/issues/3166)), allowing many tools to benefit from this improvement.
-
-**Expected result**
-
-Cargo shell completion will be extended and implemented in Rust.
-This will allow access to easier to add new commands / arguments to commands, richer results, and easier testing.
-
-**Desirable skills**
-
-Intermediate knowledge of Rust. Shell familiarity is a bonus.
-
-**Project size**
-
-Medium.
-
-**Difficulty**
-
-Medium.
-
-**Mentor**
-- Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
-
-**Zulip streams**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20move.20cargo.20shell.20completions.20to.20Rust)
-- [Cargo team](https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo)
 
 ### Implement workspace publish in Cargo
 
@@ -470,40 +293,6 @@ Small or medium.
 **Related Links**
 - [Previous discussion around the idea](https://rust-lang.zulipchat.com/#narrow/stream/357797-t-rustfmt/topic/meeting.202023-01-08/near/411836200)
 
-### Improve handling of silent failures in rustfmt
-
-**Description**
-
-The internal formatting mechanisms in rustfmt has issues tracking the context when issues occur when applying formatting. This can lead to silent failures and limit the ability for rustfmt to retry formatting. A potential solution would be to refactor the [`Rewrite`](https://doc.rust-lang.org/stable/nightly-rustc/rustfmt_nightly/rewrite/trait.Rewrite.html) trait, currently used to format various AST structures, which could improve how we handle situations where it failed to format.
-
-More details in the discussions linked below.
-
-**Expected result**
-
-Improved user experience with less silent failures (provide context as to how and why formatting failed) and allowing rustfmt to retry formatting under more contexts.
-
-**Desirable skills**
-
-Intermediate knowledge of Rust. Understanding of AST (Abstract Syntax Tree) structures are welcomed, but not required.
-
-**Project size**
-
-Medium.
-
-**Difficulty**
-
-Medium.
-
-**Mentor**
-- Yacin Tmimi ([GitHub](https://github.com/ytmimi), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/441976-Yacin-Tmimi))
-
-**Zulip streams**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20handling.20of.20silent.20failures.20in.20rustfmt)
-
-**Related Links**
-- [Previous discussion around the idea #1](https://rust-lang.zulipchat.com/#narrow/stream/357797-t-rustfmt/topic/meeting.202023-05-22/near/3604084950)
-- [Previous discussion around the idea #2](https://rust-lang.zulipchat.com/#narrow/stream/357797-t-rustfmt/topic/meeting.202023-01-08/near/412181455)
-
 ## Crate ecosystem
 
 ### Modernize the libc crate
@@ -546,57 +335,6 @@ Medium.
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20modernize.20the.20libc.20crate)
 - [Library team](https://rust-lang.zulipchat.com/#narrow/stream/219381-t-libs)
-
-### Allow customizing lint levels and reporting in `cargo-semver-checks`
-
-**Description**
-
-[`cargo-semver-checks`](https://github.com/obi1kenobi/cargo-semver-checks) is a linter for semantic versioning. It ensures
-that Rust crates adhere to semantic versioning by looking for breaking changes in APIs.
-
-Currently, semver lints have a hardcoded level (e.g. breaking changes are "major") and are always reported at a "deny"
-level: if the release being scanned is a minor version bump, any lints at "major" level are reported as errors.
-
-This can be insufficient for some projects, which may desire to:
-- configure some lints to have a different level — e.g. turn a semver "major" lint into a "minor" lint, or vice versa
-- turn some lints into warnings instead of hard errorrs — reporting level "warn" instead of the default "deny"
-- disable some lints altogether by setting their reporting to "allow"
-- (stretch goal) allow customizing lint levels and reporting on a per-module basis
-
-Having such functionality would allow `cargo-semver-checks` to ship additional lints that target changes whose semver
-implications are defined by project maintainers on a per-project basis. An example of such a change is bumping the
-minimum supported Rust version (MSRV) of a project — some projects consider it a semver-major change, whereas for
-others it is minor or patch.
-
-This functionality would also allow us to write lints similar to clippy's ["suspicious" lint group](https://doc.rust-lang.org/nightly/clippy/lints.html#suspicious),
-flagging code that is suspect (and deserving of closer scrutiny) but possibly still correct. Such lints should be
-opt-in / "warn" tier to avoid annoying users, which is something this project would enable us to do.
-
-**Expected result**
-
-`cargo-semver-checks` lints will be configurable via the [`package.metadata`](https://doc.rust-lang.org/cargo/reference/manifest.html#the-metadata-table) table in `Cargo.toml`
-using a clear, simple and expressive way. The design will be suitable for both single-crate projects and workspaces.
-
-**Desirable skills**
-
-Intermediate knowledge of Rust.
-
-**Project size**
-
-Medium or large.
-
-**Difficulty**
-
-Medium.
-
-**Mentor**
-- Predrag Gruevski ([GitHub](https://github.com/obi1kenobi/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/474284-Predrag-Gruevski-(he-him)))
-
-**Zulip streams**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20allow.20customizing.20.60cargo-semver-checks.60.20lint.20levels)
-
-**Related links**
-- [GitHub issue](https://github.com/obi1kenobi/cargo-semver-checks/issues/537)
 
 ### Add more lints to `cargo-semver-checks`
 
