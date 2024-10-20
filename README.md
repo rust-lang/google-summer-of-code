@@ -6,7 +6,7 @@ Some of these projects were used as inspiration for various OSS contribution pro
 such as [Google Summer of Code](https://summerofcode.withgoogle.com/) and [OSPP](https://summer-ospp.ac.cn/).
 
 - Google Summer of Code projects
-  - [2024](gsoc/2024.md)
+  - [2024](gsoc/past/2024.md)
 
 We invite contributors that would like to participate in projects such as GSoC or that would just want to find a Rust project that they would like to work on to examine the project list and use it as an inspiration.
 
