@@ -23,9 +23,9 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Extend annotate-snippets with features required by rustc](#Extend-annotate-snippets-with-features-required-by-rustc)
     - [Reproducible builds](#reproducible-builds)
 - **Infrastructure**
+    - [Implement merge functionality in bors](#implement-merge-functionality-in-bors)
     - [Add support for multiple collectors to the Rust benchmark suite](#Add-support-for-multiple-collectors-to-the-Rust-benchmark-suite)
     - [Improve bootstrap](#Improve-bootstrap)
-    - [Improve infrastructure automation tools](#Improve-infrastructure-automation-tools)
 - **Cargo**
     - [Implement workspace publish in Cargo](#implement-workspace-publish-in-cargo)
 - **Rustfmt**
@@ -154,6 +154,37 @@ Large.
 
 ## Infrastructure
 
+### Implement merge functionality in bors
+
+**Description**
+
+Various Rust repositories under the [rust-lang](https://github.com/rust-lang) organization use a merge queue bot (bors) for testing and merging pull requests. Currently, we use a legacy implementation called [homu](https://github.com/rust-lang/homu), which is quite buggy and very difficult to maintain, so we would like to get rid of it. We have started the implementation of a new bot called simply [bors](https://github.com/rust-lang/bors), which should eventually become the primary method for merging pull requests in the [rust-lang/rust](https://github.com/rust-lang/rust) repository.
+
+The bors bot is a GitHub app that responds to user commands and performs various operations on a GitHub repository. Primarily, it creates merge commits and reports test workflow results for them. It can currently perform so-called "try builds", which can be started manually by users on a given PR to check if a subset of CI passed on the PR. However, the most important functionality, actually merging pull requests into the main branch, has not been implemented yet.
+
+**Expected result**
+
+bors can be used to perform pull request merges, including "rollups". In an ideal case, bors will be already usable on the `rust-lang/rust` repository.
+
+**Desirable skills**
+
+Intermediate knowledge of Rust. Familiarity with GitHub APIs is a bonus.
+
+**Project size**
+
+Medium.
+
+**Difficulty**
+
+Medium.
+
+**Mentors**
+- Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek)) (bors)
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20infrastructure.20automation.20tools)
+- [Infra team](https://rust-lang.zulipchat.com/#narrow/stream/242791-t-infra)
+
 ### Add support for multiple collectors to the Rust benchmark suite
 
 **Description**
@@ -223,44 +254,6 @@ Medium.
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20bootstrap)
 - [Bootstreap team](https://rust-lang.zulipchat.com/#narrow/stream/326414-t-infra.2Fbootstrap)
-
-### Improve infrastructure automation tools
-
-**Description**
-
-Rust infrastructure uses many custom tools designed for automating pull request merging, handling discussions on Zulip,
-managing GitHub permissions etc. It would be a great help to Rust maintainers if these tools were improved. Here are a
-few possible tasks that could be implemented:
-
-- Complete the implementation of [bors](https://github.com/rust-lang/bors), our new implementation of a merge queue
-bot for GitHub. It currently lacks support for performing merges (it can only perform so-called "try builds").
-- Add support for interacting with the Rust team calendar through Zulip, using e.g. some kind of GitHub app bot.
-- Add support for creating Zulip streams using the [Rust team data](https://github.com/rust-lang/team) repository.
-- Implement a GitHub app for [sync-team](https://github.com/rust-lang/sync-team), our tool for managing permissions of Rust maintainers.
-
-**Expected result**
-
-Rust infrastructure management tools will receive new features, better documentation and tests.
-
-**Desirable skills**
-
-Intermediate knowledge of Rust. Familiarity with GitHub APIs is a bonus.
-
-**Project size**
-
-Medium.
-
-**Difficulty**
-
-Medium.
-
-**Mentors**
-- Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek)) (bors, sync-team)
-- Jack Huey ([GitHub](https://github.com/jackh726), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/232957-Jack-Huey)) (triagebot)
-
-**Zulip streams**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20infrastructure.20automation.20tools)
-- [Infra team](https://rust-lang.zulipchat.com/#narrow/stream/242791-t-infra)
 
 ## Cargo
 
