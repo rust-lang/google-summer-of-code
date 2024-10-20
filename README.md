@@ -1,14 +1,14 @@
 # Rust project ideas
-This page contains a list of ideas for medium-sized projects that could help improve
+This page contains a list of ideas for various projects that could help improve
 the Rust Project and potentially also the wider Rust community.
 
-Some of these projects were used as inspiration for various OSS contribution programs,
-such as [Google Summer of Code](https://summerofcode.withgoogle.com/) and [OSPP](https://summer-ospp.ac.cn/).
+These project ideas can be used as inspiration for various OSS contribution programs,
+such as [Google Summer of Code](https://summerofcode.withgoogle.com/) or [OSPP](https://summer-ospp.ac.cn/).
 
 - Google Summer of Code projects
   - [2024](gsoc/past/2024.md)
 
-We invite contributors that would like to participate in projects such as GSoC or that would just want to find a Rust project that they would like to work on to examine the project list and use it as an inspiration.
+We invite contributors that would like to participate in projects such as GSoC or that would just want to find a Rust project that they would like to work on to examine the project list and use it as an inspiration. Another source of inspiration can be the [Rust Project Goals](https://rust-lang.github.io/rust-project-goals/index.html), particularly the orphaned goals.
 
 If you would like to discuss projects ideas or anything related to them, you can do so on our [Zulip](https://rust-lang.zulipchat.com/).
 
