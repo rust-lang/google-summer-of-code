@@ -34,6 +34,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
     - [Implement a cryptographic algorithm in RustCrypto](#implement-a-cryptographic-algorithm-in-rustcrypto)
+    - [Wild linker with test suites from other linkers](#wild-linker-with-test-suites-from-other-linkers)
 
 # Project ideas
 The list of ideas is divided into several categories.
@@ -466,3 +467,57 @@ Will also vary depending on the algorithm/project selected, but expected difficu
 - [Potential signature algorithm projects](https://github.com/RustCrypto/signatures/issues/8)
 - [Potential stream cipher projects](https://github.com/RustCrypto/stream-ciphers/issues/219)
 - [Potential SSH-related projects](https://github.com/RustCrypto/SSH/issues/2)
+
+### Wild linker with test suites from other linkers
+
+**Description**
+
+The Wild linker is a project to build a very fast linker in Rust that has incremental linking and
+hot reload capabilities.
+
+It currently works well enough to link itself, the Rust compiler, clang (provided you use the right
+compiler flags) and a few other things. However, there are various features and combinations of
+flags that don’t yet work correctly. Furthermore, we have a pretty incomplete picture of what we
+don’t support.
+
+The proposed project is to run the test suite of other linkers with Wild as the linker being tested,
+then for each failure, determine what the problem is. It’s expected that many failures will have the
+same root cause.
+
+**Expected result**
+
+Write a program, ideally in Rust, that runs the test suite of some other linker. Mold’s test suite
+is pretty easy to run with Wild, so that’s probably a good default choice. The Rust program should
+emit a CSV file with one row per test, whether the test passes or fails and if it fails, an attempt
+to identify the cause based on errors / warnings emitted by Wild.
+
+For tests where Wild doesn’t currently emit any error or warning that is related to the cause of the
+test failure, attempt to make it do so. Some of the tests might fail for reasons that are hard to
+identify. It’s OK to just leave these as uncategorised. Where tests fail due to bugs or differences
+in behaviour of Wild, automatic classification likely isn’t practical. A one-off classification of
+these would be beneficial.
+
+If time permits, pick something achievable that seems like an important feature / bug to support /
+fix and implement / fix it.
+
+**Desirable skills**
+
+Knowledge of Rust. Any existing knowledge of low-level details like assembly or the ELF binary
+format is useful, but can potentially be learned as we go.
+
+**Project size**
+
+Small to large depending on chosen scope.
+
+**Difficulty**
+
+Some of the work is medium. Diagnosing and / or fixing failures is often pretty hard.
+
+**Mentor**
+
+- David Lattimore ([GitHub](https://github.com/davidlattimore), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/198560-David-Lattimore))
+
+**Further resources**
+
+- [Wild linker](https://github.com/davidlattimore/wild)  
+- [Blog posts, most of which are about Wild](https://davidlattimore.github.io/)
