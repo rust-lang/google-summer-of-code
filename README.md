@@ -29,7 +29,10 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Add support for multiple collectors to the Rust benchmark suite](#Add-support-for-multiple-collectors-to-the-Rust-benchmark-suite)
     - [Improve bootstrap](#Improve-bootstrap)
 - **Cargo**
-    - [Implement workspace publish in Cargo](#implement-workspace-publish-in-cargo)
+    - [Prototype an alternative architecture for `cargo fix`](#prototype-an-alternative-architecture-for-cargo-fix)
+    - [Prototype Cargo plumbing commands](#prototype-cargo-plumbing-commands)
+    - [Move cargo shell completions to Rust](#move-cargo-shell-completions-to-Rust)
+    - [Build script delegation](#build-script-delegation)
 - **Rustfmt**
     - [Improve rustfmt infrastructure and automation](#improve-rustfmt-infrastructure-and-automation)
 - **Crate ecosystem**
@@ -260,24 +263,131 @@ Medium.
 
 ## Cargo
 
-### Implement workspace publish in Cargo
+### Prototype an alternative architecture for `cargo fix`
 
 **Description**
 
-Today, developers can group Rust packages into a workspace to make it easier to operate on all of them at once.
-However, `cargo package` and `cargo publish` do not support operating on workspaces ([rust-lang/cargo#1169](https://github.com/rust-lang/cargo/issues/1169)).
+Some compiler errors know how to fix the problem and `cargo fix` is the command for applying those fixes.
+Currently, `cargo fix` calls into the APIs that implement `cargo check` with
+`cargo` in a way that allows getting the json messages from rustc and apply
+them to workspace members.
+To avoid problems with conflicting or redundant fixes, `cargo fix` runs `rustc` for workspace members in serial.
+As one fix might lead to another, `cargo fix` runs `rustc` for each workspace member in a loop until a fixed point is reached.
+This can be very slow for large workspaces.
 
-The goal of this project is to modify the Cargo build tool to add support for packaging and publishing Cargo workspaces.
+We want to explore an alternative architecture where `cargo fix` runs the
+`cargo check` command in a loop,
+processing the json messages,
+until a fixed point is reached.
+
+Benefits
+- Always runs in parallel
+- May make it easier to extend the behavior, like with an interactive mode
+
+Downsides
+- Might have issues with files owned by multiple packages or even multiple build targets
+
+This can leverage existing CLI and crate APIs of Cargo and can be developed as a third-party command.
+
+See [cargo#13214](https://github.com/rust-lang/cargo/issues/13214) for more details.
 
 **Expected result**
 
-Milestone 1: `cargo package` can be run, with verification, with the standard package selection flags
-Milestone 2: `cargo publish` can do the same as above, but also serially post the `.crate` files to the registry when done,
-reporting to the user what was posted/failed if interrupted.
+- A third-party command as described above
+- A comparison of performance across representative crates
+- An analysis of corner the behavior with the described corner cases
 
 **Desirable skills**
 
 Intermediate knowledge of Rust.
+
+**Project size**
+
+Medium
+
+**Difficulty**
+
+Medium.
+
+**Mentor**
+- Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
+
+**Zulip streams**
+- Idea discussion
+- [Cargo team](https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo)
+
+### Prototype Cargo plumbing commands
+
+**Description**
+
+Cargo is a high-level, opinionated command.
+Instead of trying to directly support every use case,
+we want to explore exposing the building blocks of the high-level commands as
+"plumbing" commands that people can use programmatically to compose together to
+create custom Cargo behavior.
+
+This can be prototyped outside of the Cargo code base, using the Cargo API.
+
+See the [Project Goal](https://rust-lang.github.io/rust-project-goals/2025h1/cargo-plumbing.html) for more details.
+
+**Expected result**
+
+Ideal: a performant `cargo porcelain check` command that calls out to
+individual `cargo plumbing <name>` commands to implement its functionality.
+
+Depending on the size the particpant takes on and their experience,
+this may be out of reach.
+The priorities are:
+1. A shell of `cargo porcelain check`
+2. Individual commands until `cargo porcelain check` is functional
+3. Performance
+
+**Desirable skills**
+
+Intermediate knowledge of Rust.
+
+**Project size**
+
+Scaleable
+
+**Difficulty**
+
+Medium.
+
+**Mentor**
+- Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
+
+**Zulip streams**
+- Idea discussion
+- [Cargo team](https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo)
+
+### Move cargo shell completions to Rust
+
+**Description**
+
+Cargo maintains Bash and Zsh completions, but they are duplicated and limited in features.
+
+A previous GSoC participant added unstable support for completions in Cargo itself,
+so we can have a single implementation with per-shell skins ([rust-lang/cargo#6645](https://github.com/rust-lang/cargo/issues/6645)).
+- [**Final project report**](https://hackmd.io/@PthRWaPvSmS_2Yu_GLbGpg/Hk-ficKpC)
+- [GSoC project annotation](https://summerofcode.withgoogle.com/programs/2024/projects/jjnidpgn)
+- [Project discussion on Zulip](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Project.3A.20Move.20cargo.20shell.20completions.20to.20Rust)
+
+There are many more arguments that need custom completers as well as polish in the completion system itself before this can be stabilized.
+
+See
+- [Clap's tracking issue](https://github.com/clap-rs/clap/issues/3166)
+- [Cargo's tracking issue](https://github.com/rust-lang/cargo/issues/14520)
+
+**Expected result**
+
+Ideal:
+- A report to clap maintainers on the state of the unstable completions and why its ready for stabilization
+- A report to cargo maintainers on the state of the unstable completions and why its ready for stabilization
+
+**Desirable skills**
+
+Intermediate knowledge of Rust. Shell familiarity is a bonus.
 
 **Project size**
 
@@ -288,11 +398,59 @@ Medium.
 Medium.
 
 **Mentor**
+- Idea discussion
 - Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
 
-**Zulip streams**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20implement.20workspace.20publish.20in.20Cargo)
-- [Cargo team](https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo)
+### Build script delegation
+
+**Description**
+
+When developers need to extend how Cargo builds their package,
+they can write a [build script](https://doc.rust-lang.org/cargo/reference/build-scripts.html).
+This gives users quite a bit of flexibility but
+- Allows running arbitrary code on the users system, requiring extra auditing
+- Needs to be compiled and run before the relevant package can be built
+- They are all-or-nothing, requiring users to do extra checks to avoid running expensive logic
+- They run counter to the principles of third-party build tools that try to mimic Cargo
+
+A developer could make their build script a thin wrapper around a library
+(e.g. [shadow-rs](https://crates.io/crates/shadow-rs))
+but a build script still exists to be audited (even if its small) and each individual wrapper build script must be compiled and linked.
+This is still opaque to third-party build tools.
+
+Leveraging an unstable feature,
+[artifact dependencies](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#artifact-dependencies),
+we could allow a developer to say that one or more dependencies should be run as build scripts, passing parameters to them.
+
+This project would add unstable support for build script delegation that can
+then be evaluated for proposing as an RFC for approval.
+
+See [the proposal](https://github.com/rust-lang/cargo/issues/14903#issuecomment-2523803041) for more details.
+
+**Expected result**
+
+Milestones
+1. An unstable feature for multiple build scripts
+2. An unstable feature for passing parameters to build scripts from `Cargo.toml`, built on the above
+3. An unstable feature for build script delegation, built on the above two
+
+Bonus: preparation work to stabilize a subset of artifact dependencies.
+
+**Desirable skills**
+
+Intermediate knowledge of Rust, especially experience with writing build scripts.
+
+**Project size**
+
+Large.
+
+**Difficulty**
+
+Medium.
+
+**Mentor**
+- Idea discussion
+- Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
 
 ## Rustfmt
 
