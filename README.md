@@ -500,7 +500,7 @@ Medium.
 [`cargo-semver-checks`](https://github.com/obi1kenobi/cargo-semver-checks) is a linter for semantic versioning. It ensures
 that Rust crates adhere to semantic versioning by looking for breaking changes in APIs.
 
-It can currently catch ~60 different kinds of breaking changes, so there are hundreds of kinds of breaking changes it
+It can currently catch ~120 different kinds of breaking changes, meaning there are hundreds of kinds of breaking changes it
 still cannot catch! The goal of this project is to extend its abilities, so that it can catch and prevent more breaking changes, by:
 - adding more lints, which are expressed as queries over a database-like schema ([playground](https://play.predr.ag/rustdoc))
 - extending the schema, so more Rust functionality is made available for linting
@@ -517,11 +517,11 @@ not required.
 
 **Project size**
 
-Small or large (depends on how many lints will be implemented).
+Medium or large, depends on how many lints will be implemented. The more lints, the better!
 
 **Difficulty**
 
-Small or medium (depends on the choice of implemented lints or schema extensions).
+Medium to high, depends on the choice of implemented lints or schema extensions.
 
 **Mentor**
 - Predrag Gruevski ([GitHub](https://github.com/obi1kenobi/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/474284-Predrag-Gruevski-(he-him)))
@@ -534,6 +534,41 @@ Small or medium (depends on the choice of implemented lints or schema extensions
 - [GitHub issues describing not-yet-implemented lints](https://github.com/obi1kenobi/cargo-semver-checks/issues?q=is%3Aissue+is%3Aopen+label%3AE-mentor+label%3AA-lint+)
 - [Opportunities to add new schema, enabling new lints](https://github.com/obi1kenobi/cargo-semver-checks/issues/241)
 - [Query engine adapter](https://github.com/obi1kenobi/trustfall-rustdoc-adapter)
+
+### Enable witness generation in `cargo-semver-checks`
+
+**Description**
+
+When `cargo-semver-checks` reports a breaking change, it in principle has seen enough information for the breakage to be reproduced with an example program: a *witness* program.
+Witness programs are valuable as they confirm that the suspected breakage did indeed happen, and is not a false-positive.
+
+**Expected result**
+
+Automatic witness generation is something we've explored, but we've only scratched the surface at implementing it so far.
+The goal of this project would be to take it the rest of the way: enable `cargo-semver-checks` to (with the user's opt-in) generate witness programs for each lint, verify that they indeed demonstrate the detected breakage, and inform the user appropriately of the breakage and the manner in which it was confirmed.
+If a witness program *fails* to reproduce breakage flagged by one of our lints, we've found a bug — the tool should then prepare a diagnostic info packet and offer to help the user open an auto-populated GitHub issue.
+
+**Stretch goal:** having implemented witness generation, run another study of SemVer compliance in the Rust ecosystem, similar to [the study we completed in 2023](https://predr.ag/blog/semver-violations-are-common-better-tooling-is-the-answer/). The new study would cover many more kinds of breaking changes, since `cargo-semver-checks` today has 2.5x times more lints than it did back then. It would also reveal any new false-positive issues, crashes, or other regressions that may have snuck into the tool in the intervening years.
+
+**Desirable skills**
+
+Intermediate knowledge of Rust. Interest in building dev tools, and empathy for user needs so we can design the best possible user experience.
+Familiarity with databases, query engines, or programming language design is welcome but not required.
+
+**Project size**
+
+Large
+
+**Difficulty**
+
+Medium
+
+**Mentor**
+- Predrag Gruevski ([GitHub](https://github.com/obi1kenobi/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/474284-Predrag-Gruevski-(he-him)))
+
+**Related Links**
+- [Playground where you can try querying Rust data](https://play.predr.ag/rustdoc)
+- [Use of witness programs to verify breaking change lints](https://predr.ag/blog/semver-violations-are-common-better-tooling-is-the-answer/#automated-validation-via-witnesses)
 
 ### Implement a cryptographic algorithm in RustCrypto
 
