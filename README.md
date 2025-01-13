@@ -26,7 +26,6 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Reproducible builds](#reproducible-builds)
 - **Infrastructure**
     - [Implement merge functionality in bors](#implement-merge-functionality-in-bors)
-    - [Add support for multiple collectors to the Rust benchmark suite](#Add-support-for-multiple-collectors-to-the-Rust-benchmark-suite)
     - [Improve bootstrap](#Improve-bootstrap)
 - **Cargo**
     - [Prototype an alternative architecture for `cargo fix`](#prototype-an-alternative-architecture-for-cargo-fix)
@@ -190,42 +189,6 @@ Medium.
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20infrastructure.20automation.20tools)
 - [Infra team](https://rust-lang.zulipchat.com/#narrow/stream/242791-t-infra)
-
-### Add support for multiple collectors to the Rust benchmark suite
-
-**Description**
-
-Rust has an extensive [benchmark suite](https://github.com/rust-lang/rustc-perf) that measures the performance of the Rust compiler and Rust programs and
-visualizes the results in an interactive web application. Currently, the benchmarks are gathered on a single physical
-machine, however we are hitting the limits of how many benchmark runs we can perform per day on a single machine,
-which in turn limits the benchmark configurations that we can execute after each commit.
-
-The goal of this project is to add support for splitting benchmark execution across multiple machines. This will
-require a refactoring of the existing suite and potentially also database schema modifications and implementation of new
-features.
-
-**Expected result**
-
-It will be possible to parallelize the execution of the benchmark suite across multiple machines.
-
-**Desirable skills**
-
-Intermediate knowledge of Rust and database technologies (SQL).
-
-**Project size**
-
-Medium or large.
-
-**Difficulty**
-
-Medium.
-
-**Mentor**
-- Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
-
-**Zulip stream**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20multiple.20collectors.20for.20Rust.20benchmark.20suite)
-- [Compiler performance working group](https://rust-lang.zulipchat.com/#narrow/stream/247081-t-compiler.2Fperformance)
 
 ### Improve bootstrap
 
