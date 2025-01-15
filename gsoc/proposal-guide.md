@@ -2,13 +2,15 @@
 
 This document contains a short guide on how to structure your Rust Google Summer of Code (GSoC) project proposal and how to increase the chance of your project proposal being accepted.
 
+**We would appreciate if you used your own words when writing GSoC project proposals. It is fine to use LLMs/AI for spellcheck, language correction or translation, but we will mostly ignore proposals that look like they were *generated* by AI. Last year, we have received many low-effort AI-generated proposals, which makes it harder for us to sort through them and find proposals on which the contributors spent a lot of effort.**
+
 ## Choosing a project
 
 You should start by deciding on which project do you want to work on. You can use our [list of project ideas](../README.md)
 as an inspiration, or you can come up with your own project idea. However, you should keep in mind that each GSoC project needs at least one mentor available. Therefore, if you come up with a completely new project idea, you should also try to find someone from the Rust community who could mentor you on the project.
 
 If you decide to propose your own project idea, you're most likely to be able to find a mentor if one or both of these is true:
-- It aligns with existing open or planned work within the Project. For example, there are a number of [tracking issues](https://github.com/rust-lang/rust/issues?page=29&q=is%3Aissue+is%3Aopen+label%3AC-tracking-issue) for ongoing work.
+- It aligns with existing open or planned work within the Project. For example, there are a number of [tracking issues](https://github.com/rust-lang/rust/issues?page=29&q=is%3Aissue+is%3Aopen+label%3AC-tracking-issue) and [Project Goals](https://rust-lang.github.io/rust-project-goals/index.html) for ongoing work.
 - You can describe clearly the utility of the project to either the Rust language, the tooling, the Project itself, or to the community.
 
 We encourage you to think of your own interesting project ideas! There are plenty of things that can be done within the Rust Project and contributors are generally happy to discuss and help you narrow down your thoughts into a concrete proposal. Don't be shy!
@@ -72,7 +74,7 @@ You can also tell us more about your motivation in your proposal. Why did you ch
 
 ## Don't forget to submit!
 
-You will need to submit your project proposal through the [Google Summer of Code](https://summerofcode.withgoogle.com/) website. Please keep the **deadline** (**2nd April 2024**) in mind, as there will be no extensions!
+You will need to submit your project proposal through the [Google Summer of Code](https://summerofcode.withgoogle.com/) website. Please keep the **deadline** (**8th April 2025**) in mind, as there will be no extensions!
 
 Good luck! :)
 
