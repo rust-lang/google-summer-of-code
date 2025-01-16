@@ -2,7 +2,9 @@
 
 This document contains a short guide on how to structure your Rust Google Summer of Code (GSoC) project proposal and how to increase the chance of your project proposal being accepted.
 
-**We would appreciate if you used your own words when writing GSoC project proposals. It is fine to use LLMs/AI for spellcheck, language correction or translation, but we will mostly ignore proposals that look like they were *generated* by AI. Last year, we have received many low-effort AI-generated proposals, which makes it harder for us to sort through them and find proposals on which the contributors spent a lot of effort.**
+**We would appreciate if you used your own words when writing GSoC project proposals. It is fine to use LLMs/AI for spellcheck, language correction or translation, but do not rely on AI to write the proposal for you. We will ignore proposals that look like they were *generated* by AI. Please don't submit AI-generated proposals! They won't be accepted, and will just create additional work for us.**
+
+**We're interested in seeing *your work* and *your thinking*, since *you* are applying to do the project — not the AI!**
 
 ## Choosing a project
 
