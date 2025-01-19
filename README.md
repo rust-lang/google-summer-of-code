@@ -25,6 +25,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [C codegen backend for rustc](#C-codegen-backend-for-rustc)
     - [Extend annotate-snippets with features required by rustc](#Extend-annotate-snippets-with-features-required-by-rustc)
     - [Reproducible builds](#reproducible-builds)
+    - [Bootstrap of rustc with rustc_codegen_gcc](#Bootstrap-of-rustc-with-rustc_codegen_gcc)
 - **Infrastructure**
     - [Implement merge functionality in bors](#implement-merge-functionality-in-bors)
     - [Improve bootstrap](#Improve-bootstrap)
@@ -158,6 +159,47 @@ Large.
 
 **Related links**
 - [Prior art in Go](https://go.dev/blog/rebuild)
+
+### Bootstrap of rustc with `rustc_codegen_gcc`
+
+**Description**
+
+[`rustc_codegen_gcc`](https://github.com/rust-lang/rustc_codegen_gcc) [used to be able to compile `rustc`](https://blog.antoyo.xyz/rustc_codegen_gcc-progress-report-10) and use the resulting compiler to successfully compile a `Hello, World!` program.
+While it can still compile a [stage 2](https://rustc-dev-guide.rust-lang.org/building/bootstrapping/what-bootstrapping-does.html#stage-2-the-truly-current-compiler) `rustc`, the resulting compiler cannot compile the standard library anymore.
+
+The goal of this project would be to fix in `rustc_codegen_gcc` any issue preventing the resulting compiler to compile a `Hello, World!` program and the standard library.
+Those issues are not known, so the participant would need to attempt to do a bootstrap and investigate the issues that arises.
+
+If time allows, an optional additional goal could be to be able to do a full bootstrap of `rustc` with `rustc_codegen_gcc`, meaning fixing even more issues to achieve this result.
+
+**Expected result**
+
+A `rustc_codegen_gcc` that can compile a stage 2 `rustc` where the resulting compiler can compile a `Hello, World!` program using the standard library (also compiled by that resulting compiler).
+
+An optional additional goal would be: a `rustc_codegen_gcc` that can do a full bootstrap of the Rust compiler. This means getting a stage 3 `rustc` that is identical to stage 2.
+
+**Desirable skills**
+
+Good debugging ability. Basic knowledge of:
+
+ * Intel x86-64 assembly (for debugging purposes).
+ * `rustc` internals, especially the [codegen part](https://rustc-dev-guide.rust-lang.org/backend/backend-agnostic.html).
+ * [`libgccjit`](https://gcc.gnu.org/onlinedocs/jit/) and [GCC internals](https://gcc.gnu.org/onlinedocs/gccint/).
+
+**Project size**
+
+Medium-Large depending on the chosen scope.
+
+**Difficulty**
+
+Hard.
+
+**Mentor**
+- Antoni Boucher ([GitHub](https://github.com/antoyo), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/404242-antoyo))
+
+**Zulip streams**
+- Idea discussion
+- [rustc_codegen_gcc](https://rust-lang.zulipchat.com/#narrow/channel/386786-rustc-codegen-gcc/)
 
 ## Infrastructure
 
