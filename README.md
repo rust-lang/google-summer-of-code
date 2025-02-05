@@ -27,6 +27,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Reproducible builds](#reproducible-builds)
     - [Bootstrap of rustc with rustc_codegen_gcc](#Bootstrap-of-rustc-with-rustc_codegen_gcc)
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
+    - [ABI/Layout handling for the automatic differentiation feature](#Layout-handling-for-the-automatic-differentiation-feature)
 - **Infrastructure**
     - [Implement merge functionality in bors](#implement-merge-functionality-in-bors)
     - [Improve bootstrap](#Improve-bootstrap)
@@ -248,6 +249,58 @@ Medium.
 **Zulip streams**
 - Idea discussion
 - [rustc_codegen_gcc](https://rust-lang.zulipchat.com/#narrow/channel/386786-rustc-codegen-gcc/)
+
+### Layout-handling-for-the-automatic-differentiation-feature
+
+**Description**
+
+Over the last year, support for automatic differentiation ('autodiff') was added to the Rust compiler. The autodiff tool which we are using (Enzyme) operates 
+on LLVM-IR, which is the intermediate representation of code, used by LLVM. LLVM is the default backend of the Rust compiler. Unfortunately, two layout related problems limit it's usability.
+
+A) The Rust compiler has a set of ABI optimizations which can improve performance, but make it harder for autodiff to work. An example is the function `fn foo(a: f32, b: f32) -> f32`,
+which the compiler might optimize to `fn foo(x: i64) -> f32`. While this is fine from an LLVM perspective, it makes it hard for Enzyme, the LLVM based autodiff tool.
+More information about such optimizations can be found [here](https://rust-lang.zulipchat.com/#narrow/channel/182449-t-compiler.2Fhelp/topic/.E2.9C.94.20Where.20do.20ABI.20.22changes.22.20happen.3F).
+If a function has a `#[rustc_autodiff]` attribute, the Rust compiler should simply not perform such optimizations. We don't want to disable these optimizations for all functions, as they are generally beneficial.
+Multiple examples of function headers which will get handled incorrectly at the moment are listed [here](https://github.com/EnzymeAD/rust/issues/105).
+
+B) Enzyme requires good information about the memory layout of types. LLVM-IR is intentionally opaque, e.g. `&f32` and` &f64` both have the LLVM-IR type `ptr`. Enzyme is generally able to infer the correct type 
+(e.g. f32 vs f64) through usage analysis, but that process is slow and can in some cases fail. To make autodiff more robust, we should lower either MIR or THIR type information into LLVM-IR metadata. This analysis is recursive,
+for example `&[T]` is a fat pointer and therefore will be represented as a (ptr, int) pair in LLVM-IR. In this case the algorithm should recursively also analyze `T` and generate metadata for it.
+The function [here](https://github.com/rust-lang/rust/blob/d4bdd1ed551fed0c951eb47b4be2c79d7a02d181/compiler/rustc_monomorphize/src/partitioning/autodiff.rs#L30) can be extended for this.
+A prototype of the parser was implemented [here](https://github.com/EnzymeAD/rust/blob/58fee1abf3f2cd0e73ee8b98e53869d6fc3ba604/compiler/rustc_middle/src/ty/mod.rs#L2826) and can be used for inspiration. 
+Various LLVM-IR examples for the metadata which we want to generate can be found in [this](https://github.com/EnzymeAD/Enzyme/blob/main/enzyme/test/TypeAnalysis) test folder. Look for annotations in the style of ` {[-1]:Pointer, [-1,0]:Float@float}`.
+
+For both A) and B), the online compiler explorer [here](https://enzyme.mit.edu/explorer/) can be used to trigger both types of bugs, to get a feeling for existing problems.
+
+**Expected result**
+
+The expectations depend on the choosen project size. A or B could be done as medium projects, or both combined as a large project.
+
+In the case of A), the Rust compiler should not perform ABI optimizations on functions with the `#[rustc_autodiff]` attribute. As a result, `#[autodiff(..)]` should be able to handle functions with almost arbitrary headers.
+Newly working testcases should be added to the rust test suite. Maybe the `rustc_autodiff` parsing in the [autodiff frontend](https://github.com/rust-lang/rust/pull/129458) will need small bugfixes, if the new testcases discover additional bugs.
+
+In the case of B), the participant should find and select some interesting testcases, in which Enzyme either fails to differentiate an example due to inssuficient Type Information, or takes unreasonable long times (e.g. > 20x slower than compiling the code without autodiff).
+In the second case, a profiler should be used to verify that Enzyme causes a long compile time because of the type analysis. The participant should then write (or later extend) the Type parser to generate the correct metadata, such that Enzyme can handle the testcases.
+
+Examples for code that currently is not handled correctly can be discussed in the project proposal phase.
+
+**Desirable skills**
+
+Knowledge of Rust. For part B), some knowledge of C++, Profilers, or LLVM-IR is a bonus, but not required.
+
+**Project size**
+Medium - Large, based on the chosen scope.
+
+**Difficulty**
+
+Easy to medium.
+
+**Mentor**
+- Manuel Drehwald ([GitHub](https://github.com/zusez4), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/348574-Manuel-Drehwald))
+- Oli ([GitHub](https://github.com/oli-obk), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/124288-oli))
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/390790-wg-autodiff)
 
 ## Infrastructure
 
