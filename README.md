@@ -40,6 +40,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 - **Crate ecosystem**
     - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
+    - [Make `cargo-semver-checks` run faster](#make-cargo-semver-checks-faster)
     - [Enable witness generation in `cargo-semver-checks`](#enable-witness-generation-in-cargo-semver-checks)
     - [Implement a cryptographic algorithm in RustCrypto](#implement-a-cryptographic-algorithm-in-rustcrypto)
     - [Wild linker with test suites from other linkers](#wild-linker-with-test-suites-from-other-linkers)
@@ -626,6 +627,49 @@ Medium to high, depends on the choice of implemented lints or schema extensions.
 - [GitHub issues describing not-yet-implemented lints](https://github.com/obi1kenobi/cargo-semver-checks/issues?q=is%3Aissue+is%3Aopen+label%3AE-mentor+label%3AA-lint+)
 - [Opportunities to add new schema, enabling new lints](https://github.com/obi1kenobi/cargo-semver-checks/issues/241)
 - [Query engine adapter](https://github.com/obi1kenobi/trustfall-rustdoc-adapter)
+
+### Make `cargo-semver-checks` run faster
+
+**Description**
+
+As more lints get added to [`cargo-semver-checks`](https://github.com/obi1kenobi/cargo-semver-checks), its runtime grows longer.
+As a result, users' iteration loops and CI pipelines take longer as well, degrading the overall experience of using the tool.
+
+Figure out ways to speed up `cargo-semver-checks`, and find good ways to deploy them without degrading the maintainability of the codebase!
+
+**Expected result**
+
+The wall-clock runtime of running `cargo-semver-checks` on a large Rust crate gets cut by 50-80%, while still running the same lints as before.
+
+**Desirable skills**
+
+Interest in and at least a bit of experience with performance engineering. Understanding of how to apply techniques like:
+- profiling and benchmarking
+- parallel programming (e.g. with `rayon`)
+- building and applying indexes (in the database sense)
+
+Strong attention to detail. Willingness to learn quickly and perform lots of experiments, even though many of them may prove to be dead ends.
+Discipline and thoughtfulness when writing and testing code, to ensure that code changes are not merely *fast* but also *maintainable*.
+
+**Project size**
+
+Ideally large, to have the biggest possible positive performance impact.
+
+**Difficulty**
+
+Medium to high. See the "desirable skills" section above.
+
+**Mentor**
+- Predrag Gruevski ([GitHub](https://github.com/obi1kenobi/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/474284-Predrag-Gruevski-(he-him)))
+
+**Zulip streams**
+- Idea discussion (TODO)
+
+**Related Links**
+- [Playground where you can try querying Rust data](https://play.predr.ag/rustdoc)
+- [Past optimization work: Speeding up Rust semver-checking by over 2000x](https://predr.ag/blog/speeding-up-rust-semver-checking-by-over-2000x/)
+- [Conference talk: How Database Tricks Sped up Rust Linting Over 2000x](https://www.youtube.com/watch?v=Fqo8r4bInsk)
+- [Query engine adapter, where many of the optimizations may be deployed](https://github.com/obi1kenobi/trustfall-rustdoc-adapter)
 
 ### Enable witness generation in `cargo-semver-checks`
 
