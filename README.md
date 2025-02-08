@@ -282,6 +282,7 @@ Examples for code that currently is not handled correctly can be discussed in th
 Intermediate knowledge of Rust. Familiarity with ABIs is a bonus, but not required.
 
 **Project size**
+
 Medium
 
 **Difficulty**
