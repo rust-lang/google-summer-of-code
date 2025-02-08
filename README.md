@@ -27,7 +27,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Reproducible builds](#reproducible-builds)
     - [Bootstrap of rustc with rustc_codegen_gcc](#Bootstrap-of-rustc-with-rustc_codegen_gcc)
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
-    - [ABI/Layout handling for the automatic differentiation feature](#Layout-handling-for-the-automatic-differentiation-feature)
+    - [ABI/Layout handling for the automatic differentiation feature](#ABI/Layout-handling-for-the-automatic-differentiation-feature)
 - **Infrastructure**
     - [Implement merge functionality in bors](#implement-merge-functionality-in-bors)
     - [Improve bootstrap](#Improve-bootstrap)
@@ -250,12 +250,12 @@ Medium.
 - Idea discussion
 - [rustc_codegen_gcc](https://rust-lang.zulipchat.com/#narrow/channel/386786-rustc-codegen-gcc/)
 
-### Layout-handling-for-the-automatic-differentiation-feature
+### ABI/Layout handling for the automatic differentiation feature
 
 **Description**
 
-Over the last year, support for automatic differentiation ('autodiff') was added to the Rust compiler. The autodiff tool which we are using (Enzyme) operates 
-on LLVM-IR, which is the intermediate representation of code, used by LLVM. LLVM is the default backend of the Rust compiler. Unfortunately, two layout related problems limit it's usability.
+Over the last year, support for automatic differentiation ('autodiff') was added to the Rust compiler. The autodiff tool which we are using ([Enzyme](https://enzyme.mit.edu/)) operates 
+on LLVM-IR, which is the intermediate representation of code, used by LLVM. LLVM is the default backend of the Rust compiler. Unfortunately, two layout related problems limit its usability.
 
 A) The Rust compiler has a set of ABI optimizations which can improve performance, but make it harder for autodiff to work. An example is the function `fn foo(a: f32, b: f32) -> f32`,
 which the compiler might optimize to `fn foo(x: i64) -> f32`. While this is fine from an LLVM perspective, it makes it hard for Enzyme, the LLVM based autodiff tool.
@@ -263,12 +263,9 @@ More information about such optimizations can be found [here](https://rust-lang.
 If a function has a `#[rustc_autodiff]` attribute, the Rust compiler should simply not perform such optimizations. We don't want to disable these optimizations for all functions, as they are generally beneficial.
 Multiple examples of function headers which will get handled incorrectly at the moment are listed [here](https://github.com/EnzymeAD/rust/issues/105).
 
-B) Enzyme requires good information about the memory layout of types. LLVM-IR is intentionally opaque, e.g. `&f32` and` &f64` both have the LLVM-IR type `ptr`. Enzyme is generally able to infer the correct type 
-(e.g. f32 vs f64) through usage analysis, but that process is slow and can in some cases fail. To make autodiff more robust, we should lower either MIR or THIR type information into LLVM-IR metadata. This analysis is recursive,
-for example `&[T]` is a fat pointer and therefore will be represented as a (ptr, int) pair in LLVM-IR. In this case the algorithm should recursively also analyze `T` and generate metadata for it.
-The function [here](https://github.com/rust-lang/rust/blob/d4bdd1ed551fed0c951eb47b4be2c79d7a02d181/compiler/rustc_monomorphize/src/partitioning/autodiff.rs#L30) can be extended for this.
-A prototype of the parser was implemented [here](https://github.com/EnzymeAD/rust/blob/58fee1abf3f2cd0e73ee8b98e53869d6fc3ba604/compiler/rustc_middle/src/ty/mod.rs#L2826) and can be used for inspiration. 
-Various LLVM-IR examples for the metadata which we want to generate can be found in [this](https://github.com/EnzymeAD/Enzyme/blob/main/enzyme/test/TypeAnalysis) test folder. Look for annotations in the style of ` {[-1]:Pointer, [-1,0]:Float@float}`.
+B) Enzyme requires good information about the memory layout of types, both to be able to differentiate the code, and to do so efficiently. In order to help Enzyme,
+we want to lower more Type Information from MIR or even THIR into LLVM-IR metadata, or make better usage of existing debug info. If you are interested in this part and 
+also have some LLVM experience, please have a look at the LLVM website for the related proposal.
 
 For both A) and B), the online compiler explorer [here](https://enzyme.mit.edu/explorer/) can be used to trigger both types of bugs, to get a feeling for existing problems.
 
