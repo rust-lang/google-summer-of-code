@@ -27,6 +27,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Reproducible builds](#reproducible-builds)
     - [Bootstrap of rustc with rustc_codegen_gcc](#Bootstrap-of-rustc-with-rustc_codegen_gcc)
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
+    - [ABI/Layout handling for the automatic differentiation feature](#abilayout-handling-for-the-automatic-differentiation-feature)
 - **Infrastructure**
     - [Implement merge functionality in bors](#implement-merge-functionality-in-bors)
     - [Improve bootstrap](#Improve-bootstrap)
@@ -249,6 +250,52 @@ Medium.
 **Zulip streams**
 - Idea discussion
 - [rustc_codegen_gcc](https://rust-lang.zulipchat.com/#narrow/channel/386786-rustc-codegen-gcc/)
+
+### ABI/Layout handling for the automatic differentiation feature
+
+**Description**
+
+Over the last year, support for automatic differentiation ('autodiff') was added to the Rust compiler. The autodiff tool which we are using ([Enzyme](https://enzyme.mit.edu/)) operates 
+on LLVM-IR, which is the intermediate representation of code, used by LLVM. LLVM is the default backend of the Rust compiler. Unfortunately, two layout related problems limit its usability.
+
+A) The Rust compiler has a set of ABI optimizations which can improve performance, but make it harder for autodiff to work. An example is the function `fn foo(a: f32, b: f32) -> f32`,
+which the compiler might optimize to `fn foo(x: i64) -> f32`. While this is fine from an LLVM perspective, it makes it hard for Enzyme, the LLVM based autodiff tool.
+More information about such optimizations can be found [here](https://rust-lang.zulipchat.com/#narrow/channel/182449-t-compiler.2Fhelp/topic/.E2.9C.94.20Where.20do.20ABI.20.22changes.22.20happen.3F).
+If a function has a `#[rustc_autodiff]` attribute, the Rust compiler should simply not perform such optimizations. We don't want to disable these optimizations for all functions, as they are generally beneficial.
+Multiple examples of function headers which will get handled incorrectly at the moment are listed [here](https://github.com/EnzymeAD/rust/issues/105).
+
+B) Enzyme requires good information about the memory layout of types, both to be able to differentiate the code, and to do so efficiently. In order to help Enzyme,
+we want to lower more Type Information from MIR or even THIR into LLVM-IR metadata, or make better usage of existing debug info. If you are interested in this part and 
+also have some LLVM experience, please have a look at the LLVM website for the related proposal.
+
+For both A) and B), the online compiler explorer [here](https://enzyme.mit.edu/explorer/) can be used to trigger both types of bugs, to get a feeling for existing problems.
+
+**Expected result**
+
+The Rust compiler should not perform ABI optimizations on functions with the `#[rustc_autodiff]` attribute. As a result, `#[autodiff(..)]` should be able to handle functions with almost arbitrary headers. If a general solution turns out tricky, it is ok to focus on the most common types like those listed in the issue above (e.g. combinations of floats, small arrays/structs/tuples, etc.). We care less about advanced types like those listed [here](https://doc.rust-lang.org/reference/special-types-and-traits.html). These changes can't have a performance impact on functions without the `#[rustc_autodiff]` attribute.
+
+Newly working testcases should be added to the rust test suite. The `rustc_autodiff` parsing in the [autodiff frontend](https://github.com/rust-lang/rust/pull/129458) might need small bugfixes if the new testcases discover additional bugs, but those can also be solved by other contributors.
+
+Examples for code that currently is not handled correctly can be discussed in the project proposal phase.
+
+**Desirable skills**
+
+Intermediate knowledge of Rust. Familiarity with ABIs is a bonus, but not required.
+
+**Project size**
+
+Medium
+
+**Difficulty**
+
+Medium to hard.
+
+**Mentor**
+- Manuel Drehwald ([GitHub](https://github.com/zusez4), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/348574-Manuel-Drehwald))
+- Oli ([GitHub](https://github.com/oli-obk), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/124288-oli))
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/390790-wg-autodiff)
 
 ## Infrastructure
 
