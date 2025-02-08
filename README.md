@@ -271,22 +271,18 @@ For both A) and B), the online compiler explorer [here](https://enzyme.mit.edu/e
 
 **Expected result**
 
-The expectations depend on the choosen project size. A or B could be done as medium projects, or both combined as a large project.
+The Rust compiler should not perform ABI optimizations on functions with the `#[rustc_autodiff]` attribute. As a result, `#[autodiff(..)]` should be able to handle functions with almost arbitrary headers. If a general solution turns out tricky, it is ok to focus on the most common types like those listed in the issue above (e.g. combinations of floats, small arrays/structs/tuples, etc.). We care less about advanced types like those listed [here](https://doc.rust-lang.org/reference/special-types-and-traits.html). These changes can't have a performance impact on functions without the `#[rustc_autodiff]` attribute.
 
-In the case of A), the Rust compiler should not perform ABI optimizations on functions with the `#[rustc_autodiff]` attribute. As a result, `#[autodiff(..)]` should be able to handle functions with almost arbitrary headers.
-Newly working testcases should be added to the rust test suite. Maybe the `rustc_autodiff` parsing in the [autodiff frontend](https://github.com/rust-lang/rust/pull/129458) will need small bugfixes, if the new testcases discover additional bugs.
-
-In the case of B), the participant should find and select some interesting testcases, in which Enzyme either fails to differentiate an example due to inssuficient Type Information, or takes unreasonable long times (e.g. > 20x slower than compiling the code without autodiff).
-In the second case, a profiler should be used to verify that Enzyme causes a long compile time because of the type analysis. The participant should then write (or later extend) the Type parser to generate the correct metadata, such that Enzyme can handle the testcases.
+Newly working testcases should be added to the rust test suite. The `rustc_autodiff` parsing in the [autodiff frontend](https://github.com/rust-lang/rust/pull/129458) might need small bugfixes if the new testcases discover additional bugs, but those can also be solved by other contributors.
 
 Examples for code that currently is not handled correctly can be discussed in the project proposal phase.
 
 **Desirable skills**
 
-Knowledge of Rust. For part B), some knowledge of C++, Profilers, or LLVM-IR is a bonus, but not required.
+Intermediate knowledge of Rust. Familiarity with ABIs is a bonus, but not required.
 
 **Project size**
-Medium - Large, based on the chosen scope.
+Medium
 
 **Difficulty**
 
