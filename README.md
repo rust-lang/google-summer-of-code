@@ -290,7 +290,7 @@ Medium - Large, based on the chosen scope.
 
 **Difficulty**
 
-Easy to medium.
+Medium to hard.
 
 **Mentor**
 - Manuel Drehwald ([GitHub](https://github.com/zusez4), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/348574-Manuel-Drehwald))
