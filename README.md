@@ -41,7 +41,6 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
     - [Make `cargo-semver-checks` run faster](#make-cargo-semver-checks-faster)
     - [Enable witness generation in `cargo-semver-checks`](#enable-witness-generation-in-cargo-semver-checks)
-    - [Implement a cryptographic algorithm in RustCrypto](#implement-a-cryptographic-algorithm-in-rustcrypto)
     - [Wild linker with test suites from other linkers](#wild-linker-with-test-suites-from-other-linkers)
 
 # Project ideas
@@ -715,62 +714,6 @@ Medium
 **Related Links**
 - [Playground where you can try querying Rust data](https://play.predr.ag/rustdoc)
 - [Use of witness programs to verify breaking change lints](https://predr.ag/blog/semver-violations-are-common-better-tooling-is-the-answer/#automated-validation-via-witnesses)
-
-### Implement a cryptographic algorithm in RustCrypto
-
-**Description**
-
-The [RustCrypto Project](https://github.com/RustCrypto) maintains pure Rust implementations of
-hundreds of cryptographic algorithms, organized into repositories by algorithm type, e.g.
-block ciphers, stream ciphers, hash functions.
-
-Each of these repositories contains a tracking issue identifying specific algorithms which currently
-lack an implementation, some of which are linked in the "Related Links" section below. Interested
-students can look through these issues and identify an algorithm which is currently unimplemented
-which sounds interesting to them, and then implement it as part of this project.
-
-Alternatively, instead of implementing a new algorithm from scratch, a student could potentially
-choose to implement some significant unit of functionality in an existing algorithm implementation
-with an open associated issue on our GitHub trackers, an example of which might be
-[implementing hardware acceleration support for our "bignum" library](https://github.com/RustCrypto/crypto-bigint/issues/1).
-
-**Expected result**
-
-One or more Rust crates/libraries containing a new implementation of a cryptographic algorithm implemented in pure Rust.
-
-**Desirable skills**
-
-Intermediate knowledge of Rust.
-
-A background in mathematics, and some prior knowledge of cryptography, is helpful but not required,
-and we can provide guidance and review to ensure code is correct and securely implemented.
-
-**Project size**
-
-Will vary depending on the algorithm/project selected, but ideally small.
-
-Note that while the code size of the deliverable may not be significant, due to the nature of
-cryptographic work it will typically still involve significant effort and iteration to deliver an
-implementation which is correct and secure.
-
-**Difficulty**
-
-Will also vary depending on the algorithm/project selected, but expected difficulty is medium/hard, as noted above.
-
-**Mentor**
-- Tony Arcieri ([GitHub](https://github.com/tarcieri/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/132721-Tony-Arcieri))
-
-**Zulip streams**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20implement.20a.20cryptographic.20algorithm.20in.20RustCrypto)
-
-**Related Links**
-- [Potential AEAD cipher projects](https://github.com/RustCrypto/AEADs/issues/1)
-- [Potential block cipher projects](https://github.com/RustCrypto/block-ciphers/issues/1)
-- [Potential elliptic curve projects](https://github.com/RustCrypto/elliptic-curves/issues/114)
-- [Potential hash function projects](https://github.com/RustCrypto/hashes/issues/1)
-- [Potential signature algorithm projects](https://github.com/RustCrypto/signatures/issues/8)
-- [Potential stream cipher projects](https://github.com/RustCrypto/stream-ciphers/issues/219)
-- [Potential SSH-related projects](https://github.com/RustCrypto/SSH/issues/2)
 
 ### Wild linker with test suites from other linkers
 
