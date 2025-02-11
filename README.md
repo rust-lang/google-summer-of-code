@@ -36,8 +36,6 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Prototype Cargo plumbing commands](#prototype-cargo-plumbing-commands)
     - [Move cargo shell completions to Rust](#move-cargo-shell-completions-to-Rust)
     - [Build script delegation](#build-script-delegation)
-- **Rustfmt**
-    - [Improve rustfmt infrastructure and automation](#improve-rustfmt-infrastructure-and-automation)
 - **Crate ecosystem**
     - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
@@ -554,41 +552,6 @@ Medium.
 **Mentor**
 - Idea discussion
 - Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
-
-## Rustfmt
-
-### Improve rustfmt infrastructure and automation
-
-**Description**
-
-Rustfmt is the code formatter for Rust code. Currently, to ensure stability, rustfmt uses unit tests that ensure a source file do not get reformatted unexpectedly. Additionally, there is a tool (currently a shell script) called [`diffcheck`](https://github.com/rust-lang/rustfmt/blob/master/ci/check_diff.sh#L187-L216) that gets run to check potentially unexpected changes across different large codebases. We would like to improve our tooling around that, namely improving the diffcheck job to include more crates, improve reporting (with HTML output, like a mini [crater](https://crater-reports.s3.amazonaws.com/pr-114776-1/index.html), which runs compiler changes against all Rust crates published to crates.io), potentially rewriting the job in Rust, and reliability.
-
-Rustfmt currently has a versioning system that gates unstable changes behind `Version=Two`, and the diffcheck job may be less reliable to report changes to `Version=One` when changes to unstable formatting are introduced. We'd like to see this story improved to make our test system more robust.
-
-**Expected result**
-
-A more robust and reliable infrastructure for testing the rustfmt codebase, potentially rewritten in Rust, with HTML output.
-
-**Desirable skills**
-
-Intermediate knowledge of Rust. Knowledge of CI and automation welcomed.
-
-**Project size**
-
-Small or medium, depending on the scale proposed.
-
-**Difficulty**
-
-Small or medium.
-
-**Mentor**
-- Yacin Tmimi ([GitHub](https://github.com/ytmimi), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/441976-Yacin-Tmimi))
-
-**Zulip streams**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20rustfmt.20infrastructure.20and.20automation)
-
-**Related Links**
-- [Previous discussion around the idea](https://rust-lang.zulipchat.com/#narrow/stream/357797-t-rustfmt/topic/meeting.202023-01-08/near/411836200)
 
 ## Crate ecosystem
 
