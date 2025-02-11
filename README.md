@@ -39,7 +39,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 - **Crate ecosystem**
     - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
-    - [Make `cargo-semver-checks` run faster](#make-cargo-semver-checks-faster)
+    - [Make `cargo-semver-checks` run faster](#make-cargo-semver-checks-run-faster)
     - [Enable witness generation in `cargo-semver-checks`](#enable-witness-generation-in-cargo-semver-checks)
     - [Wild linker with test suites from other linkers](#wild-linker-with-test-suites-from-other-linkers)
 
