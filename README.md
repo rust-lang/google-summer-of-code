@@ -28,6 +28,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Bootstrap of rustc with rustc_codegen_gcc](#Bootstrap-of-rustc-with-rustc_codegen_gcc)
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
     - [ABI/Layout handling for the automatic differentiation feature](#abilayout-handling-for-the-automatic-differentiation-feature)
+    - [Promoting Parallel Front End](#Promoting-Parallel-Front-End)
 - **Infrastructure**
     - [Implement merge functionality in bors](#implement-merge-functionality-in-bors)
     - [Improve bootstrap](#Improve-bootstrap)
@@ -293,6 +294,56 @@ Medium to hard.
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/390790-wg-autodiff)
+
+### Promoting-Parallel-Front-End
+
+**Description**
+
+Improving compiler performance has always been a focus of the Rust community and one of the main tasks of the compiler team. [Parallelization](https://rustc-dev-guide.rust-lang.org/parallel-rustc.html) of rust compiler is an important and effective approach.
+Currently, the backend end (codegen part) of the compiler has been parallelized, which has brought a huge improvement in the performance of the compiler. However, there is still much room for improvement in the parallelization of the rust front end.
+
+The most important and valuable work are two aspects:
+
+A) Deadlock [issues](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AWG-compiler-parallel+deadlock) caused by the execution order of compiler queries in a multithreaded environment.
+[Queries](https://rustc-dev-guide.rust-lang.org/query.html) is a unique design of the Rust compiler, which is used to achieve incremental compilation process. It divides the compiler 
+process into various parts and caches the execution results of each part. However, queries cache dependencies between multiple threads may cause deadlock. 
+[`work-stealing`](https://en.wikipedia.org/wiki/Work_stealing), a method used to improve parallelization performance, is the core reason.
+
+To solve these problems, we need to find the part of the compiler process that causes deadlock through the diagnostics  and core dump in issues, and adjust the execution order 
+of this part so that there will be no circular dependency on the query caches between multiple threads. This [PR](https://github.com/rust-lang/rust/pull/118488) is a good example of solving a deadlock problem.
+
+B) Improving the performance of parallel front end
+i) The parallel front end has implemented parallelization in typeck, mir borrow check and other parts. However, there is still a lot of room for improvement:
+- HIR lowering. Modifying the array structure of `tcx.untracked.definitions` so that it can be accessed efficiently in multiple threads is likely to be the key.
+- macro expansion. How to deal with the order problem of name resolution during macro expansion is a difficult point.
+- lex parsing.
+
+Achieving the above goals is of big significance to improving the performance of the Rust compiler.
+
+**Expected result**
+
+Parallel front-end will not cause deadlock problems. We can ensure usability through [UI testing](https://github.com/rust-lang/rust/pull/132051).
+
+The parallel front-end can currently achieve full compilation, and 8 threads can reduce the compilation time by more than 20% compared to a single thread. 
+Our goal is to increase it to more than 30%. We can test it through the rustc-perf tool.
+
+**Desirable skills**
+
+Need a certain understanding of the implementation of the compiler process(such as typeck, hir_lowering, macro expansion).
+
+**Project size**
+
+Medium
+
+**Difficulty**
+
+Medium to hard.
+
+**Mentor**
+- Sparrow Li ([GitHub](https://github.com/SparrowLii), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/353056-Sparrow-Li))
+
+**Zulip streams**
+- [Zulip channel](https://rust-lang.zulipchat.com/#narrow/channel/187679-t-compiler.2Fwg-parallel-rustc)
 
 ## Infrastructure
 
