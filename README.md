@@ -139,6 +139,9 @@ and try to resolve as many such issues as possible.
 While the main motivation is to make the Rust toolchain (compiler, standard library, etc.) releases
 reproducible, any improvements on this front should benefit the reproducibility of all Rust programs.
 
+See [Tracking Issue for Reproducible Build bugs and challenges](https://github.com/rust-lang/rust/issues/129080)
+for a non-exhaustive list of reproducibility challenges.
+
 **Expected result**
 
 Rust builds are more reproducible, ideally the Rust toolchain can be compiled in a reproducible manner.
@@ -153,7 +156,7 @@ Medium.
 
 **Difficulty**
 
-Large.
+Hard.
 
 **Mentor**
 - Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
