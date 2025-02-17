@@ -162,6 +162,7 @@ Hard.
 - Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
 
 **Related links**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20reproducible.20builds)
 - [Prior art in Go](https://go.dev/blog/rebuild)
 
 ### Bootstrap of rustc with `rustc_codegen_gcc`
@@ -202,7 +203,7 @@ Hard.
 - Antoni Boucher ([GitHub](https://github.com/antoyo), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/404242-antoyo))
 
 **Zulip streams**
-- Idea discussion
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Bootstrap.20of.20rustc.20with.20.60rustc_codegen_gcc.60)
 - [rustc_codegen_gcc](https://rust-lang.zulipchat.com/#narrow/channel/386786-rustc-codegen-gcc/)
 
 ### Refactoring of `rustc_codegen_ssa` to make it more convenient for the GCC codegen
@@ -249,7 +250,7 @@ Medium.
 - Antoni Boucher ([GitHub](https://github.com/antoyo), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/404242-antoyo))
 
 **Zulip streams**
-- Idea discussion
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Refactoring.20of.20.60rustc_codegen_ssa.60.20for.20cg_gcc)
 - [rustc_codegen_gcc](https://rust-lang.zulipchat.com/#narrow/channel/386786-rustc-codegen-gcc/)
 
 ### ABI/Layout handling for the automatic differentiation feature
@@ -296,7 +297,8 @@ Medium to hard.
 - Oli ([GitHub](https://github.com/oli-obk), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/124288-oli))
 
 **Zulip streams**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/390790-wg-autodiff)
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20ABI.2FLayout.20handling.20for.20automatic.20differentiation)
+- [Automatic differentiation working group](https://rust-lang.zulipchat.com/#narrow/channel/390790-wg-autodiff)
 
 ### Improving parallel frontend
 
@@ -347,8 +349,9 @@ Medium to hard.
 - Sparrow Li ([GitHub](https://github.com/SparrowLii), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/353056-Sparrow-Li))
 
 **Zulip streams**
-- Idea discussion (TODO)
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Improving.20parallel.20frontend)
 - [Parallel frontend working group](https://rust-lang.zulipchat.com/#narrow/channel/187679-t-compiler.2Fwg-parallel-rustc)
+- [Parallel frontend project goal](https://rust-lang.github.io/rust-project-goals/2025h1/parallel-front-end.html)
 
 ## Infrastructure
 
@@ -469,7 +472,7 @@ Medium.
 - Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
 
 **Zulip streams**
-- Idea discussion
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Prototype.20an.20alternative.20architecture.20for.20.60cargo.20fix.60)
 - [Cargo team](https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo)
 
 ### Prototype Cargo plumbing commands
@@ -514,7 +517,7 @@ Medium.
 - Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
 
 **Zulip streams**
-- Idea discussion
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Prototype.20Cargo.20plumbing.20commands)
 - [Cargo team](https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo)
 
 ### Move cargo shell completions to Rust
@@ -554,7 +557,7 @@ Medium.
 Medium.
 
 **Mentor**
-- Idea discussion
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20move.20cargo.20shell.20completions.20to.20Rust)
 - Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
 
 ### Build script delegation
@@ -605,7 +608,7 @@ Large.
 Medium.
 
 **Mentor**
-- Idea discussion
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Build.20script.20delegation)
 - Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
 
 ## Crate ecosystem
@@ -728,7 +731,7 @@ Medium to high. See the "desirable skills" section above.
 - Predrag Gruevski ([GitHub](https://github.com/obi1kenobi/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/474284-Predrag-Gruevski-(he-him)))
 
 **Zulip streams**
-- Idea discussion (TODO)
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Make.20.60cargo-semver-checks.60.20run.20faster)
 
 **Related Links**
 - [Playground where you can try querying Rust data](https://play.predr.ag/rustdoc)
@@ -766,6 +769,10 @@ Medium
 
 **Mentor**
 - Predrag Gruevski ([GitHub](https://github.com/obi1kenobi/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/474284-Predrag-Gruevski-(he-him)))
+
+**Zulip streams**
+
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Enable.20witness.20generation.20in.20.60cargo-semver-checks.60)
 
 **Related Links**
 - [Playground where you can try querying Rust data](https://play.predr.ag/rustdoc)
@@ -819,6 +826,10 @@ Some of the work is medium. Diagnosing and / or fixing failures is often pretty 
 **Mentor**
 
 - David Lattimore ([GitHub](https://github.com/davidlattimore), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/198560-David-Lattimore))
+
+**Zulip streams**
+
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Wild.20linker.20with.20test.20suites.20from.20other.20linkers)
 
 **Further resources**
 
