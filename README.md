@@ -257,7 +257,7 @@ Medium.
 
 **Description**
 
-Over the last year, support for automatic differentiation ('autodiff') was added to the Rust compiler. The autodiff tool which we are using ([Enzyme](https://enzyme.mit.edu/)) operates 
+Over the last year, support for automatic differentiation ('autodiff') was added to the Rust compiler. The autodiff tool which we are using ([Enzyme](https://enzyme.mit.edu/)) operates
 on LLVM-IR, which is the intermediate representation of code, used by LLVM. LLVM is the default backend of the Rust compiler. Unfortunately, two layout related problems limit its usability.
 
 A) The Rust compiler has a set of ABI optimizations which can improve performance, but make it harder for autodiff to work. An example is the function `fn foo(a: f32, b: f32) -> f32`,
@@ -267,7 +267,7 @@ If a function has a `#[rustc_autodiff]` attribute, the Rust compiler should simp
 Multiple examples of function headers which will get handled incorrectly at the moment are listed [here](https://github.com/EnzymeAD/rust/issues/105).
 
 B) Enzyme requires good information about the memory layout of types, both to be able to differentiate the code, and to do so efficiently. In order to help Enzyme,
-we want to lower more Type Information from MIR or even THIR into LLVM-IR metadata, or make better usage of existing debug info. If you are interested in this part and 
+we want to lower more Type Information from MIR or even THIR into LLVM-IR metadata, or make better usage of existing debug info. If you are interested in this part and
 also have some LLVM experience, please have a look at the LLVM website for the related proposal.
 
 For both A) and B), the online compiler explorer [here](https://enzyme.mit.edu/explorer/) can be used to trigger both types of bugs, to get a feeling for existing problems.
@@ -310,11 +310,11 @@ Currently, the backend end (codegen part) of the compiler has been parallelized,
 The most important and valuable work in this area are two aspects:
 
 A) Diagnosing and fixing deadlock [issues](https://github.com/rust-lang/rust/issues?q=is%3Aopen+label%3AWG-compiler-parallel+deadlock) caused by the execution order of compiler queries in a multithreaded environment.
-[Queries](https://rustc-dev-guide.rust-lang.org/query.html) is a unique design of the Rust compiler, which is used to achieve incremental compilation process. It divides the compiler 
-process into various parts and caches the execution results of each part. However, queries caching dependencies between multiple threads may cause deadlock. 
+[Queries](https://rustc-dev-guide.rust-lang.org/query.html) is a unique design of the Rust compiler, which is used to achieve incremental compilation process. It divides the compiler
+process into various parts and caches the execution results of each part. However, queries caching dependencies between multiple threads may cause deadlock.
 [`Work-stealing`](https://en.wikipedia.org/wiki/Work_stealing), a method used to improve parallelization performance, is the core reason.
 
-To solve these problems, we need to find the part of the compiler process that causes deadlock through diagnosing coredumps in issues, and adjusting the execution order 
+To solve these problems, we need to find the part of the compiler process that causes deadlock through diagnosing coredumps in issues, and adjusting the execution order
 of this part of code so that there will be no circular dependencies on the query caches between multiple threads. This [PR](https://github.com/rust-lang/rust/pull/118488) is a good example of solving a deadlock problem.
 
 B) Improving the performance of the parallel frontend
@@ -833,5 +833,5 @@ Some of the work is medium. Diagnosing and / or fixing failures is often pretty 
 
 **Further resources**
 
-- [Wild linker](https://github.com/davidlattimore/wild)  
+- [Wild linker](https://github.com/davidlattimore/wild)
 - [Blog posts, most of which are about Wild](https://davidlattimore.github.io/)
