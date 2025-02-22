@@ -38,7 +38,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Move cargo shell completions to Rust](#move-cargo-shell-completions-to-Rust)
     - [Build script delegation](#build-script-delegation)
 - **rust-analyzer**
-    - [Implement a new proc-macro server RPC API](#proc-macro-rpc)
+    - [Implement a new proc-macro server RPC API](#implement-a-new-proc-macro-server-RPC-API)
 - **Crate ecosystem**
     - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
