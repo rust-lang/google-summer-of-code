@@ -37,6 +37,8 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Prototype Cargo plumbing commands](#prototype-cargo-plumbing-commands)
     - [Move cargo shell completions to Rust](#move-cargo-shell-completions-to-Rust)
     - [Build script delegation](#build-script-delegation)
+- **rust-analyzer**
+    - [Implement a new proc-macro server RPC API](#implement-a-new-proc-macro-server-RPC-API)
 - **Crate ecosystem**
     - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
@@ -610,6 +612,45 @@ Medium.
 **Mentor**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Build.20script.20delegation)
 - Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
+
+## rust-analyzer
+
+### Implement a new proc-macro server RPC API
+
+**Description**
+
+Today, rust-analyzer (and RustRover) expands proc-macros by spawning a separate proc-macro server
+process that loads and executes the proc-macro dynamic libraries. They communicate to this process
+via a JSON RPC interface that has not been given much thought when it was implemented, now starting
+to show its limitations.
+
+The goal is to replace this current implementation entirely in favor of a more performant format
+that also supports the more complicated needs of the proc-macro API, outlined in
+https://github.com/rust-lang/rust-analyzer/issues/19205.
+
+**Expected result**
+
+There exists a new proc-macro server that is more efficient and allows for implementing the
+remaining proc-macro API. Ideally, it should be integrated within rust-analyzer.
+
+**Desirable skills**
+
+Intermediate knowledge of Rust.
+
+**Project size**
+
+Medium.
+
+**Difficulty**
+
+Medium.
+
+**Mentor**
+- Lukas Wirth ([GitHub](https://github.com/veykril), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/300586-Lukas-Wirth))
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/185405-t-compiler.2Frust-analyzer/topic/proc-macro.20server.20IPC.20format)
+- [rust-analyzer team](https://rust-lang.zulipchat.com/#narrow/channel/185405-t-compiler.2Frust-analyzer)
 
 ## Crate ecosystem
 
