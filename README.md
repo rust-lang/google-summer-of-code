@@ -29,6 +29,8 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
     - [ABI/Layout handling for the automatic differentiation feature](#abilayout-handling-for-the-automatic-differentiation-feature)
     - [Improving parallel frontend](#improving-parallel-frontend)
+- **Rust standard library**
+    - [Extend testing of `std::arch` intrinsics](#extend-testing-of-stdarch-intrinsics)
 - **Infrastructure**
     - [Implement merge functionality in bors](#implement-merge-functionality-in-bors)
     - [Improve bootstrap](#Improve-bootstrap)
@@ -354,6 +356,43 @@ Medium to hard.
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Improving.20parallel.20frontend)
 - [Parallel frontend working group](https://rust-lang.zulipchat.com/#narrow/channel/187679-t-compiler.2Fwg-parallel-rustc)
 - [Parallel frontend project goal](https://rust-lang.github.io/rust-project-goals/2025h1/parallel-front-end.html)
+
+## Rust standard library
+
+### Extend testing of `std::arch` intrinsics
+
+**Description**
+
+The [`std::arch`](https://doc.rust-lang.org/nightly/std/arch/index.html) module in the standard library provides architecture-specific intrinsic functions, which typically directly map to a single machine instruction.
+
+These intrinsics are based on the architecture-specific intrinsics in C, which are usually based on a vendor specification and then implemented by C compilers such as Clang or GCC.
+
+Rust supports thousands of intrinsics and we need to verify that they match the behavior of the equivalent intrinsics in C. A first step towards this has been the [`intrinsic-test`](https://github.com/rust-lang/stdarch/tree/master/crates/intrinsic-test) which fuzz tests the ARM (AArch32 and AArch64) intrinsics by generating C and Rust programs which call the intrinsics with random data and then verifying that the output is the same in both programs.
+
+While this covers the ARM architectures, we have thousands of intrinsics for other architectures (notably x86) which are only lightly tested with manual tests. The goal of this project is to extend `intrinsic-test` to other architectures: x86, PowerPC, LoongArch, etc.
+
+**Expected result**
+
+By the end of this project `intrinsic-test` should be able to validate the behavior of intriniscs on multiple architectures. The primary goal is to support x86 since this is the most widely used architecture, but stretch goals could include support for other architectures such as PowerPC, LoongArch, WebAssembly, etc.
+
+**Desirable skills**
+
+Intermediate knowleged of Rust and C. Knowledge of intrinsics or assembly is useful but not required.
+
+**Project size**
+
+Small to Medium.
+
+**Difficulty**
+
+Medium.
+
+**Mentors**
+- Amanieu d'Antras ([GitHub](https://github.com/Amanieu), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/143274-Amanieu-d'Antras))
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Extend.20testing.20of.20.60std.3A.3Aarch.60.20intrinsics)
+- [t-libs/stdarch](https://rust-lang.zulipchat.com/#narrow/channel/208962-t-libs.2Fstdarch)
 
 ## Infrastructure
 
