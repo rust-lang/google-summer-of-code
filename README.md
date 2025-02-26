@@ -34,6 +34,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 - **Infrastructure**
     - [Implement merge functionality in bors](#implement-merge-functionality-in-bors)
     - [Improve bootstrap](#Improve-bootstrap)
+    - [Port `std::arch` test suite to `rust-lang/rust`](#port-stdarch-test-suite-to-rust-langrust)
 - **Cargo**
     - [Prototype an alternative architecture for `cargo fix`](#prototype-an-alternative-architecture-for-cargo-fix)
     - [Prototype Cargo plumbing commands](#prototype-cargo-plumbing-commands)
@@ -377,7 +378,7 @@ By the end of this project `intrinsic-test` should be able to validate the behav
 
 **Desirable skills**
 
-Intermediate knowleged of Rust and C. Knowledge of intrinsics or assembly is useful but not required.
+Intermediate knowledge of Rust and C. Knowledge of intrinsics or assembly is useful but not required.
 
 **Project size**
 
@@ -460,6 +461,44 @@ Medium.
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20bootstrap)
 - [Bootstreap team](https://rust-lang.zulipchat.com/#narrow/stream/326414-t-infra.2Fbootstrap)
+
+### Port `std::arch` test suite to `rust-lang/rust`
+
+**Description**
+
+The [`std::arch`](https://doc.rust-lang.org/nightly/std/arch/index.html) module in the standard library provides architecture-specific intrinsic functions, which typically directly map to a single machine instruction.
+
+Currently, it lives in its own [repository](https://github.com/rust-lang/stdarch) outside the main [Rust compiler repository](https://github.com/rust-lang/rust) (`rustc`). The `rustc` repository includes `stdarch` only as a submodule, and does not execute its testsuite on the compiler's CI. This sometimes causes contributor friction, because updates to the compiler can break `stdarch` (and vice versa) and it is not possible to change both the compiler and `stdarch` at once (in the same pull request).
+
+`stdarch` has a comprehensive test suite that tests the intrinsics on several hardware architectures and operating system platforms, and it also includes fuzz tests. It cannot be simply copied over to `rustc`, because that has its own (much more complex) set of CI workflows. The `stdarch` testsuite thus has to be adapted to the way workflows are executed in the compiler repository.
+
+The ultimate goal is to inline `stdarch` into `rustc` completely, and archive the `stdarch` repository. This can be incrementally achieved by the following two steps:
+
+1) Investigate the CI (continuous integration) test suite of `stdarch`, and port as much of it into `rustc`. This will involve implementing new testing and documentation steps for working with `stdarch` in the compiler's build system, [bootstrap](https://rustc-dev-guide.rust-lang.org/building/bootstrapping/how-bootstrap-does-it.html).
+2) Once a sufficient portion of the test suite has been ported, `stdarch` should be changed from a submodule to either a git or [Josh](https://josh-project.github.io/josh) subtree, so that compiler contributors are able to make changes to `stdarch` when they modify the compiler. This might involve creating some automation tooling to help with performing regular synchronizations from/to `stdarch`. See [this page](https://rustc-dev-guide.rust-lang.org/external-repos.html#using-external-repositories) for more details.
+
+**Expected result**
+
+The most important parts of the `stdarch` test suite should be running in the CI of the Rust compiler. Ideally, `stdarch` should be included as a git/Josh subtree instead of a submodule, or in the best possible scenario moved completely into `rust-lang/rust`.
+
+**Desirable skills**
+
+Intermediate knowledge of Rust. Experience with GitHub Actions or CI workflows is a benefit.
+
+**Project size**
+
+Small to Medium.
+
+**Difficulty**
+
+Medium.
+
+**Mentors**
+- Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Port.20.60std.3A.3Aarch.60.20test.20suite.20to.20.60rust-lang.2Frust.60)
+- [t-libs/stdarch](https://rust-lang.zulipchat.com/#narrow/channel/208962-t-libs.2Fstdarch)
 
 ## Cargo
 
