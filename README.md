@@ -22,13 +22,13 @@ We use the GSoC project size parameters for estimating the expected time complex
 
 ## Index
 - **Rust Compiler**
-    - [C codegen backend for rustc](#C-codegen-backend-for-rustc)
     - [Extend annotate-snippets with features required by rustc](#Extend-annotate-snippets-with-features-required-by-rustc)
     - [Reproducible builds](#reproducible-builds)
     - [Bootstrap of rustc with rustc_codegen_gcc](#Bootstrap-of-rustc-with-rustc_codegen_gcc)
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
     - [ABI/Layout handling for the automatic differentiation feature](#abilayout-handling-for-the-automatic-differentiation-feature)
     - [Improving parallel frontend](#improving-parallel-frontend)
+    - [C codegen backend for rustc](#C-codegen-backend-for-rustc)
 - **Rust standard library**
     - [Extend testing of `std::arch` intrinsics](#extend-testing-of-stdarch-intrinsics)
 - **Infrastructure**
