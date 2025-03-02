@@ -738,15 +738,17 @@ Medium.
 
 The [libc](https://github.com/rust-lang/libc) crate is one of the oldest crates of the Rust ecosystem, long predating
 Rust 1.0. Additionally, it is one of the most widely used crates in the ecosystem (#4 most downloaded on crates.io).
-This combinations means that the current version of the libc crate (`v0.2`) is very conservative with breaking changes and
-remains backwards-compatible with all Rust compilers since Rust 1.13 (released in 2016).
+This combinations means that the current version of the libc crate (`v0.2`) is very conservative with breaking changes
+has accumulated a list of things to do in a 1.0 release. Additionally, some of the infrastructure for `lib` is rather
+outdated.
 
-The language has evolved a lot since Rust 1.13, and we would like to make use of these features in libc. The main one is
-support for `union` types to proper expose C unions.
+Most of the changes required for 1.0 are under the [1.0 milestone](https://github.com/rust-lang/libc/milestone/1). Some
+of these come from the evolution of the underlying platforms, some come from a desire to use newer language features,
+while others are simple mistakes that we cannot correct without breaking existing code.
 
-At the same time there, is a backlog of desired breaking changes tracked in [this issue](https://github.com/rust-lang/libc/issues/3248). Some of these come from
-the evolution of the underlying platforms, some come from a desire to use newer language features, while others are
-simple mistakes that we cannot correct without breaking existing code.
+The crate used for testing `libc` (`ctest`) uses an old syntax parser that cannot support modern Rust, so some of the
+changes will require rewriting `ctest` to use a newer parser (e.g. `syn`). This upgrade is tracked at
+https://github.com/rust-lang/libc/issues/4289.
 
 The goal of this project is to prepare and release the next major version of the libc crate.
 
