@@ -374,7 +374,7 @@ While this covers the ARM architectures, we have thousands of intrinsics for oth
 
 **Expected result**
 
-By the end of this project `intrinsic-test` should be able to validate the behavior of intriniscs on multiple architectures. The primary goal is to support x86 since this is the most widely used architecture, but stretch goals could include support for other architectures such as PowerPC, LoongArch, WebAssembly, etc.
+By the end of this project `intrinsic-test` should be able to validate the behavior of intrinsics on multiple architectures. The primary goal is to support x86 since this is the most widely used architecture, but stretch goals could include support for other architectures such as PowerPC, LoongArch, WebAssembly, etc.
 
 **Desirable skills**
 
@@ -460,7 +460,7 @@ Medium.
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20improve.20bootstrap)
-- [Bootstreap team](https://rust-lang.zulipchat.com/#narrow/stream/326414-t-infra.2Fbootstrap)
+- [Bootstrap team](https://rust-lang.zulipchat.com/#narrow/stream/326414-t-infra.2Fbootstrap)
 
 ### Port `std::arch` test suite to `rust-lang/rust`
 
@@ -574,7 +574,7 @@ See the [Project Goal](https://rust-lang.github.io/rust-project-goals/2025h1/car
 Ideal: a performant `cargo porcelain check` command that calls out to
 individual `cargo plumbing <name>` commands to implement its functionality.
 
-Depending on the size the particpant takes on and their experience,
+Depending on the size the participant takes on and their experience,
 this may be out of reach.
 The priorities are:
 1. A shell of `cargo porcelain check`
