@@ -28,6 +28,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
     - [ABI/Layout handling for the automatic differentiation feature](#abilayout-handling-for-the-automatic-differentiation-feature)
     - [Improving parallel frontend](#improving-parallel-frontend)
+    - [Prepare `stable_mir` crate for publishing](#prepare-stable_mir-crate-for-publishing)
     - [C codegen backend for rustc](#C-codegen-backend-for-rustc)
 - **Rust standard library**
     - [Extend testing of `std::arch` intrinsics](#extend-testing-of-stdarch-intrinsics)
@@ -316,6 +317,50 @@ Medium to hard.
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Improving.20parallel.20frontend)
 - [Parallel frontend working group](https://rust-lang.zulipchat.com/#narrow/channel/187679-t-compiler.2Fwg-parallel-rustc)
 - [Parallel frontend project goal](https://rust-lang.github.io/rust-project-goals/2025h1/parallel-front-end.html)
+
+### Prepare `stable_mir` crate for publishing
+
+**Description**
+
+We are advancing the Rust compiler's StableMIR API, which provides a robust foundation for code analysis tool development.
+This API was specifically designed to shield developers from compiler internals, provide an intuitive interface, and to follow semantic versioning.
+
+The project currently spans two key crates:
+1. `stable_mir`: The public-facing API for tool developers
+2. `rustc_smir`: The internal bridge between `stable_mir` and the Rust compiler.
+
+As we prepare to [publish the `stable_mir` crate](https://rust-lang.github.io/rust-project-goals/2025h1/stable-mir.html), we are seeking contributions in these critical areas:
+
+1. Refactor the dependency between `rustc_smir` and the `stable_mir` crates in the compiler to help us prepare for releasing `stable_mir` v0.1. More details of this refactoring can be found [here](https://hackmd.io/jBRkZLqAQL2EVgwIIeNMHg).
+2. Implement a build time check on `stable-mir` crate to warn users that are using an unsupported version of the compiler.
+3. Improve test coverage and automation including CI improvements to test with different compiler versions.
+4. Create comprehensive developer documentation that covers maintenance procedures for both crates, ensuring future maintainers have clear guidelines for updates and compatibility management.
+5. Continue the StableMIR integration with MiniRust to help us assess and improve StableMIR as described in [this issue](https://github.com/rust-lang/project-stable-mir/issues/66).
+
+
+**Expected result**
+
+We are able to publish an initial version of the `stable_mir` crate that works across multiple nightly versions, and that gracefully fails if the version is not supported.
+
+**Desirable skills**
+
+* Good debugging ability.
+* Basic knowledge of Rust.
+* Basic knowledge of Github CI.
+
+**Project size**
+
+Medium-Large depending on the chosen scope.
+
+**Difficulty**
+
+Medium.
+
+**Mentor**
+- Celina Val ([GitHub](https://github.com/celinval), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/442621-celinval))
+
+**Zulip streams**
+- [stable_mir](https://rust-lang.zulipchat.com/#narrow/channel/320896-project-stable-mir)
 
 ### C codegen backend for `rustc`
 
