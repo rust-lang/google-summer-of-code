@@ -337,7 +337,6 @@ As we prepare to [publish the `stable_mir` crate](https://rust-lang.github.io/ru
 4. Create comprehensive developer documentation that covers maintenance procedures for both crates, ensuring future maintainers have clear guidelines for updates and compatibility management.
 5. Continue the StableMIR integration with MiniRust to help us assess and improve StableMIR as described in [this issue](https://github.com/rust-lang/project-stable-mir/issues/66).
 
-
 **Expected result**
 
 We are able to publish an initial version of the `stable_mir` crate that works across multiple nightly versions, and that gracefully fails if the version is not supported.
@@ -360,6 +359,7 @@ Medium.
 - Celina Val ([GitHub](https://github.com/celinval), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/442621-celinval))
 
 **Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Prepare.20.60stable_mir.60.20crate.20for.20publishing/with/506581543)
 - [stable_mir](https://rust-lang.zulipchat.com/#narrow/channel/320896-project-stable-mir)
 
 ### C codegen backend for `rustc`
