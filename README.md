@@ -36,6 +36,8 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Implement merge functionality in bors](#implement-merge-functionality-in-bors)
     - [Improve bootstrap](#Improve-bootstrap)
     - [Port `std::arch` test suite to `rust-lang/rust`](#port-stdarch-test-suite-to-rust-langrust)
+- **Rustup**
+    - [Make rustup concurrent](#make-rustup-concurrent)  
 - **Cargo**
     - [Prototype an alternative architecture for `cargo fix`](#prototype-an-alternative-architecture-for-cargo-fix)
     - [Prototype Cargo plumbing commands](#prototype-cargo-plumbing-commands)
@@ -544,6 +546,51 @@ Medium.
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Port.20.60std.3A.3Aarch.60.20test.20suite.20to.20.60rust-lang.2Frust.60)
 - [t-libs/stdarch](https://rust-lang.zulipchat.com/#narrow/channel/208962-t-libs.2Fstdarch)
+
+## Rustup
+
+### Make rustup concurrent
+
+**Description**
+
+[rustup](https://github.com/rust-lang/rustup) is an indispensable part of Rust's infrastructure, as it provides easy access to a Rust toolchain to millions of Rust users.
+
+When installing a toolchain, it first downloads a set of components and then extracts them to disk. Currently, all downloads and disk I/O is performed serially, which makes rustup slower than it could be. Ideally, it should be able to overlap network downloads with disk I/O, and potentially also perform multiple network downloads at once.
+
+Making rustup faster could have a high impact on the Rust ecosystem, particularly in CI environments, where rustup is typically used to download a Rust toolchain in every workflow execution. Since there are tens of thousands of repositories that use Rust in their CI, this can add up quickly.
+
+There has been a prior [experiment](https://github.com/dtolnay/fast-rustup) that showed that concurrent rustup could in fact provide non-trivial performance improvements. [This issue](https://github.com/rust-lang/rustup/issues/731) contains discussion on the topic.
+
+The rustup codebase now uses `async`, which should make implementing concurrent network and disk operations simpler.
+
+The goal of the project is to add concurrency to rustup to enable overlap od network and disk I/O operations and perform benchmarks and experiments to evaluate what is the performance effect of such a change and when it is even worth it to perform it.
+
+**Expected result**
+
+Rustup will be able to overlap network and disk I/O and perform network requests concurrently.
+
+**Desirable skills**
+
+Intermediate knowledge of Rust. Familiarity with async programming or cross-platform filesystem knowledge is a bonus.
+
+**Project size**
+
+Medium.
+
+**Difficulty**
+
+Medium.
+
+**Mentor**
+- rami3l ([GitHub](https://github.com/rami3l), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/616990-rami3l))
+
+**Zulip streams**
+- [Idea discussion](TODO)
+
+**Related Links**
+- [Rustup discord channel](https://discord.com/channels/442252698964721669/463480252723888159)
+- [fast-rustup experiment](https://github.com/dtolnay/fast-rustup)
+- [Concurrent rustup GitHub issue](https://github.com/rust-lang/rustup/issues/731)
 
 ## Cargo
 
