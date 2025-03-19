@@ -526,7 +526,7 @@ Rustup will be able to overlap network and disk I/O and perform network requests
 
 **Desirable skills**
 
-Intermediate knowledge of Rust.
+Intermediate knowledge of Rust. Familiarity with async programming or cross-platform filesystem knowledge is a bonus.
 
 **Project size**
 
