@@ -585,7 +585,7 @@ Medium.
 - rami3l ([GitHub](https://github.com/rami3l), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/616990-rami3l))
 
 **Zulip streams**
-- [Idea discussion](TODO)
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Make.20rustup.20concurrent/with/506733333)
 
 **Related Links**
 - [Rustup discord channel](https://discord.com/channels/442252698964721669/463480252723888159)
