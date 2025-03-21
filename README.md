@@ -36,6 +36,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Implement merge functionality in bors](#implement-merge-functionality-in-bors)
     - [Improve bootstrap](#Improve-bootstrap)
     - [Port `std::arch` test suite to `rust-lang/rust`](#port-stdarch-test-suite-to-rust-langrust)
+    - [Distributed and focused verification](#Distributed-and-focused-verification)
 - **Rustup**
     - [Make rustup concurrent](#make-rustup-concurrent)  
 - **Cargo**
@@ -548,6 +549,61 @@ Medium.
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Port.20.60std.3A.3Aarch.60.20test.20suite.20to.20.60rust-lang.2Frust.60)
 - [t-libs/stdarch](https://rust-lang.zulipchat.com/#narrow/channel/208962-t-libs.2Fstdarch)
+
+### Distributed and focused verification
+
+**Description**
+
+We have taken a goal to
+[instrument the Rust standard library with safety contracts](https://rust-lang.github.io/rust-project-goals/2025h1/std-contracts.html).
+With this approach we are moving from informal comments specifying safety
+requirements on `unsafe` functions to executable Rust code.
+To prove that these safety requirements hold in all possible executions we need
+to run static analysis tools.
+We would further like to prove that these safety requirements continue to hold
+despite code changes.
+Therefore, we will want to run static analysis tools that prove these safety
+requirements in continuous integration.
+We have started such an effort in our
+[verify-rust-std](https://github.com/model-checking/verify-rust-std) fork.
+
+Static analysis tools will typically require compute effort that may go up to
+minutes per function that needs to be proved.
+With a growing number of contracts we will, therefore, need to distribute proof
+effort across multiple nodes.
+We may, however, also _reduce_ the proof effort when we can identify that any
+given proof necessarily continues to hold as the transitive closure of functions
+goverened by the contract has not been modified since the proof last completed.
+
+We are looking for contributions in the following areas:
+1. A reachability- or impact analysis that, given a code change, determines
+   which proofs require re-verification.
+2. A system that will shard proofs across multiple nodes and recombine their
+   results. Multiple verification tools may be involved.
+
+**Expected result**
+
+A system that can run all verification tasks in under 1 hour, and for changes
+that do not impact any contract no actual verification tool is invoked.
+
+**Desirable skills**
+
+* Intermediate knowledge of Rust.
+* Basic knowledge of Github CI.
+
+**Project size**
+
+Medium.
+
+**Difficulty**
+
+Medium.
+
+**Mentor**
+- Michael Tautschnig ([GitHub](https://github.com/tautschnig), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/887765-Michael-Tautschnig))
+
+**Zulip streams**
+- None
 
 ## Rustup
 
