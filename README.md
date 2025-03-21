@@ -261,7 +261,7 @@ Medium
 
 Medium to hard.
 
-**Mentor**
+**Mentors**
 - Manuel Drehwald ([GitHub](https://github.com/zusez4), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/348574-Manuel-Drehwald))
 - Oli ([GitHub](https://github.com/oli-obk), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/124288-oli))
 
