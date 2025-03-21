@@ -128,8 +128,10 @@ Hard.
 **Mentor**
 - Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
 
-**Related links**
+**Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20reproducible.20builds)
+
+**Related links**
 - [Prior art in Go](https://go.dev/blog/rebuild)
 
 ### Bootstrap of rustc with `rustc_codegen_gcc`
@@ -729,8 +731,10 @@ Medium.
 Medium.
 
 **Mentor**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20move.20cargo.20shell.20completions.20to.20Rust)
 - Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20move.20cargo.20shell.20completions.20to.20Rust)
 
 ### Build script delegation
 
@@ -780,8 +784,10 @@ Large.
 Medium.
 
 **Mentor**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Build.20script.20delegation)
 - Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Build.20script.20delegation)
 
 ## rust-analyzer
 
