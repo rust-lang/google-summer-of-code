@@ -10,7 +10,7 @@ This document contains ideas that should still be actual and that were not yet c
 - Past Google Summer of Code projects
   - [2024](gsoc/past/2024.md)
 
-We invite contributors that would like to participate in projects such as GSoC or that would just want to find a Rust project that they would like to work on to examine the project list and use it as an inspiration. Another source of inspiration can be the [Rust Project Goals](https://rust-lang.github.io/rust-project-goals/index.html), particularly the orphaned goals.
+We invite contributors that would like to participate in projects such as GSoC or that would just want to find a Rust project that they would like to work on to examine the project list and use it as an inspiration. Another source of inspiration can be the [Rust Project Goals](https://rust-lang.github.io/rust-project-goals/index.html), particularly the orphaned goals. However, you can also work on these projects outside of GSoC or other similar projects! We welcome all contributions.
 
 If you would like to participate in GSoC, please read [this](gsoc/README.md).
 If you would like to discuss projects ideas or anything related to them, you can do so on our [Zulip](https://rust-lang.zulipchat.com/).
