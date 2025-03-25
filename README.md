@@ -37,7 +37,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Implement merge functionality in bors](#implement-merge-functionality-in-bors)
     - [Improve bootstrap](#Improve-bootstrap)
     - [Port `std::arch` test suite to `rust-lang/rust`](#port-stdarch-test-suite-to-rust-langrust)
-    - [Distributed and focused verification](#Distributed-and-focused-verification)
+    - [Distributed and resource-efficient verification](#distributed-and-resource-efficient-verification)
 - **Rustup**
     - [Make rustup concurrent](#make-rustup-concurrent)  
 - **Cargo**
