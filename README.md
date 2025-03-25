@@ -550,7 +550,7 @@ Medium.
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Port.20.60std.3A.3Aarch.60.20test.20suite.20to.20.60rust-lang.2Frust.60)
 - [t-libs/stdarch](https://rust-lang.zulipchat.com/#narrow/channel/208962-t-libs.2Fstdarch)
 
-### Distributed and focused verification
+### Distributed and resource-efficient verification
 
 **Description**
 
@@ -577,7 +577,8 @@ governed by the contract has not been modified since the proof last completed.
 
 We are looking for contributions in the following areas:
 1. A reachability- or impact analysis that, given a code change, determines
-   which proofs require re-verification.
+   which proofs require re-verification. This will avoid wasting compute
+   resources for unnecessary re-verification.
 2. A system that will shard proofs across multiple nodes and recombine their
    results. Multiple verification tools may be involved, and tools may have
    varying performance characteristics. Load balancing could conceivably be done
