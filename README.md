@@ -32,6 +32,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [C codegen backend for rustc](#C-codegen-backend-for-rustc)
 - **Rust standard library**
     - [Extend testing of `std::arch` intrinsics](#extend-testing-of-stdarch-intrinsics)
+    - [Add safety contracts](#Add-safety-contracts)
 - **Infrastructure**
     - [Implement merge functionality in bors](#implement-merge-functionality-in-bors)
     - [Improve bootstrap](#Improve-bootstrap)
@@ -443,6 +444,60 @@ Medium.
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Extend.20testing.20of.20.60std.3A.3Aarch.60.20intrinsics)
 - [t-libs/stdarch](https://rust-lang.zulipchat.com/#narrow/channel/208962-t-libs.2Fstdarch)
+
+### Add safety contracts
+
+**Description**
+
+There is a Rust project goal to
+[instrument the Rust standard library with safety contracts](https://rust-lang.github.io/rust-project-goals/2025h1/std-contracts.html).
+With this approach we are moving from informal comments specifying safety
+requirements on `unsafe` functions to executable Rust code.
+To prioritize which functions to equip with contracts first, we run a
+verification contest in the
+[verify-rust-std](https://github.com/model-checking/verify-rust-std) fork.
+In this contest,
+[challenges](https://model-checking.github.io/verify-rust-std/challenges.html)
+have been put up that request specific sets of functions to be equipped with
+contracts.
+We also welcome new challenges being proposed by anyone, or contracts being
+contributed outside any of the existing challenges.
+
+For example, we are currently looking for contributions towards the following challenges:
+- [Verify the memory safety of core intrinsics using raw pointers](https://model-checking.github.io/verify-rust-std/challenges/0002-intrinsics-memory.html)
+- [Memory safety of BTreeMap's `btree::node` module](https://model-checking.github.io/verify-rust-std/challenges/0004-btree-node.html)
+- [Safety of Methods for Atomic Types & Atomic Intrinsics](https://model-checking.github.io/verify-rust-std/challenges/0007-atomic-types.html)
+- [Contracts for SmallSort](https://model-checking.github.io/verify-rust-std/challenges/0008-smallsort.html)
+- [Safety of `NonZero`](https://model-checking.github.io/verify-rust-std/challenges/0012-nonzero.html)
+
+There is, however, no restriction to contribute to just those challenges: any of
+the other open challenges are equally of interest, and so is creating new
+challenges.
+
+**Expected result**
+
+A set of safety contracts and harnesses have been implemented in
+[verify-rust-std](https://github.com/model-checking/verify-rust-std) for one of
+the open challenges or any newly created challenge.
+A stretch goal is to port upstream as many of those contracts as possible.
+
+**Desirable skills**
+
+* Basic knowledge of Rust.
+
+**Project size**
+
+Small to Large, depending on the number of challenges being addressed.
+
+**Difficulty**
+
+Medium.
+
+**Mentor**
+- Michael Tautschnig ([GitHub](https://github.com/tautschnig), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/887765-Michael-Tautschnig))
+
+**Zulip streams**
+- None
 
 ## Infrastructure
 
