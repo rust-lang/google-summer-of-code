@@ -667,7 +667,7 @@ Medium.
 - Michael Tautschnig ([GitHub](https://github.com/tautschnig), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/887765-Michael-Tautschnig))
 
 **Zulip streams**
-- None
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Distributed.20and.20resource-efficient.20verification/with/508013804)
 
 ## Rustup
 
