@@ -573,18 +573,26 @@ With a growing number of contracts we will, therefore, need to distribute proof
 effort across multiple nodes.
 We may, however, also _reduce_ the proof effort when we can identify that any
 given proof necessarily continues to hold as the transitive closure of functions
-goverened by the contract has not been modified since the proof last completed.
+governed by the contract has not been modified since the proof last completed.
 
 We are looking for contributions in the following areas:
 1. A reachability- or impact analysis that, given a code change, determines
    which proofs require re-verification.
 2. A system that will shard proofs across multiple nodes and recombine their
-   results. Multiple verification tools may be involved.
+   results. Multiple verification tools may be involved, and tools may have
+   varying performance characteristics. Load balancing could conceivably be done
+   in a dynamic fashion (where communication between nodes is required, but this
+   may be hard to accomplish with GitHub runners), or per a pre-computed
+   distribution (mapping pre-defined sets of verification tasks to runners). In
+   the latter (and likely more feasible) scenario the distribution should be
+   easy to adjust via configuration files for we expect the set of verification
+   tasks to change over time.
 
 **Expected result**
 
-A system that can run all verification tasks in under 1 hour, and for changes
-that do not impact any contract no actual verification tool is invoked.
+A system that can reliably run all verification tasks within a time limit (where
+that time limit needs to be determined empirically), and for changes that do not
+impact any contract no actual verification tool is invoked.
 
 **Desirable skills**
 
