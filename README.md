@@ -30,6 +30,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Improving parallel frontend](#improving-parallel-frontend)
     - [Prepare `stable_mir` crate for publishing](#prepare-stable_mir-crate-for-publishing)
     - [C codegen backend for rustc](#C-codegen-backend-for-rustc)
+    - [Improve compiler UI test suite organization and usability](#improve-compiler-ui-test-suite-organization-and-usability)
 - **Rust standard library**
     - [Extend testing of `std::arch` intrinsics](#extend-testing-of-stdarch-intrinsics)
     - [Add safety contracts](#Add-safety-contracts)
@@ -408,6 +409,52 @@ Hard.
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20C.20codegen.20backend.20for.20.60rustc.60)
 - [Compiler team](https://rust-lang.zulipchat.com/#narrow/stream/131828-t-compiler)
 - [Previous discussion about this topic](https://rust-lang.zulipchat.com/#narrow/stream/122651-general/topic/rustc_codegen_c)
+
+### Improve compiler UI test suite organization and usability
+
+**Description**
+
+The Rust compiler (`rustc`) relies on large suites of integration tests to check its behavior. One of such test suite is the `ui` test suite (see [tests/ui]). The `ui` test suite has more than 18000 tests, and continues to grow, so it's important that it has a good organization and usability so contributors can find a test (at all) or identify possible test coverage for some feature/behavior.
+
+However, there's a lot of tests in the `ui` test suite that suffer from suboptimal organization, naming and other kinds of deficiencies that make certain `ui` tests less effective than they could be. See [Tracking Issue for ui test suite improvements #133895][ui-tracking-issue] for common issues and potential improvement ideas. The goal of this project is to improve the `ui` test suite's organization and usability.
+
+The major challenge of this project is to identify how to *improve* certain `ui` tests *without regressing test intent*.
+
+**Expected result**
+
+Improved `ui` test suite organization and/or usability. Possible outcomes include but are not limited to:
+
+- Fewer top-level tests immediately under (`tests/ui/`), to be moved under more fitting subdirectories.
+- Some `ui` tests have improved test docs regarding test intention / references.
+- Some `ui` tests are adjusted to better serve their actual test intent.
+
+See the [tracking issue][ui-tracking-issue] for more detailed descriptions of what more effective `ui` tests *could* look like.
+
+**Desirable skills**
+
+* Basic to intermediate knowledge of Rust.
+* Basic knowledge of `git` and Github CI.
+* Basic familiarity with compiler internals is a bonus.
+
+**Project size**
+
+Medium to large (depending on the chosen scope).
+
+**Difficulty**
+
+Medium. However, that can vary depending on which `ui` tests and what improvements are attempted.
+
+**Mentor**
+
+- Jieyou Xu: [@jieyouxu](https://github.com/jieyouxu) on GitHub or [Jieyou Xu](https://rust-lang.zulipchat.com/#narrow/dm/259697-Jieyou-Xu) on Zulip.
+
+**Zulip streams**
+
+- Tracking issue discussion thread: <https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler/topic/Discussion.20for.20ui.20test.20suite.20improvements>.
+
+[tests/ui]: https://github.com/rust-lang/rust/tree/master/tests/ui
+[ui-tracking-issue]: https://github.com/rust-lang/rust/issues/133895
+
 
 ## Rust standard library
 
