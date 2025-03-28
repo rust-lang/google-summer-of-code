@@ -446,10 +446,11 @@ Medium. However, that can vary depending on which `ui` tests and what improvemen
 
 **Mentor**
 
-- Jieyou Xu: [@jieyouxu](https://github.com/jieyouxu) on GitHub or [Jieyou Xu](https://rust-lang.zulipchat.com/#narrow/dm/259697-Jieyou-Xu) on Zulip.
+- Jieyou Xu ([GitHub](https://github.com/jieyouxu), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/259697-Jieyou-Xu))
 
 **Zulip streams**
 
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Improve.20compiler.20UI.20test.20suite.20organization.20and.20usabil/with/508830926)
 - Tracking issue discussion thread: <https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler/topic/Discussion.20for.20ui.20test.20suite.20improvements>.
 
 [tests/ui]: https://github.com/rust-lang/rust/tree/master/tests/ui
