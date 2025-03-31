@@ -22,7 +22,6 @@ We use the GSoC project size parameters for estimating the expected time complex
 
 ## Index
 - **Rust Compiler**
-    - [Extend annotate-snippets with features required by rustc](#Extend-annotate-snippets-with-features-required-by-rustc)
     - [Reproducible builds](#reproducible-builds)
     - [Bootstrap of rustc with rustc_codegen_gcc](#Bootstrap-of-rustc-with-rustc_codegen_gcc)
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
@@ -59,38 +58,6 @@ We use the GSoC project size parameters for estimating the expected time complex
 The list of ideas is divided into several categories.
 
 ## Rust Compiler
-
-### Extend `annotate-snippets` with features required by rustc
-
-**Description**
-
-`rustc` currently has incomplete support for using [`annotate-snippets`](https://github.com/rust-lang/annotate-snippets-rs/)
-to emit errors, but it doesn't support all the features that `rustc`'s built-in diagnostic rendering does. The goal
-of this project is to execute the `rustc` test suite using `annotate-snippets`, identify missing features or bugs,
-fix those, and repeat until at feature-parity.
-
-**Expected result**
-
-More of the `rustc` test suite passes with `annotate-snippets`.
-
-**Desirable skills**
-
-Knowledge of Rust.
-
-**Project size**
-
-Medium.
-
-**Difficulty**
-
-Medium or hard.
-
-**Mentor**
-- David Wood ([GitHub](https://github.com/davidtwco), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/116107-davidtwco))
-
-**Zulip streams**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20extend.20annotate-snippets)
-- [Compiler team](https://rust-lang.zulipchat.com/#narrow/stream/131828-t-compiler)
 
 ### Reproducible builds
 
