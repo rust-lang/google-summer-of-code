@@ -28,6 +28,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 - **Infrastructure**
     - [Port `std::arch` test suite to `rust-lang/rust`](#port-stdarch-test-suite-to-rust-langrust)
 - **Cargo**
+    - [Improved progress reporting from Cargo](#improved-progress-reporting-from-cargo)
     - [Move cargo shell completions to Rust](#move-cargo-shell-completions-to-Rust)
     - [Cargo: Build script delegation](#cargo-build-script-delegation)
 - **Rustup**
@@ -176,6 +177,53 @@ Medium.
 - [t-libs/stdarch](https://rust-lang.zulipchat.com/#narrow/channel/208962-t-libs.2Fstdarch)
 
 ## Cargo
+
+### Improved progress reporting from Cargo
+
+**Description**
+
+Cargo's progress reporting is designed for fairly broad terminal support,
+only allowing one line of progress output.
+Small steps have been done to take advantage of more terminal features,
+like unicode support and hyperlinks,
+by providing configuration for these with a terminal allow list.
+Something similar can be done to allow for experimenting with richer progress
+reporting from Cargo like what [buck2 has](https://crates.io/crates/superconsole).
+
+One proposed idea is for Cargo to track operational spans (e.g. `Updating`, `Compiling`)
+and any non-sticky message within one of those spans is cleared upon span close.
+Examples of non-sticky messages include warnings, errors, and a summary line for the command (e.g. `Finished`).
+This would help make Cargo less noisy which would be particularly helpful for
+[cargo script](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#script).
+
+Cargo's internals are tied to the idea of one progress line and will need to be
+updated to allow for richer progress reporting.
+
+See also
+- [cargo#8889](https://github.com/rust-lang/cargo/issues/8889)
+- [cargo#16388](https://github.com/rust-lang/cargo/issues/16388)
+
+**Expected result**
+
+1. Progress style within Cargo is abstracted away
+2. Sticky/non-sticky user notifications
+3. New compilation progress style with configuration
+4. Initial allow list for terminals to use new style
+
+**Desirable skills**
+
+Intermediate knowledge of Rust.
+
+**Project size**
+
+Medium.
+
+**Difficulty**
+
+Medium.
+
+**Mentor**
+- Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
 
 ### Move cargo shell completions to Rust
 
