@@ -23,6 +23,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 
 ## Index
 - **Rust Compiler**
+    - [Improve Rust compiler debuginfo testsuite](#improve-rust-compiler-debuginfo-test-suite)
     - [Reproducible builds](#reproducible-builds)
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
     - [C codegen backend for rustc](#C-codegen-backend-for-rustc)
@@ -39,6 +40,45 @@ We use the GSoC project size parameters for estimating the expected time complex
 The list of ideas is divided into several categories.
 
 ## Rust Compiler
+
+### Improve Rust compiler debuginfo test suite
+
+**Description**
+
+The Rust compiler debuginfo test suite should test how Rust programs interact with debuggers, such as GDB or LLDB. However, it is currently not fully exercised on CI, because it suffers from several issues:
+
+- It is not easily possible to bless the expected output, which makes it quite difficult to maintain the test suite.
+- It uses whatever version of a debugger is available on a given system, which makes it harder to reproduce the results.
+- It does not allow specifying different expected outputs per different debugger versions.
+
+We would like to rewrite the test suite to make it more maintainable and thus increase our confidence in the Rust compiler debugger visualizers.
+
+**Expected result**
+
+The Rust compiler debuginfo test suite is running fully on CI and is easier to maintain and bless.
+
+A stretch goal is to also use the new debuginfo test suite to improve Rust debugger visualizers.
+
+**Desirable skills**
+
+Intermediate knowledge of Rust. Knowledge of debuggers and their APIs is a big plus.
+
+**Project size**
+
+Medium to large.
+
+**Difficulty**
+
+Medium.
+
+**Mentor**
+- Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
+
+**Zulip streams**
+- [Idea discussion](TODO)
+
+**Related links**
+- [New debuginfo test suite MCP](https://github.com/rust-lang/compiler-team/issues/936)
 
 ### Reproducible builds
 
