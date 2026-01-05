@@ -34,7 +34,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 - **Crate ecosystem**
     - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
-- **rust-analyzer**
+- **Rust Analyzer**
     - [Migrating rust-analyzer assists to `SyntaxEditor`](#migrating-rust-analyzer-assists-to-syntaxeditor)
 
 # Project ideas
@@ -412,11 +412,15 @@ Easy.
 
 **Mentors**
 
- - Chayim Refael Friedman ([GitHub](https://github.com/ChayimFriedman2/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/340138-Chayim-Refael-Friedman))
- - Lukas Wirth ([GitHub](https://github.com/Veykril), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/300586-Lukas-Wirth))
+- Chayim Refael Friedman ([GitHub](https://github.com/ChayimFriedman2/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/340138-Chayim-Refael-Friedman))
+- Lukas Wirth ([GitHub](https://github.com/Veykril), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/300586-Lukas-Wirth))
+
+**Zulip streams**
+
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Migrating.20rust-analyzer.20assists.20to.20.60SyntaxEditor.60/with/566388740)
 
 **Related Links**
 
- - [An issue explaining why we should get rid of mutable syntax trees architecture-wise](https://github.com/rust-lang/rust-analyzer/issues/15710)
- - [Tracking issue for this effort](https://github.com/rust-lang/rust-analyzer/issues/18285)
- - [A prototype exploring how `rowan` without mutable trees could look like](https://github.com/ChayimFriedman2/rowan/tree/next-rowan)
+- [An issue explaining why we should get rid of mutable syntax trees architecture-wise](https://github.com/rust-lang/rust-analyzer/issues/15710)
+- [Tracking issue for this effort](https://github.com/rust-lang/rust-analyzer/issues/18285)
+- [A prototype exploring how `rowan` without mutable trees could look like](https://github.com/ChayimFriedman2/rowan/tree/next-rowan)
