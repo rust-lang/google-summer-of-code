@@ -317,6 +317,10 @@ the cargo team might be necessary in addition to that with rustup.
   - On the other hand, rustup should try its best to respect `$RUSTUP_HOME`
     and/or `$CARGO_HOME` overrides and maintain the old behavior if present.
 
+**Desirable skills**
+
+Intermediate knowledge of Rust.
+
 **Project size**
 
 Medium.
