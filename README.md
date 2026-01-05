@@ -30,6 +30,8 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Port `std::arch` test suite to `rust-lang/rust`](#port-stdarch-test-suite-to-rust-langrust)
 - **Cargo**
     - [Move cargo shell completions to Rust](#move-cargo-shell-completions-to-Rust)
+- **Rustup**
+    - [XDG path support for rustup](#XDG-path-support-for-rustup)
 - **Crate ecosystem**
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
 
@@ -254,6 +256,85 @@ Medium.
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20move.20cargo.20shell.20completions.20to.20Rust)
+
+## Rustup
+
+### XDG path support for rustup
+
+**Description**
+
+[Rustup](https://github.com/rust-lang/rustup) is an indispensable part of
+Rust's infrastructure, as it provides easy access to a Rust toolchain to
+millions of Rust users.
+
+Historically, rustup has been using `$RUSTUP_HOME` (defaulting to
+`$HOME/.rustup`) and a part of `$CARGO_HOME` (defaulting to `$HOME/.cargo`)
+environment variable-configurable paths as its config, state, and data
+directories, but there has long been a desire to move to a more fine-grained
+and standardized solution instead.
+
+It is thus decided by both rustup and cargo teams that, in the future, rustup
+will default to using [XDG paths] for its various directories, in collaboration
+with corresponding cargo support:
+
+On the one hand, its toolchains, `.env` presets, settings, and cache files
+should be placed under the respective XDG paths. An example of this could be
+using `$XDG_DATA_HOME/rustup/toolchains` instead of the current
+`$RUSTUP_HOME/toolchains`.
+
+On the other hand, its binary proxies (a.k.a. shims) should also be placed
+under a reasonable XDG path to be negotiated with the cargo team, so that it
+behaves as if it were cargo-installed binary.
+
+The goal of this project is to prepare for the above changes in rustup by:
+
+- Analyzing the dependents of `$RUSTUP_HOME` and `$CARGO_HOME` in rustup (and
+  in cargo when necessary) to logically segment them into finer-grained
+  directories. The defaults will remain unchanged for now, but the relevant
+  code should be refactored to support more flexible directory configuration.
+
+- Establishing a protocol to maintain backward compatibility with existing
+  installations of both rustup and cargo and to properly inform users of the
+  potential changes.
+
+The above should be implemented in a way that aligns with both rustup and
+cargo's progress towards XDG path support, and thus frequent communication with
+the cargo team might be necessary in addition to that with rustup.
+
+**Expected result**
+
+- rustup should support fine-grained directory configurations rather than the
+  current dual-directory approach, with relevant business logic (esp. that of
+  [self-uninstallation][stop nuking `$CARGO_HOME` on `self uninstall`]) and
+  docs adjusted accordingly.
+
+  - This means, if the early adopters would like, they will be able to
+    manually enforce XDG paths on rustup.
+
+- rustup should be able to no longer enforce `$CARGO_HOME` on cargo to unblock
+  relevant cargo changes towards the same direction.
+
+  - On the other hand, rustup should try its best to respect `$RUSTUP_HOME`
+    and/or `$CARGO_HOME` overrides and maintain the old behavior if present.
+
+**Project size**
+
+Medium.
+
+**Mentor**
+- rami3l ([GitHub](https://github.com/rami3l), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/616990-rami3l))
+
+**Related Links**
+- [Rustup Zulip channel](https://rust-lang.zulipchat.com/#narrow/channel/490103-t-rustup)
+- [All hands 2025 joint meeting notes on XDG support](https://blog.rust-lang.org/inside-rust/2025/10/01/this-development-cycle-in-cargo-1.90/#all-hands-xdg-paths)
+- Rustup issue: [platform-specific config directories](https://github.com/rust-lang/rustup/issues/247)
+- Rustup issue: [stop nuking `$CARGO_HOME` on `self uninstall`]
+- Pre-RFC: [Split `$CARGO_HOME`](https://internals.rust-lang.org/t/pre-rfc-split-cargo-home/19747)
+  - Rustup issue: [stop setting `$CARGO_HOME`](https://github.com/rust-lang/rustup/issues/4502)
+- [XDG paths] specification
+
+[XDG paths]: https://specifications.freedesktop.org/basedir/latest/
+[stop nuking `$CARGO_HOME` on `self uninstall`]: https://github.com/rust-lang/rustup/issues/285
 
 ## Crate ecosystem
 
