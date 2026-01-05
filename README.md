@@ -29,6 +29,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Port `std::arch` test suite to `rust-lang/rust`](#port-stdarch-test-suite-to-rust-langrust)
 - **Cargo**
     - [Move cargo shell completions to Rust](#move-cargo-shell-completions-to-Rust)
+    - [Cargo: Build script delegation](#cargo-build-script-delegation)
 - **Rustup**
     - [XDG path support for rustup](#XDG-path-support-for-rustup)
 - **Crate ecosystem**
@@ -217,6 +218,50 @@ Medium.
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20move.20cargo.20shell.20completions.20to.20Rust)
+
+### Cargo: Build script delegation
+
+**Description**
+
+When developers need to extend how Cargo builds their package,
+they can write a [build script](https://doc.rust-lang.org/cargo/reference/build-scripts.html).
+This gives users quite a bit of flexibility but
+- Allows running arbitrary code on the users system, requiring extra auditing
+- Needs to be compiled and run before the relevant package can be built
+- They are all-or-nothing, requiring users to do extra checks to avoid running expensive logic
+- They run counter to the principles of third-party build tools that try to mimic Cargo
+
+A developer could make their build script a thin wrapper around a library
+(e.g. [shadow-rs](https://crates.io/crates/shadow-rs))
+but a build script still exists to be audited (even if its small) and each individual wrapper build script must be compiled and linked.
+This is still opaque to third-party build tools.
+
+Leveraging an unstable feature,
+[artifact dependencies](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#artifact-dependencies),
+we could allow a developer to say that one or more dependencies should be run as build scripts, passing parameters to them.
+
+This project would add unstable support for build script delegation that can
+then be evaluated for proposing as an RFC for approval.
+
+See [the proposal](https://github.com/rust-lang/cargo/issues/14903#issuecomment-2523803041) for more details.
+
+**Expected result**
+
+Milestones
+1. An unstable feature for passing parameters to build scripts from `Cargo.toml`
+2. An unstable feature for build script delegation, passing parameters to artifact dependencies
+
+Bonus: preparation work to stabilize a subset of artifact dependencies.
+
+**Project size**
+
+Large.
+
+**Mentor**
+- Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Project.3A.20Cargo.3A.20Build.20script.20delegation/with/542983512)
 
 ## Rustup
 
