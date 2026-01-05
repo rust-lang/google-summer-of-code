@@ -32,6 +32,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 - **Rustup**
     - [XDG path support for rustup](#XDG-path-support-for-rustup)
 - **Crate ecosystem**
+    - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
 
 # Project ideas
@@ -302,6 +303,42 @@ Medium.
 [stop nuking `$CARGO_HOME` on `self uninstall`]: https://github.com/rust-lang/rustup/issues/285
 
 ## Crate ecosystem
+
+### Modernize the libc crate
+
+**Description**
+
+The [libc](https://github.com/rust-lang/libc) crate is one of the oldest crates of the Rust ecosystem, long predating Rust 1.0. Additionally, it is one of the most widely used crates in the ecosystem (#4 most downloaded on crates.io).
+This combinations means that the current version of the libc crate (`v0.2`) is very conservative with breaking changes has accumulated a list of things to do in a 1.0 release. Additionally, some of the infrastructure for `lib` is rather outdated.
+
+Most of the changes required for 1.0 are under the [1.0 milestone](https://github.com/rust-lang/libc/milestone/1). Some of these come from the evolution of the underlying platforms, some come from a desire to use newer language features, while others are simple mistakes that we cannot correct without breaking existing code.
+
+The goal of this project is to prepare and release the next major version of the libc crate.
+
+> Note: there was a project with a similar topic in [GSoC 2025](https://blog.rust-lang.org/2025/11/18/gsoc-2025-results/#modernising-the-libc-crate). But since there is a lot of work to be done, we have published this project idea again.
+
+**Expected result**
+
+The libc crate is cleaned up and modernized, and released as version 0.3.
+
+**Desirable skills**
+
+Intermediate knowledge of Rust.
+
+**Project size**
+
+Medium.
+
+**Difficulty**
+
+Medium.
+
+**Mentor**
+- Trevor Gross ([GitHub](https://github.com/tgross35), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/532317-Trevor-Gross))
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20modernize.20the.20libc.20crate)
+- [Library team](https://rust-lang.zulipchat.com/#narrow/stream/219381-t-libs)
 
 ### Add more lints to `cargo-semver-checks`
 
