@@ -328,8 +328,11 @@ Medium.
 **Mentor**
 - rami3l ([GitHub](https://github.com/rami3l), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/616990-rami3l))
 
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20XDG.20path.20support.20for.20rustup/with/566344314)
+- [Rustup team](https://rust-lang.zulipchat.com/#narrow/channel/490103-t-rustup)
+
 **Related Links**
-- [Rustup Zulip channel](https://rust-lang.zulipchat.com/#narrow/channel/490103-t-rustup)
 - [All hands 2025 joint meeting notes on XDG support](https://blog.rust-lang.org/inside-rust/2025/10/01/this-development-cycle-in-cargo-1.90/#all-hands-xdg-paths)
 - Rustup issue: [platform-specific config directories](https://github.com/rust-lang/rustup/issues/247)
 - Rustup issue: [stop nuking `$CARGO_HOME` on `self uninstall`]
