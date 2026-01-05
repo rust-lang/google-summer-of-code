@@ -25,7 +25,6 @@ We use the GSoC project size parameters for estimating the expected time complex
 - **Rust Compiler**
     - [Reproducible builds](#reproducible-builds)
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
-    - [C codegen backend for rustc](#C-codegen-backend-for-rustc)
 - **Infrastructure**
     - [Port `std::arch` test suite to `rust-lang/rust`](#port-stdarch-test-suite-to-rust-langrust)
 - **Cargo**
@@ -131,47 +130,6 @@ Medium.
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Refactoring.20of.20.60rustc_codegen_ssa.60.20for.20cg_gcc)
 - [rustc_codegen_gcc](https://rust-lang.zulipchat.com/#narrow/channel/386786-rustc-codegen-gcc/)
-
-### C codegen backend for `rustc`
-
-**Description**
-
-`rustc` currently has three in-tree codegen backends: LLVM (the default), Cranelift, and GCC.
-These live at <https://github.com/rust-lang/rust/tree/master/compiler>, as `rustc_codegen_*` crates.
-
-The goal of this project is to add a new experimental `rustc_codegen_c` backend that could turn Rust's internal
-representations into `C` code (i.e. transpile) and optionally invoke a `C` compiler to build it. This will allow Rust
-to use benefits of existing `C` compilers (better platform support, optimizations) in situations where the existing backends
-cannot be used.
-
-**Expected result**
-
-The minimum viable product is to turn `rustc` data structures that represent a Rust program into `C` code, and write the
-output to the location specified by `--out-dir`. This involves figuring out how to produce buildable `C` code from the
-inputs provided by `rustc_codegen_ssa::traits::CodegenBackend`.
-
-A second step is to have `rustc` invoke a `C` compiler on these produced files. This should be designed in a pluggable way,
-such that any `C` compiler can be dropped in.
-
-**Desirable skills**
-
-Knowledge of Rust and `C`, basic familiarity with compiler functionality.
-
-**Project size**
-
-Large.
-
-**Difficulty**
-
-Hard.
-
-**Mentor**
-- Trevor Gross ([GitHub](https://github.com/tgross35), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/532317-Trevor-Gross))
-
-**Zulip streams**
-- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/stream/421156-gsoc/topic/Idea.3A.20C.20codegen.20backend.20for.20.60rustc.60)
-- [Compiler team](https://rust-lang.zulipchat.com/#narrow/stream/131828-t-compiler)
-- [Previous discussion about this topic](https://rust-lang.zulipchat.com/#narrow/stream/122651-general/topic/rustc_codegen_c)
 
 ## Infrastructure
 
