@@ -225,6 +225,9 @@ Medium.
 **Mentor**
 - Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
 
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Improved.20progress.20reporting.20from.20Cargo/with/566401899)
+
 ### Move cargo shell completions to Rust
 
 **Description**
