@@ -34,6 +34,8 @@ We use the GSoC project size parameters for estimating the expected time complex
 - **Crate ecosystem**
     - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
+- **rust-analyzer**
+    - [Migrating rust-analyzer assists to `SyntaxEditor`](#migrating-rust-analyzer-assists-to-syntaxeditor)
 
 # Project ideas
 The list of ideas is divided into several categories.
@@ -381,3 +383,40 @@ Medium to high, depends on the choice of implemented lints or schema extensions.
 - [GitHub issues describing not-yet-implemented lints](https://github.com/obi1kenobi/cargo-semver-checks/issues?q=is%3Aissue+is%3Aopen+label%3AE-mentor+label%3AA-lint+)
 - [Opportunities to add new schema, enabling new lints](https://github.com/obi1kenobi/cargo-semver-checks/issues/241)
 - [Query engine adapter](https://github.com/obi1kenobi/trustfall-rustdoc-adapter)
+
+## rust-analyzer
+
+### Migrating rust-analyzer assists to `SyntaxEditor`
+
+**Description**
+
+rust-analyzer has many assists (code actions) that operate on the syntax tree. Most of them are implemented via mutable syntax tree editing, with `rowan`, our syntax tree library. Unfortunately, the existence of mutable syntax trees prohibits a lot of optimizations in `rowan` and makes it a lot more memory-heavy and slower. Therefore we'd like to remove our usage of mutable trees.
+
+We developed an API called `SyntaxEditor` that should be used instead of mutable trees. Currently it is implemented with them under the hood, but it is expected to be easier to get rid of them once all mutation is encapsulated in it.
+
+**Expected result**
+
+rust-analyzer has no assists or diagnostics quickfixes that use mutable tree editing. This will likely also involve further development of the `SyntaxEditor` API, as per the needs.
+
+**Desirable skills**
+
+Knowledge of Rust. Knowledge of the rust-analyzer codebase is an advantage but should not be required.
+
+**Project size**
+
+Large. However note that the size is scalable; even if the project isn't completed, every assist we migrate is a net benefit.
+
+**Difficulty**
+
+Easy.
+
+**Mentors**
+
+ - Chayim Refael Friedman ([GitHub](https://github.com/ChayimFriedman2/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/340138-Chayim-Refael-Friedman))
+ - Lukas Wirth ([GitHub](https://github.com/Veykril), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/300586-Lukas-Wirth))
+
+**Related Links**
+
+ - [An issue explaining why we should get rid of mutable syntax trees architecture-wise](https://github.com/rust-lang/rust-analyzer/issues/15710)
+ - [Tracking issue for this effort](https://github.com/rust-lang/rust-analyzer/issues/18285)
+ - [A prototype exploring how `rowan` without mutable trees could look like](https://github.com/ChayimFriedman2/rowan/tree/next-rowan)
