@@ -296,6 +296,8 @@ then be evaluated for proposing as an RFC for approval.
 
 See [the proposal](https://github.com/rust-lang/cargo/issues/14903#issuecomment-2523803041) for more details.
 
+> Note: there was a project with a similar topic in [GSoC 2025](https://blog.rust-lang.org/2025/11/18/gsoc-2025-results/#cargo-build-script-delegation). But since there is a lot of work to be done, we have published this project idea again. The current idea description reflects the current state.
+
 **Expected result**
 
 Milestones
@@ -413,7 +415,7 @@ Most of the changes required for 1.0 are under the [1.0 milestone](https://githu
 
 The goal of this project is to prepare and release the next major version of the libc crate.
 
-> Note: there was a project with a similar topic in [GSoC 2025](https://blog.rust-lang.org/2025/11/18/gsoc-2025-results/#modernising-the-libc-crate). But since there is a lot of work to be done, we have published this project idea again.
+> Note: there was a project with a similar topic in [GSoC 2025](https://blog.rust-lang.org/2025/11/18/gsoc-2025-results/#modernising-the-libc-crate). But since there is a lot of work to be done, we have published this project idea again. The current idea description reflects the current state.
 
 **Expected result**
 
