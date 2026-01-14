@@ -23,6 +23,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 
 ## Index
 - **Rust Compiler**
+    - [Improve Rust compiler debuginfo testsuite](#improve-rust-compiler-debuginfo-test-suite)
     - [Reproducible builds](#reproducible-builds)
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
 - **Infrastructure**
@@ -43,6 +44,48 @@ We use the GSoC project size parameters for estimating the expected time complex
 The list of ideas is divided into several categories.
 
 ## Rust Compiler
+
+### Improve Rust compiler debuginfo test suite
+
+**Description**
+
+The Rust compiler debuginfo test suite should test how Rust programs interact with debuggers, such as GDB, LLDB and CDB. However, it is currently not fully exercised on CI, because it suffers from several issues:
+
+- It is not easily possible to bless the expected output, which makes it quite difficult to maintain the test suite.
+- It uses whatever version of a debugger is discovered (through inconsistent and varying means) on the system where the tests run.
+- It does not allow specifying different expected outputs per different debugger versions.
+- It is difficult (in part) to comprehend test failure, in part because debugger output is captured then fed to LLVM FileCheck, and the FileCheck failures in turn are hard to figure out what's wrong.
+- There is a significant lack of docs surrounding the design intention and actual usage of the debuginfo test infra.
+
+We would like to rewrite the test suite to make it more maintainable and thus increase our confidence in the Rust compiler debugger visualizers, and maintain the quality of debuginfo emitted (and detect if there are regressions).
+
+**Expected result**
+
+The Rust compiler debuginfo test suite is running fully on CI and is easier to maintain and bless.
+
+A stretch goal is to also use the new debuginfo test suite to improve Rust debugger visualizers.
+
+**Desirable skills**
+
+Intermediate knowledge of Rust. Knowledge of debuggers and their APIs is a big plus.
+
+**Project size**
+
+Medium to large.
+
+**Difficulty**
+
+Hard.
+
+**Mentor**
+- Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
+- Jieyou Xu ([GitHub](https://github.com/jieyouxu), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/259697-Jieyou-Xu))
+
+**Zulip streams**
+- [Idea discussion](TODO)
+
+**Related links**
+- [New debuginfo test suite MCP](https://github.com/rust-lang/compiler-team/issues/936)
 
 ### Reproducible builds
 
