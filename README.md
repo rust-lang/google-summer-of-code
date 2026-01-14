@@ -26,6 +26,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Improve Rust compiler debuginfo testsuite](#improve-rust-compiler-debuginfo-test-suite)
     - [Reproducible builds](#reproducible-builds)
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
+    - [Reorganisation of `tests/ui/issues`](#reorganisation-of-testsuiissues)
 - **Infrastructure**
     - [Port `std::arch` test suite to `rust-lang/rust`](#port-stdarch-test-suite-to-rust-langrust)
 - **Cargo**
@@ -178,6 +179,58 @@ Medium.
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Refactoring.20of.20.60rustc_codegen_ssa.60.20for.20cg_gcc)
 - [rustc_codegen_gcc](https://rust-lang.zulipchat.com/#narrow/channel/386786-rustc-codegen-gcc/)
+
+### Reorganisation of `tests/ui/issues`
+
+**Description** 
+
+The `tests/ui/issues` directory of the Rust compiler test suite currently contains a large number of miscellaneous tests — approximately 615 in total. These are primarily regression tests that were added after specific issues were fixed. Over time, this directory has become a catch-all, making the test suite harder to navigate and maintain.
+
+Our goal is to keep the UI tests well organised, with each test placed in an appropriate subdirectory based on what it is actually testing. Consolidating such a large number of unrelated tests in a single directory works against this goal.
+
+This project focuses on systematically reviewing these tests and relocating them to more suitable locations within `tests/ui`.
+
+Here is an approximate plan to tackle this:
+
+1. Inspect each test in `tests/ui/issues`.
+2. Identify the issue it relates to (the issue number is typically part of the file name).
+3. Determine a more appropriate subdirectory within `tests/ui`, based on the behaviour or feature being tested.
+4. Add explanatory comments where the purpose of the test is not immediately obvious.
+5. Rename the test file to better reflect what it is testing.
+6. Add a link to the original issue at the top of the test file.
+7. Reformat the test where appropriate, taking care with tests that intentionally rely on unusual formatting.
+8. Re-bless tests where necessary (for example, if a test was previously marked as erroneous), and remove any obsolete `.stderr` files from the original location.
+
+**Expected result**
+
+Complete removal of the `tests/ui/issues/` directory, with all tests relocated to appropriate subdirectories.
+
+**Desirable skills**
+
+Familiarity with Rust and compiler tests. Ability to read and understand regression tests. Attention to detail and comfort working with large codebases.
+
+**Project size**
+
+Small to large. (The size is scalable, depending on how many tests would be ported.)
+
+**Difficulty** 
+
+Medium.
+
+**Mentor**
+
+* Kivooeo ([GitHub](https://github.com/Kivooeo/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/675515-Kivooeo))
+
+* Teapot ([GitHub](https://github.com/Teapot4195), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/583581-Teapot))
+
+**Zulip streams**
+
+* [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler/topic/GSoC.20project.20topics.20related.20to.20the.20compiler/near/566310530)
+
+**Related links**
+
+* [Prior project](gsoc/runs/2025.md/#mapping-the-maze-of-rusts-ui-test-suite-with-established-continuous-integration-practices)
+
 
 ## Infrastructure
 
