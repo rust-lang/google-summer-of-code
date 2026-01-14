@@ -82,7 +82,7 @@ Hard.
 - Jieyou Xu ([GitHub](https://github.com/jieyouxu), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/259697-Jieyou-Xu))
 
 **Zulip streams**
-- [Idea discussion](TODO)
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Improve.20Rust.20compiler.20debuginfo.20test.20suite/with/567914216)
 
 **Related links**
 - [New debuginfo test suite MCP](https://github.com/rust-lang/compiler-team/issues/936)
