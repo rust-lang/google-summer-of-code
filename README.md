@@ -225,7 +225,7 @@ Medium.
 
 **Zulip streams**
 
-* [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler/topic/GSoC.20project.20topics.20related.20to.20the.20compiler/near/566310530)
+* [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20reorganisation.20of.20tests.2Fui.2Fissues/with/568198062)
 
 **Related links**
 
