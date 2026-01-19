@@ -24,7 +24,6 @@ If you want to discuss our suggested project ideas or your own idea, you can do 
 The Rust Project also has three [organization admins](https://developers.google.com/open-source/gsoc/help/responsibilities) whose goal is to facilitate the communication of potential GSoC contributors and the mentors, and to manage the administration of the GSoC projects:
 - Jakub Beránek ([GitHub](https://github.com/Kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
 - Jack Huey ([GitHub](https://github.com/jackh726), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/232957-Jack-Huey))
-- Paul Lenz ([Zulip](https://rust-lang.zulipchat.com/#narrow/dm/522542-Paul-Lenz))
 
 When communicating on the Rust Zulip (and when interacting with the Rust community in general), please remember to be polite and uphold the [Rust Code of Conduct](https://www.rust-lang.org/policies/code-of-conduct). Keep in mind that most Rust contributors (and GSoC Rust project mentors) are volunteers, and work on Rust in their free time, so please treat them with respect and avoid spamming.
 
