@@ -21,7 +21,9 @@ In general, please examine the [Guidance for GSoC Contributors using AI tooling 
 We would appreciate if you used your own words when writing GSoC project proposals. It is fine to use LLMs/AI for spellcheck, language correction or translation, but do not rely on AI to write the proposal for you. We will ignore proposals that look like they were *generated* by AI. Please don't submit AI-generated proposals! They won't be accepted, and will just create additional work for us.
 
 ### Code contributions
-For your code contributions, we would appreciate if you disclosed to your mentor if and how you use AI for non-trivial tasks. In particular, if you *generate* code using AI, you should let your mentor know about that. Note that you are still responsible for all the code that you produce and you should understand how it works.
+If you plan to use AI significantly for implementing your proposal, in particular for *generating* code, you should let the project mentor know during the application process, *prior* to being selected for GSoC. So that you can confirm with them that they are OK with AI being used for the project's implementation.
+
+In general, we would appreciate if you disclosed to your mentor, and also on opened PRs if and how you used AI for generating code. Note that you are still responsible for all the code that you produce and you should understand how it works.
 
 ## Hardware access
 The Rust Project can provide remote access to powerful cloud-based [Linux machines](https://forge.rust-lang.org/infra/docs/dev-desktop.html) to contributors that will be accepted for a GSoC Rust project. This can help overcome potential contribution barriers caused e.g. by an using an unsupported operating system or not having performant enough hardware.
