@@ -74,7 +74,7 @@ You can also tell us more about your motivation in your proposal. Why did you ch
 
 ## Don't forget to submit!
 
-You will need to submit your project proposal through the [Google Summer of Code](https://summerofcode.withgoogle.com/) website. Please keep the **deadline** (**8th April 2025**) in mind, as there will be no extensions!
+You will need to submit your project proposal through the [Google Summer of Code](https://summerofcode.withgoogle.com/) website. Please keep the **deadline** (**31st March 2026**) in mind, as there will be no extensions!
 
 Good luck! :)
 
