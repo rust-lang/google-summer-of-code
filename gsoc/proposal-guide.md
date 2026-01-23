@@ -2,9 +2,8 @@
 
 This document contains a short guide on how to structure your Rust Google Summer of Code (GSoC) project proposal and how to increase the chance of your project proposal being accepted.
 
-**We would appreciate if you used your own words when writing GSoC project proposals. It is fine to use LLMs/AI for spellcheck, language correction or translation, but do not rely on AI to write the proposal for you. We will ignore proposals that look like they were *generated* by AI. Please don't submit AI-generated proposals! They won't be accepted, and will just create additional work for us.**
-
-**We're interested in seeing *your work* and *your thinking*, since *you* are applying to do the project — not the AI!**
+## Usage of AI for writing proposals
+Please examine our AI policy in the [README](README.md#ai-policy).
 
 ## Choosing a project
 
@@ -25,7 +24,6 @@ If you want to discuss our suggested project ideas or your own idea, you can do 
 The Rust Project also has three [organization admins](https://developers.google.com/open-source/gsoc/help/responsibilities) whose goal is to facilitate the communication of potential GSoC contributors and the mentors, and to manage the administration of the GSoC projects:
 - Jakub Beránek ([GitHub](https://github.com/Kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
 - Jack Huey ([GitHub](https://github.com/jackh726), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/232957-Jack-Huey))
-- Paul Lenz ([Zulip](https://rust-lang.zulipchat.com/#narrow/dm/522542-Paul-Lenz))
 
 When communicating on the Rust Zulip (and when interacting with the Rust community in general), please remember to be polite and uphold the [Rust Code of Conduct](https://www.rust-lang.org/policies/code-of-conduct). Keep in mind that most Rust contributors (and GSoC Rust project mentors) are volunteers, and work on Rust in their free time, so please treat them with respect and avoid spamming.
 
@@ -76,7 +74,7 @@ You can also tell us more about your motivation in your proposal. Why did you ch
 
 ## Don't forget to submit!
 
-You will need to submit your project proposal through the [Google Summer of Code](https://summerofcode.withgoogle.com/) website. Please keep the **deadline** (**8th April 2025**) in mind, as there will be no extensions!
+You will need to submit your project proposal through the [Google Summer of Code](https://summerofcode.withgoogle.com/) website. Please keep the **deadline** (**31st March 2026**) in mind, as there will be no extensions!
 
 Good luck! :)
 
