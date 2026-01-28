@@ -38,6 +38,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 - **Crate ecosystem**
     - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Make `cargo-semver-checks` support type-checking lints](#make-cargo-semver-checks-support-type-checking-lints)
+    - [Link Linux kernel modules with Wild](#link-linux-kernel-modules-with-wild)
 - **Rust Analyzer**
     - [Migrating rust-analyzer assists to `SyntaxEditor`](#migrating-rust-analyzer-assists-to-syntaxeditor)
 
@@ -78,7 +79,7 @@ Medium to large.
 
 Hard.
 
-**Mentor**
+**Mentors**
 - Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
 - Jieyou Xu ([GitHub](https://github.com/jieyouxu), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/259697-Jieyou-Xu))
 
@@ -217,20 +218,18 @@ Small to large. (The size is scalable, depending on how many tests would be port
 
 Medium.
 
-**Mentor**
+**Mentors**
 
-* Kivooeo ([GitHub](https://github.com/Kivooeo/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/675515-Kivooeo))
-
-* Teapot ([GitHub](https://github.com/Teapot4195), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/583581-Teapot))
+- Kivooeo ([GitHub](https://github.com/Kivooeo/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/675515-Kivooeo))
+- Teapot ([GitHub](https://github.com/Teapot4195), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/583581-Teapot))
 
 **Zulip streams**
 
-* [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20reorganisation.20of.20tests.2Fui.2Fissues/with/568198062)
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20reorganisation.20of.20tests.2Fui.2Fissues/with/568198062)
 
 **Related links**
 
-* [Prior project](gsoc/runs/2025.md/#mapping-the-maze-of-rusts-ui-test-suite-with-established-continuous-integration-practices)
-
+- [Prior project](gsoc/runs/2025.md/#mapping-the-maze-of-rusts-ui-test-suite-with-established-continuous-integration-practices)
 
 ## Infrastructure
 
@@ -265,7 +264,7 @@ Small to Medium.
 
 Medium.
 
-**Mentors**
+**Mentor**
 - Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
 
 **Zulip streams**
@@ -621,6 +620,51 @@ High
 - [Study of SemVer breakage in Rust, including more details on "witness" programs](https://predr.ag/blog/semver-violations-are-common-better-tooling-is-the-answer/)
 - [cargo-semver-checks 2025 year in review, where the "path forward" offers more info about this project idea](https://predr.ag/blog/cargo-semver-checks-2025-year-in-review/)
 - [Last year's GSoC project, which built the foundation for type-checking lints that we'd build upon](https://glitchlesscode.ca/posts/2025-11-05a/)
+
+### Link Linux kernel modules with Wild
+
+**Description**
+
+The [Wild linker](https://github.com/davidlattimore/wild) is a very fast linker written in Rust.
+
+We'd like for it to be possible to use the Wild linker for as large a range of Rust development as
+possible. Besides porting to other platforms, which is probably too large a scope for a GSoC
+project, one gap we currently have on Linux is compiling kernel modules. Linux kernel modules can
+now be written in Rust, but the Wild linker, despite having some linker script support, doesn't
+support enough linker script features to be able to link a kernel module.
+
+**Expected result**
+
+Implement more linker-script features. Ideally enough that we can support linking of Linux kernel
+modules, but even if we can't get that far, getting closer would be awesome. Linker scripts are also
+used extensively for embedded development, which may be something we could support with Wild in the
+future.
+
+**Desirable skills**
+
+Intermediate knowledge of Rust and a willingness to learn more. You don't need to have existing
+experience with implementing linkers, but it'd be good if upon reading the docs for GNU linker
+scripts, they at least mostly make sense.
+
+**Project size**
+
+Medium or large depending on which linker script features are implemented.
+
+**Difficulty**
+
+Different linker script features are likely to range between easy and hard.
+
+**Mentor**
+- David Lattimore ([GitHub](https://github.com/davidlattimore), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/198560-David-Lattimore))
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Link.20Linux.20kernel.20modules.20with.20Wild/with/570521180)
+
+**Related links**
+
+- [Wild linker](https://github.com/davidlattimore/wild/)
+- [Contributing docs](https://github.com/davidlattimore/wild/blob/main/CONTRIBUTING.md)
+- [GNU linker script docs](https://sourceware.org/binutils/docs/ld/Scripts.html)
 
 ## rust-analyzer
 
