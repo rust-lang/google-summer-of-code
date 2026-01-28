@@ -610,7 +610,7 @@ High
 - Predrag Gruevski ([GitHub](https://github.com/obi1kenobi/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/474284-Predrag-Gruevski-(he-him)))
 
 **Zulip streams**
-- [Idea discussion]() -- TODO
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Make.20cargo-semver-checks.20support.20type-checking.20lints/with/570662489)
 
 **Related Links**
 - [Playground where you can try querying Rust data](https://play.predr.ag/rustdoc)
