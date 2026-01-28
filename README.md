@@ -79,7 +79,7 @@ Medium to large.
 
 Hard.
 
-**Mentor**
+**Mentors**
 - Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
 - Jieyou Xu ([GitHub](https://github.com/jieyouxu), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/259697-Jieyou-Xu))
 
@@ -218,20 +218,18 @@ Small to large. (The size is scalable, depending on how many tests would be port
 
 Medium.
 
-**Mentor**
+**Mentors**
 
-* Kivooeo ([GitHub](https://github.com/Kivooeo/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/675515-Kivooeo))
-
-* Teapot ([GitHub](https://github.com/Teapot4195), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/583581-Teapot))
+- Kivooeo ([GitHub](https://github.com/Kivooeo/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/675515-Kivooeo))
+- Teapot ([GitHub](https://github.com/Teapot4195), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/583581-Teapot))
 
 **Zulip streams**
 
-* [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20reorganisation.20of.20tests.2Fui.2Fissues/with/568198062)
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20reorganisation.20of.20tests.2Fui.2Fissues/with/568198062)
 
 **Related links**
 
-* [Prior project](gsoc/runs/2025.md/#mapping-the-maze-of-rusts-ui-test-suite-with-established-continuous-integration-practices)
-
+- [Prior project](gsoc/runs/2025.md/#mapping-the-maze-of-rusts-ui-test-suite-with-established-continuous-integration-practices)
 
 ## Infrastructure
 
@@ -266,7 +264,7 @@ Small to Medium.
 
 Medium.
 
-**Mentors**
+**Mentor**
 - Jakub Beránek ([GitHub](https://github.com/kobzol), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/266526-Jakub-Ber%C3%A1nek))
 
 **Zulip streams**
@@ -611,6 +609,12 @@ Medium or large depending on which linker script features are implemented.
 **Difficulty**
 
 Different linker script features are likely to range between easy and hard.
+
+**Mentor**
+- David Lattimore ([GitHub](https://github.com/davidlattimore), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/198560-David-Lattimore))
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Link.20Linux.20kernel.20modules.20with.20Wild/with/570521180)
 
 **Related links**
 
