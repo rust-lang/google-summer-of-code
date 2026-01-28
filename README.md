@@ -38,6 +38,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 - **Crate ecosystem**
     - [Modernize the libc crate](#Modernize-the-libc-crate)
     - [Add more lints to `cargo-semver-checks`](#add-more-lints-to-cargo-semver-checks)
+    - [Link Linux kernel modules with Wild](#link-linux-kernel-modules-with-wild)
 - **Rust Analyzer**
     - [Migrating rust-analyzer assists to `SyntaxEditor`](#migrating-rust-analyzer-assists-to-syntaxeditor)
 
@@ -577,6 +578,45 @@ Medium to high, depends on the choice of implemented lints or schema extensions.
 - [GitHub issues describing not-yet-implemented lints](https://github.com/obi1kenobi/cargo-semver-checks/issues?q=is%3Aissue+is%3Aopen+label%3AE-mentor+label%3AA-lint+)
 - [Opportunities to add new schema, enabling new lints](https://github.com/obi1kenobi/cargo-semver-checks/issues/241)
 - [Query engine adapter](https://github.com/obi1kenobi/trustfall-rustdoc-adapter)
+
+### Link Linux kernel modules with Wild
+
+**Description**
+
+The [Wild linker](https://github.com/davidlattimore/wild) is a very fast linker written in Rust.
+
+We'd like for it to be possible to use the Wild linker for as large a range of Rust development as
+possible. Besides porting to other platforms, which is probably too large a scope for a GSoC
+project, one gap we currently have on Linux is compiling kernel modules. Linux kernel modules can
+now be written in Rust, but the Wild linker, despite having some linker script support, doesn't
+support enough linker script features to be able to link a kernel module.
+
+**Expected result**
+
+Implement more linker-script features. Ideally enough that we can support linking of Linux kernel
+modules, but even if we can't get that far, getting closer would be awesome. Linker scripts are also
+used extensively for embedded development, which may be something we could support with Wild in the
+future.
+
+**Desirable skills**
+
+Intermediate knowledge of Rust and a willingness to learn more. You don't need to have existing
+experience with implementing linkers, but it'd be good if upon reading the docs for GNU linker
+scripts, they at least mostly make sense.
+
+**Project size**
+
+Medium or large depending on which linker script features are implemented.
+
+**Difficulty**
+
+Different linker script features are likely to range between easy and hard.
+
+**Related links**
+
+- [Wild linker](https://github.com/davidlattimore/wild/)
+- [Contributing docs](https://github.com/davidlattimore/wild/blob/main/CONTRIBUTING.md)
+- [GNU linker script docs](https://sourceware.org/binutils/docs/ld/Scripts.html)
 
 ## rust-analyzer
 
