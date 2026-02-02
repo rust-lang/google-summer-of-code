@@ -95,6 +95,8 @@ Hard.
 
 There are essentially two approaches that could be chosen here. Either use the [TPDE-LLVM](https://docs.tpde.org/tpde-llvm-main.html) LLVM backend to generate assembly from LLVM IR emitted by `rustc`, or create a completely separate `rustc` backend that will work on TPDE IR (intermediate representation) directly and avoid going through LLVM.
 
+The TPDE-LLVM-based approach is preferred since it should achieve most of the performance benefits, allows reusing LLVM plugins and infrastructure where desired, and is more likely to succeed. However, we will consider both approaches if the applicant can make good arguments in favor of a completely separate TPDE backend.
+
 Note that this would be experimental work that would most likely have to live out-of-tree, at least at the beginning of the project.
 
 **Expected result**
