@@ -710,3 +710,40 @@ Easy.
 
 ## Rust Embedded
 
+### Improving ergonomics and safety of serialport-rs
+
+**Description**
+
+While not strictly embedded, a lot of the embedded Rust ecosystem uses the serialport crate for serial communication. This crate currently uses a pretty old minimum supported Rust version (MSRV) which already started to cause o lot of dependency issues for its users.
+
+We are using an older MSRV for allowing the serialport crate to be directly used with the latest long-term support (LTS) release of Yocto for embedded Linux systems. A new LTS release of Yocto dropped in 2025 which allows us to update the MSRV for serialport. We consider this a breaking change with respect to semantic versioning (semver) which opens a window of opportunity to include PRs with semver breaking changes and - while at it - to streamline the crate's API towards more ergonomics and safety.
+
+**Expected results**
+
+Getting the next major release 5.0 of serialport ready and published.
+
+**Desirable skills**
+
+Knowledge of Rust and a basic understanding of a serial port. Interest in working across multiple (desktop) operating systems. This is not about diving deep into serial communication but about refactoring and API ergonomics.
+
+We can ship USB serial adapters for testing, if needed.
+
+**Project size**
+
+Likely medium. The project is scaleable in the sense that there are a lot of smaller individual tasks and progress on every single one helps.
+
+**Difficulty**
+
+Easy.
+
+**Mentors**
+
+- Christian Meusel ([GitHub](https://github.com/sirhcel), [Matrix](@sirhcel:matrix.org), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/719907-Christian-Meusel))
+
+**Matrix channel**
+
+- [serialport-rs](https://matrix.to/#/#serialport-rs:matrix.org)
+
+**Related links**
+
+* [Tracking issue for release 5.0](https://github.com/serialport/serialport-rs/issues/302)
