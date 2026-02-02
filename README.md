@@ -43,6 +43,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Migrating rust-analyzer assists to `SyntaxEditor`](#migrating-rust-analyzer-assists-to-syntaxeditor)
 - **Rust Embedded**
     - [Improving ergonomics and safety of serialport-rs](#improving-ergonomics-and-safety-of-serialport-rs)
+    - [Make a Rust-based Arduino alternative](#make-a-rust-based-arduino-alternative)
 
 # Project ideas
 The list of ideas is divided into several categories.
@@ -753,3 +754,22 @@ Easy.
 **Related links**
 
 * [Tracking issue for release 5.0](https://github.com/serialport/serialport-rs/issues/302)
+
+### Make a Rust-based Arduino alternative
+
+**Description**
+
+**Expected result**
+
+**Desirable skills**
+
+**Project size**
+
+**Difficulty**
+
+**Mentors**
+
+**Zulip streams**
+
+**Related Links**
+
