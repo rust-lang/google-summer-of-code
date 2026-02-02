@@ -42,6 +42,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 - **Rust Analyzer**
     - [Migrating rust-analyzer assists to `SyntaxEditor`](#migrating-rust-analyzer-assists-to-syntaxeditor)
 - **Rust Embedded**
+    - [Improving ergonomics and safety of serialport-rs](#improving-ergonomics-and-safety-of-serialport-rs)
 
 # Project ideas
 The list of ideas is divided into several categories.
@@ -714,23 +715,26 @@ Easy.
 
 **Description**
 
-While not strictly embedded, a lot of the embedded Rust ecosystem uses the serialport crate for serial communication. This crate currently uses a pretty old minimum supported Rust version (MSRV) which already started to cause o lot of dependency issues for its users.
+While it is not strictly an embedded crate, a lot of the embedded Rust ecosystem uses the [`serialport`](https://crates.io/crates/serialport) crate for serial communication. This crate currently uses Minimum Supported Rust Version (MSRV) 1.59. This has started to cause dependency issues for crate users, as well as inhibiting use of modern features.
 
-We are using an older MSRV for allowing the serialport crate to be directly used with the latest long-term support (LTS) release of Yocto for embedded Linux systems. A new LTS release of Yocto dropped in 2025 which allows us to update the MSRV for serialport. We consider this a breaking change with respect to semantic versioning (semver) which opens a window of opportunity to include PRs with semver breaking changes and - while at it - to streamline the crate's API towards more ergonomics and safety.
+We are using an older MSRV so that the serialport crate can be directly used with the latest long-term support (LTS) release of Yocto for embedded Linux systems. A new LTS release of Yocto dropped in 2025 which allows us to update the MSRV for serialport. We consider this a breaking change with respect to semantic versioning: this opens a window of opportunity to include PRs with semver breaking changes and — while at it — to streamline the crate's API for better ergonomics and safety.
 
 **Expected results**
 
-Getting the next major release 5.0 of serialport ready and published.
+* Getting the next major release 5.0 of serialport ready and published.
+
+* Suggesting and implementing serial API improvements for this release,
+  including those that might require breaking changes.
 
 **Desirable skills**
 
-Knowledge of Rust and a basic understanding of a serial port. Interest in working across multiple (desktop) operating systems. This is not about diving deep into serial communication but about refactoring and API ergonomics.
+Strong familiarity with Rust. Some knowledge of the Rust Embedded ecosystem. At least a basic understanding of serial port operation. Interest in working across multiple (desktop) operating systems. Willingness and ability to do both maintenance and design activities.
 
 We can ship USB serial adapters for testing, if needed.
 
 **Project size**
 
-Likely medium. The project is scaleable in the sense that there are a lot of smaller individual tasks and progress on every single one helps.
+Small to medium. The project is scaleable in the sense that there are a lot of smaller individual tasks and progress on every single one helps.
 
 **Difficulty**
 
