@@ -24,6 +24,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 ## Index
 - **Rust Compiler**
     - [Improve Rust compiler debuginfo testsuite](#improve-rust-compiler-debuginfo-test-suite)
+    - [TPDE codegen backend for `rustc`](#tpde-codegen-backend-for-rustc)
     - [Reproducible builds](#reproducible-builds)
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
     - [Reorganisation of `tests/ui/issues`](#reorganisation-of-testsuiissues)
@@ -88,6 +89,40 @@ Hard.
 
 **Related links**
 - [New debuginfo test suite MCP](https://github.com/rust-lang/compiler-team/issues/936)
+
+### TPDE codegen backend for `rustc`
+
+[TPDE](https://docs.tpde.org/index.html) is a compiler framework that can act as a LLVM backend with very high build performance. Since slow build times are a constant issue for Rust developers, we would like to experiment with a TPDE-based backend for `rustc`, to see how much faster could compilation times get.
+
+There are essentially two approaches that could be chosen here. Either use the [TPDE-LLVM](https://docs.tpde.org/tpde-llvm-main.html) LLVM backend to generate assembly from LLVM IR emitted by `rustc`, or create a completely separate `rustc` backend that will work on TPDE IR (intermediate representation) directly and avoid going through LLVM.
+
+The TPDE-LLVM-based approach is preferred since it should achieve most of the performance benefits, allows reusing LLVM plugins and infrastructure where desired, and is more likely to succeed. However, we will consider both approaches if the applicant can make good arguments in favor of a completely separate TPDE backend.
+
+Note that this would be experimental work that would most likely have to live out-of-tree, at least at the beginning of the project.
+
+**Expected result**
+
+We have a new `rustc` experimental backend that can be used to compile non-trivial Rust programs (it does not have to be complete though, e.g. inline assembly support will probably not make the cut), and we can evaluate its performance e.g. on the Rust Compiler Benchmark Suite.
+
+**Desirable skills**
+
+Knowledge of Rust, basic familiarity with compiler functionality or LLVM is a bonus.
+
+**Project size**
+
+Large.
+
+**Difficulty**
+
+Medium to hard.
+
+**Mentor**
+- Manuel Drehwald ([GitHub](https://github.com/ZuseZ4), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/348574-Manuel-Drehwald))
+
+**Zulip streams**
+- [Idea discussion](TODO)
+- [Compiler team](https://rust-lang.zulipchat.com/#narrow/stream/131828-t-compiler)
+- [Previous discussion about this topic](https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler/topic/TPDE.3A.20A.20Fast.20Adaptable.20Compiler.20Back-End.20Framework/with/570348767)
 
 ### Reproducible builds
 
