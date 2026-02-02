@@ -120,7 +120,7 @@ Medium to hard.
 - Manuel Drehwald ([GitHub](https://github.com/ZuseZ4), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/348574-Manuel-Drehwald))
 
 **Zulip streams**
-- [Idea discussion](TODO)
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20TPDE.20codegen.20backend.20for.20rustc/with/571387216)
 - [Compiler team](https://rust-lang.zulipchat.com/#narrow/stream/131828-t-compiler)
 - [Previous discussion about this topic](https://rust-lang.zulipchat.com/#narrow/channel/131828-t-compiler/topic/TPDE.3A.20A.20Fast.20Adaptable.20Compiler.20Back-End.20Framework/with/570348767)
 
