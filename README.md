@@ -47,6 +47,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Link Linux kernel modules with Wild](#link-linux-kernel-modules-with-wild)
 - **Rust Analyzer**
     - [Migrating rust-analyzer assists to `SyntaxEditor`](#migrating-rust-analyzer-assists-to-syntaxeditor)
+- **Rust Embedded**
 
 # Project ideas
 The list of ideas is divided into several categories.
@@ -882,3 +883,6 @@ Easy.
 - [An issue explaining why we should get rid of mutable syntax trees architecture-wise](https://github.com/rust-lang/rust-analyzer/issues/15710)
 - [Tracking issue for this effort](https://github.com/rust-lang/rust-analyzer/issues/18285)
 - [A prototype exploring how `rowan` without mutable trees could look like](https://github.com/ChayimFriedman2/rowan/tree/next-rowan)
+
+## Rust Embedded
+
