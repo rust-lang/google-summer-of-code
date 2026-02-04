@@ -715,9 +715,11 @@ Easy.
 
 **Description**
 
-While it is not strictly an embedded crate, a lot of the embedded Rust ecosystem uses the [`serialport`](https://crates.io/crates/serialport) crate for serial communication. This crate currently uses Minimum Supported Rust Version (MSRV) 1.59. This has started to cause dependency issues for crate users, as well as inhibiting use of modern features.
+While it is not strictly an embedded crate, a lot of the embedded Rust ecosystem uses the [`serialport`](https://crates.io/crates/serialport) crate for serial communication.
 
-We are using an older MSRV so that the serialport crate can be directly used with the latest long-term support (LTS) release of Yocto for embedded Linux systems. A new LTS release of Yocto dropped in 2025 which allows us to update the MSRV for serialport. We consider this a breaking change with respect to semantic versioning: this opens a window of opportunity to include PRs with semver breaking changes and — while at it — to streamline the crate's API for better ergonomics and safety.
+We maintain compatibility with the latest long-term support (LTS) release of Yocto for embedded Linux systems of which a new release dropped in 2025. This opens a window of opportunity to include PRs with semver breaking changes and streamline the crate's API for better ergonomics and safety.
+
+At the same time, we can upgrade our Minimum Supported Rust Version (MSRV) (currently 1.59), which has started to cause dependency issues for crate users, as well as inhibiting use of modern features.
 
 **Expected results**
 
