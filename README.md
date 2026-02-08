@@ -266,6 +266,51 @@ Medium.
 
 - [Prior project](gsoc/runs/2025.md/#mapping-the-maze-of-rusts-ui-test-suite-with-established-continuous-integration-practices)
 
+### Implementing `impl` and `mut` restrictions
+
+**Description** 
+
+Rust doesn't currently have a way to restrict the implementability of a trait, nor does Rust have a way to restrict the
+mutability of a field.
+
+The accepted [RFC3323 - Restrictions](https://rust-lang.github.io/rfcs/3323-restrictions.html) aims to improve our story
+around those two points by bringing:
+ - `impl(..)` restrictions: `pub impl(crate) trait Foo {}`
+ - `mut(..)` restrictions: `pub struct Foo { pub mut(crate) foo: u8 }`
+
+*Previous attempts at implementing the RFC have stalled.*
+
+The goal of this project is to implement both impl and mut restrictions in the Rust compiler, fix any resulting bugs that
+may be discovered in the course of the project, and add extensive tests for the feature.
+
+**Expected result**
+
+A working implementation of `impl` and `mut` restrictions in the nightly compiler.
+
+**Desirable skills**
+
+Familiarity with Rust. Attention to detail and comfort working with large codebases.
+
+**Project size**
+
+Small to medium.
+
+**Difficulty** 
+
+Medium.
+
+**Mentors**
+
+- Jacob Pratt ([GitHub](https://github.com/jhpratt), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/245610-Jacob-Pratt))
+- Urgau ([GitHub](https://github.com/Urgau), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/327095-Urgau))
+
+**Related links**
+
+- [Tracking Issue for Restrictions](https://github.com/rust-lang/rust/issues/105077)
+- [Restrictions RFC](https://rust-lang.github.io/rfcs/3323-restrictions.html)
+- [First attempt](https://github.com/rust-lang/rust/pull/106074)
+- [Second attempt](https://github.com/rust-lang/rust/pull/141754)
+
 ## Infrastructure
 
 ### Port `std::arch` test suite to `rust-lang/rust`
