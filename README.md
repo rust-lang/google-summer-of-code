@@ -306,7 +306,7 @@ Medium.
 - Urgau ([GitHub](https://github.com/Urgau), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/327095-Urgau))
 
 **Zulip streams**
-- [Idea discussion](TODO)
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Implementing.20impl.20and.20mut.20restrictions/with/572758131)
 
 **Related links**
 
