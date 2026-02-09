@@ -23,6 +23,7 @@ We use the GSoC project size parameters for estimating the expected time complex
 
 ## Index
 - **Rust Compiler**
+    - [Implement `impl` and `mut` restrictions](#implementing-impl-and-mut-restrictions)
     - [Improve Rust compiler debuginfo testsuite](#improve-rust-compiler-debuginfo-test-suite)
     - [TPDE codegen backend for `rustc`](#tpde-codegen-backend-for-rustc)
     - [Reproducible builds](#reproducible-builds)
@@ -303,6 +304,9 @@ Medium.
 
 - Jacob Pratt ([GitHub](https://github.com/jhpratt), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/245610-Jacob-Pratt))
 - Urgau ([GitHub](https://github.com/Urgau), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/327095-Urgau))
+
+**Zulip streams**
+- [Idea discussion](TODO)
 
 **Related links**
 
