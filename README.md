@@ -29,6 +29,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Reproducible builds](#reproducible-builds)
     - [Refactoring of rustc_codegen_ssa to make it more convenient for the GCC codegen](#Refactoring-of-rustc_codegen_ssa-to-make-it-more-convenient-for-the-GCC-codegen)
     - [Reorganisation of `tests/ui/issues`](#reorganisation-of-testsuiissues)
+    - [Improve Rust User Experience on Windows](#improve-rust-user-experience-on-windows)
 - **Infrastructure**
     - [Port `std::arch` test suite to `rust-lang/rust`](#port-stdarch-test-suite-to-rust-langrust)
 - **Cargo**
@@ -265,7 +266,44 @@ Medium.
 
 **Related links**
 
-- [Prior project](gsoc/runs/2025.md/#mapping-the-maze-of-rusts-ui-test-suite-with-established-continuous-integration-practices)
+* [Prior project](gsoc/runs/2025.md/#mapping-the-maze-of-rusts-ui-test-suite-with-established-continuous-integration-practices)
+
+### Improve Rust User Experience on Windows
+
+**Description**
+
+The rust compiler, and related infrastructure user experience, currently includes a significant number of hiccups and roadblocks for windows users. This makes it difficult for new contributors using windows or one of the unix to NT API translation layers (e.g. cygwin, msys2 etc.), to get started with developing the compiler or using rust and other such related tasks.
+
+It is very easy to stumble into rather weird bugs that are both difficult to debug and fix when compiling and working on/with rust on Windows. For example, path normalization being done incorrectly for the host OS is a longtime pain point when developing on a unix translation layer (e.g. msys2). Additionally, the "put libs wherever you want" strategy Windows has taken with system libraries makes it extremely difficult to configure the build process correctly, especially where linking to external C libraries. One strategy that has been suggested is to allow cargo to pull it's own copies of these libraries, although this may lead to some dependency hell situations and will require more design and consideration before using this fix.
+
+Additionally, unlike many other targets, the Windows API is a bit of an odd ball. For example, timing on Windows is based on 100ns increments since Jan 1st 1601 whereas most \*NIX platforms use milliseconds since Jan 1st 1970. In library code, this difference in API behavior, is often not well documented and results in many developer surprises. For example, [Checked arithmetic for adding a `Duration` smaller than 100ns results in a noop](https://github.com/rust-lang/rust/issues/149995)
+
+On the issue tracker, a number of open issues regarding windows UX can be found by filtering for one of the many windows target categories, for example, [O-windows](https://github.com/rust-lang/rust/issues?q=is%3Aissue%20state%3Aopen%20label%3AO-windows).
+
+**Expected result**
+
+An overall improvement to the number of issues and hiccups/roadblocks a compiler developer or rust user is expected to face when using rust on windows based platforms.
+
+**Desirable skills**
+
+Familiarity with Rust, comfort working with large codebases and, depending on project scope, some of the following (non-exhaustive):
+* Familiarity with windows NT API
+* Experience developing on windows or a translation layer
+* A decent amount of experience within your field(s)r of choice
+
+**Project size**
+
+Small to large. (Size is scalable, depending on the scope of the project.)
+
+**Difficulty**
+
+Medium to Hard, depending on the issues to be fixed.
+
+**Mentor**
+
+* Teapot ([GitHub](https://github.com/Teapot4195), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/583581-Teapot))
+  * Teapot is happy to mentor projects fixing most compiler and ecosystem components, or any combination of them as the contributor details in their proposal.
+  * If you would like to do this project, please reach out so Teapot can tell you if he can mentor the field you would like to work on!
 
 ### Implementing `impl` and `mut` restrictions
 
