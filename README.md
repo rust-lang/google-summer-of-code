@@ -5,11 +5,13 @@ the Rust Project and potentially also the wider Rust community.
 These project ideas can be used as inspiration for various OSS contribution programs,
 such as [Google Summer of Code](https://summerofcode.withgoogle.com/) or [OSPP](https://summer-ospp.ac.cn/).
 
-This document contains ideas that should still be actual. Here you can also find a list of projects from GSoC runs:
+In the list below, you can find projects from past GSoC runs:
 
 - Google Summer of Code projects
   - [2025](gsoc/runs/2025.md)
   - [2024](gsoc/runs/2024.md)
+
+**This README contains ideas that are actual for Google Summer of Code 2026.** 
 
 We invite contributors that would like to participate in projects such as GSoC or that would just want to find a Rust project that they would like to work on to examine the project list and use it as an inspiration. Another source of inspiration can be the [Rust Project Goals](https://rust-lang.github.io/rust-project-goals/index.html), particularly the orphaned goals. However, you can also work on these projects outside GSoC or other similar projects! We welcome all contributions.
 
