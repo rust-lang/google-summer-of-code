@@ -274,23 +274,23 @@ Medium.
 
 **Description**
 
-The rust compiler, and related infrastructure user experience, currently includes a significant number of hiccups and roadblocks for windows users. This makes it difficult for new contributors using windows or one of the unix to NT API translation layers (e.g. cygwin, msys2 etc.), to get started with developing the compiler or using rust and other such related tasks.
+The Rust compiler and its related infrastructure currently include a number of hiccups and roadblocks for Windows users specifically. This can make it more difficult for new contributors using Windows or one of the Unix-to-NT API translation layers (e.g. Cygwin, MSYS2, etc.), to get started with developing the compiler or even using Rust.
 
-It is very easy to stumble into rather weird bugs that are both difficult to debug and fix when compiling and working on/with rust on Windows. For example, path normalization being done incorrectly for the host OS is a longtime pain point when developing on a unix translation layer (e.g. msys2). Additionally, the "put libs wherever you want" strategy Windows has taken with system libraries makes it extremely difficult to configure the build process correctly, especially where linking to external C libraries. One strategy that has been suggested is to allow cargo to pull it's own copies of these libraries, although this may lead to some dependency hell situations and will require more design and consideration before using this fix.
+It is easy to stumble into rather weird bugs that are both difficult to debug and fix when compiling and working with Rust on Windows. For example, path normalization being done incorrectly for the host OS is a longtime pain point for Unix translation layers (e.g. MSYS2). Additionally, the "put libs wherever you want" strategy Windows has taken with system libraries makes it difficult to configure the build process correctly, especially where linking to external C libraries.
 
-Additionally, unlike many other targets, the Windows API is a bit of an odd ball. For example, timing on Windows is based on 100ns increments since Jan 1st 1601 whereas most \*NIX platforms use milliseconds since Jan 1st 1970. In library code, this difference in API behavior, is often not well documented and results in many developer surprises. For example, [Checked arithmetic for adding a `Duration` smaller than 100ns results in a noop](https://github.com/rust-lang/rust/issues/149995)
+The standard library also has to work around some pecularities of the Windows API. For example, timing on Windows is based on 100ns increments since Jan 1st 1601, whereas most Unix platforms use milliseconds since Jan 1st 1970. In library code, this difference in API behavior is often not well documented and results in many developer surprises. For example, [Checked arithmetic for adding a `Duration` smaller than 100ns results in a noop](https://github.com/rust-lang/rust/issues/149995).
 
-On the issue tracker, a number of open issues regarding windows UX can be found by filtering for one of the many windows target categories, for example, [O-windows](https://github.com/rust-lang/rust/issues?q=is%3Aissue%20state%3Aopen%20label%3AO-windows).
+You can find a number of open issues related to Windows in the Rust issue tracker, by filtering for one of the many Windows target categories, for example [O-windows](https://github.com/rust-lang/rust/issues?q=is%3Aissue%20state%3Aopen%20label%3AO-windows).
 
 **Expected result**
 
-An overall improvement to the number of issues and hiccups/roadblocks a compiler developer or rust user is expected to face when using rust on windows based platforms.
+An overall improvement to the number of issues and hiccups/roadblocks a compiler developer or Rust user is expected to face when using Rust on Windows-based platforms.
 
 **Desirable skills**
 
 Familiarity with Rust, comfort working with large codebases and, depending on project scope, some of the following (non-exhaustive):
-* Familiarity with windows NT API
-* Experience developing on windows or a translation layer
+* Familiarity with Windows NT API
+* Experience developing on Windows or a translation layer
 * A decent amount of experience within your field(s)r of choice
 
 **Project size**
