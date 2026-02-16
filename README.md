@@ -305,6 +305,10 @@ Medium to Hard, depending on the issues to be fixed.
   * Teapot is happy to mentor projects fixing most compiler and ecosystem components, or any combination of them as the contributor details in their proposal.
   * If you would like to do this project, please reach out so Teapot can tell you if he can mentor the field you would like to work on!
 
+**Zulip streams**
+
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Improve.20Rust.20User.20Experience.20on.20Windows/with/574055740)
+
 ### Implementing `impl` and `mut` restrictions
 
 **Description** 
