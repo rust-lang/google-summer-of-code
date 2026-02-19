@@ -759,17 +759,38 @@ Easy.
 
 **Description**
 
+It would be great to have a Rust-based, modernized, fully-open alternative to the software side of Arduino™. Arduino's recent purchase by Qualcomm has highlighted growing concerns in the Arduino software ecosystem: openness issues, dealing with highly divers hardware, an antiquated IDE, and the difficulty in transition from the Arduino subset of C++ to the full language.
+
+We would like to see work toward a specific vision of what we are tentatively calling "Rustdyno": subsetting the Rust language and Rust Embedded ecosystem, building bespoke IDE plugins starting with VSCode, supporting a range of loader-debugger possibilities for various boards, and figuring out to package Rustdyno-specific software and deliver it to customers.
+
+This is much more than a single-summer single-person project. Picking a feasible-sized starting-place from the above is the way to go.
+
 **Expected result**
+
+Completion of a major step in the Rustdyno project. The details must be negotiated with a mentor before acceptance.
 
 **Desirable skills**
 
+Rust ecosystem fluency. Familiarity and some experience with the Rust Embedded ecosystem. Ideally, experience with Arduino and experience working on VSCode plugins.
+
+Ability to design and experiment proactively and collaborate with mentors and the REWG. Ability to overcome barriers and work independently when necessary. Collegiality.
+
 **Project size**
+
+Medium or large. Project will grow to fill available time either way.
 
 **Difficulty**
 
+Hard. 
+
 **Mentors**
 
-**Zulip streams**
+Bart Massey <bart.massey@gmail.com>
+
+**Matrix channel**
+
+- [#matrix.org:rustdyno](https://matrix.to/#/#rustdyno:matrix.org)
 
 **Related Links**
 
+- [Rustdyno](https://fob4.po8.org/posts/0050-rustdyno.html)
