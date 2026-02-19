@@ -38,6 +38,7 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Improved progress reporting from Cargo](#improved-progress-reporting-from-cargo)
     - [Move cargo shell completions to Rust](#move-cargo-shell-completions-to-Rust)
     - [Cargo: Build script delegation](#cargo-build-script-delegation)
+    - [Cargo: cargo-cargofmt](#cargo-cargo-cargofmt)
 - **Rustup**
     - [XDG path support for rustup](#XDG-path-support-for-rustup)
 - **Crate ecosystem**
@@ -538,6 +539,36 @@ Large.
 
 **Zulip streams**
 - [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Project.3A.20Cargo.3A.20Build.20script.20delegation/with/542983512)
+
+### Cargo: cargo-cargofmt
+
+**Description**
+
+`cargo fmt` exists today but only supports formatting Rust code and not also
+- `Cargo.toml`
+- `.cargo/config.toml`
+- `rustfmt.toml`
+- `rust-toolchain.toml`
+- `clippy.toml`
+
+There is a [Style Guide entry for `Cargo.toml`](https://doc.rust-lang.org/nightly/style-guide/cargo.html)
+but it doesn't reflect expectations for how people use `Cargo.toml` and needs updates.
+
+[`cargo-cargofmt`](https://github.com/crate-ci/cargo-cargofmt) as a concrete way to explore Style Guide ideas for `Cargo.toml` to help with the process of updating the style guide and to jump start support for formatting `Cargo.toml` files in `cargo fmt`.
+Some [basic rules are implemented](https://github.com/crate-ci/cargo-cargofmt/discussions/25)
+but there is still [more work to be done](https://github.com/crate-ci/cargo-cargofmt/issues)
+for it to serve its purpose.
+
+**Expected result**
+
+Add additional formatting rules
+
+**Project size**
+
+medium.
+
+**Mentor**
+- Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
 
 ## Rustup
 
