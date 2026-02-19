@@ -554,21 +554,34 @@ Large.
 There is a [Style Guide entry for `Cargo.toml`](https://doc.rust-lang.org/nightly/style-guide/cargo.html)
 but it doesn't reflect expectations for how people use `Cargo.toml` and needs updates.
 
-[`cargo-cargofmt`](https://github.com/crate-ci/cargo-cargofmt) as a concrete way to explore Style Guide ideas for `Cargo.toml` to help with the process of updating the style guide and to jump start support for formatting `Cargo.toml` files in `cargo fmt`.
+[`cargo-cargofmt`](https://github.com/crate-ci/cargo-cargofmt) is a concrete way to explore Style Guide ideas for `Cargo.toml` to help with the process of updating the style guide and to jump start support for formatting `Cargo.toml` files in `cargo fmt`.
 Some [basic rules are implemented](https://github.com/crate-ci/cargo-cargofmt/discussions/25)
 but there is still [more work to be done](https://github.com/crate-ci/cargo-cargofmt/issues)
 for it to serve its purpose.
 
+The goal of this project is to extend `cargo-cargofmt` with additional formatting rules.
+
 **Expected result**
 
-Add additional formatting rules
+`cargo-cargofmt` contains additional formatting rules
+
+**Desirable skills**
+
+Intermediate knowledge of Rust.
 
 **Project size**
 
-medium.
+Medium.
+
+**Difficulty**
+
+Easy to medium.
 
 **Mentor**
 - Ed Page ([GitHub](https://github.com/epage), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/424212-Ed-Page))
+
+**Zulip streams**
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Cargo.3A.20cargo-cargofmt/with/574659092)
 
 ## Rustup
 
@@ -635,6 +648,10 @@ the cargo team might be necessary in addition to that with rustup.
 Intermediate knowledge of Rust.
 
 **Project size**
+
+Medium.
+
+**Difficulty**
 
 Medium.
 
