@@ -27,3 +27,5 @@ In general, we would appreciate if you disclosed to your mentor, and also on ope
 
 ## Hardware access
 The Rust Project can provide remote access to powerful cloud-based [Linux machines](https://forge.rust-lang.org/infra/docs/dev-desktop.html) to contributors that will be accepted for a GSoC Rust project. This can help overcome potential contribution barriers caused e.g. by an using an unsupported operating system or not having performant enough hardware.
+
+Most Rust Embedded projects will require access to microcontroller boards of some kind. Costs of these are typically in the US$20 price range. While it is possible that the REWG might provide this hardware if needed, shipping costs and delivery times mean that it is most practical for the student to obtain the needed embedded hardware on their own. Similarly, a certain amount of equipment can be helpful (although rarely necessary) in working with embedded projects. The REWG will try to work with the student in these cases.

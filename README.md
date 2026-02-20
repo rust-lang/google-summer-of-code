@@ -47,6 +47,8 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Link Linux kernel modules with Wild](#link-linux-kernel-modules-with-wild)
 - **Rust Analyzer**
     - [Migrating rust-analyzer assists to `SyntaxEditor`](#migrating-rust-analyzer-assists-to-syntaxeditor)
+- **Rust Embedded**
+    - [Improving ergonomics and safety of serialport-rs](#improving-ergonomics-and-safety-of-serialport-rs)
 
 # Project ideas
 The list of ideas is divided into several categories.
@@ -882,3 +884,48 @@ Easy.
 - [An issue explaining why we should get rid of mutable syntax trees architecture-wise](https://github.com/rust-lang/rust-analyzer/issues/15710)
 - [Tracking issue for this effort](https://github.com/rust-lang/rust-analyzer/issues/18285)
 - [A prototype exploring how `rowan` without mutable trees could look like](https://github.com/ChayimFriedman2/rowan/tree/next-rowan)
+
+## Rust Embedded
+
+### Improving ergonomics and safety of serialport-rs
+
+**Description**
+
+While it is not strictly an embedded crate, a lot of the embedded Rust ecosystem uses the [`serialport`](https://crates.io/crates/serialport) crate for serial communication.
+
+We maintain compatibility with the latest long-term support (LTS) release of Yocto for embedded Linux systems of which a new release dropped in 2025. This opens a window of opportunity to include PRs with semver breaking changes and streamline the crate's API for better ergonomics and safety.
+
+At the same time, we can upgrade our Minimum Supported Rust Version (MSRV) (currently 1.59), which has started to cause dependency issues for crate users, as well as inhibiting use of modern features.
+
+**Expected results**
+
+* Getting the next major release 5.0 of serialport ready and published.
+
+* Suggesting and implementing serial API improvements for this release,
+  including those that might require breaking changes.
+
+**Desirable skills**
+
+Strong familiarity with Rust. Some knowledge of the Rust Embedded ecosystem. At least a basic understanding of serial port operation. Interest in working across multiple (desktop) operating systems. Willingness and ability to do both maintenance and design activities.
+
+We can ship USB serial adapters for testing, if needed.
+
+**Project size**
+
+Small to medium. The project is scaleable in the sense that there are a lot of smaller individual tasks and progress on every single one helps.
+
+**Difficulty**
+
+Easy.
+
+**Mentors**
+
+- Christian Meusel ([GitHub](https://github.com/sirhcel), [Matrix](@sirhcel:matrix.org), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/719907-Christian-Meusel))
+
+**Matrix channel**
+
+- [serialport-rs](https://matrix.to/#/#serialport-rs:matrix.org)
+
+**Related links**
+
+* [Tracking issue for release 5.0](https://github.com/serialport/serialport-rs/issues/302)
