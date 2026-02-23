@@ -924,7 +924,8 @@ Easy.
 
 **Matrix channel**
 
-- [serialport-rs](https://matrix.to/#/#serialport-rs:matrix.org)
+- [serialport-rs Google Summer of Code chat](https://matrix.to/#/#serialport-rs-gsoc-2026:matrix.org)
+- [serialport-rs general chat](https://matrix.to/#/#serialport-rs:matrix.org)
 
 **Related links**
 
