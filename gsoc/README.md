@@ -25,6 +25,8 @@ If you plan to use AI significantly for implementing your proposal, in particula
 
 In general, we would appreciate if you disclosed to your mentor, and also on opened PRs if and how you used AI for generating code. Note that you are still responsible for all the code that you produce and you should understand how it works.
 
+We might ask the applicant for a 1:1 assessment interview in case we have questions about the design of their proposal.
+
 ## Hardware access
 The Rust Project can provide remote access to powerful cloud-based [Linux machines](https://forge.rust-lang.org/infra/docs/dev-desktop.html) to contributors that will be accepted for a GSoC Rust project. This can help overcome potential contribution barriers caused e.g. by an using an unsupported operating system or not having performant enough hardware.
 
