@@ -49,6 +49,8 @@ We use the GSoC project size parameters for estimating the expected time complex
     - [Migrating rust-analyzer assists to `SyntaxEditor`](#migrating-rust-analyzer-assists-to-syntaxeditor)
 - **Rust Embedded**
     - [Improving ergonomics and safety of serialport-rs](#improving-ergonomics-and-safety-of-serialport-rs)
+- **Miri**
+    - [Create a debugger for miri](#create-a-debugger-for-miri) 
 
 # Project ideas
 The list of ideas is divided into several categories.
@@ -930,3 +932,66 @@ Easy.
 **Related links**
 
 * [Tracking issue for release 5.0](https://github.com/serialport/serialport-rs/issues/302)
+
+## Miri
+
+### Create a debugger for miri
+
+**Description**
+
+Years ago we had [priroda](https://github.com/oli-obk/priroda) which 
+
+* allowed you to step through MIR one statement at a time
+* showed you the MIR as a graph
+* showed you the abstract memory and allowed you to follow pointers to inspect everything reachable
+
+This tool had to be updated regularly to keep up with nightly and eventually bitrotted. it also had some severe design flaws that made it hard to add more nice features.
+
+Miri's complexity has only gone up since, getting threads, race condition detection state, more stacked borrows state, tree borrow state, ...
+
+It is frequently hard to see what is going on when running miri on some code. 
+any miri errors are hard to debug, and using the built-in logging mechanisms produce an overwhelming amount of text.
+
+Thus we would like to restart this project from scratch.
+
+We will tune the project to the preexisting knowledge and interests of the gsoc contributor, so it may be a
+
+* graphical frontend (anything from using a gui toolkit, to just using a game engine with the usual gui tools),
+* terminal ui frontend, or
+* just a plain terminal shell (like gdb).
+
+Ideally the debugger would be built in a way that the parts that would be useful to other frontends are split out into crates.
+
+**Expected result**
+
+* a frontend to miri that allows
+  * stepping through statements, and
+  * inspecting some information not already trivially apparent from the command line miri
+* integration into miri's CI to prevent bitrotting
+  * care must be taken to minimize the effort on miri maintainers
+* documentation about the design so any miri contributor can also keep priroda up to date
+
+**Desirable skills**
+
+Knowledge of Rust. Knowledge of the rustc or miri codebase is an advantage but should not be required. Knowledge of UI tools is useful, but also not required. 
+
+**Project size**
+
+Large. However note that the size is scalable; Once the basics work, there's an inexhaustible amount of features to be added. 
+
+**Difficulty**
+
+Easy.
+
+**Mentors**
+
+- Oli Scherer ([GitHub](https://github.com/oli-obk/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/124288-dm))
+
+
+**Zulip streams**
+
+- [miri](https://rust-lang.zulipchat.com/#narrow/channel/269128-miri)
+
+**Related Links**
+
+- [miri](https://github.com/rust-lang/miri/) 
