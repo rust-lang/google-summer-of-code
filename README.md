@@ -67,7 +67,7 @@ The Rust compiler debuginfo test suite should test how Rust programs interact wi
 - It is difficult (in part) to comprehend test failure, in part because debugger output is captured then fed to LLVM FileCheck, and the FileCheck failures in turn are hard to figure out what's wrong.
 - There is a significant lack of docs surrounding the design intention and actual usage of the debuginfo test infra.
 
-We would like to rewrite the test suite to make it more maintainable and thus increase our confidence in the Rust compiler debugger visualizers, and maintain the quality of debuginfo emitted (and detect if there are regressions).
+We would like to redesign and rewrite the test suite to make it more maintainable and thus increase our confidence in the Rust compiler debugger visualizers, and maintain the quality of debuginfo emitted (and detect if there are regressions).
 
 **Expected result**
 
