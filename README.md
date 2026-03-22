@@ -766,10 +766,10 @@ any miri errors are hard to debug, and using the built-in logging mechanisms pro
 
 Thus we would like to restart this project from scratch.
 
-We will tune the project to the preexisting knowledge and interests of the gsoc contributor, so it may be a
+We will tune the project to the preexisting knowledge and interests of the contributor, so it may be a:
 
-* graphical frontend (anything from using a gui toolkit, to just using a game engine with the usual gui tools),
-* terminal ui frontend, or
+* graphical frontend (anything from using a GUI toolkit, to just using a game engine with the usual gui tools),
+* terminal UI frontend, or
 * just a plain terminal shell (like gdb).
 
 Ideally the debugger would be built in a way that the parts that would be useful to other frontends are split out into crates.
@@ -795,13 +795,13 @@ Large. However note that the size is scalable; Once the basics work, there's an 
 
 Easy.
 
-**Mentors**
+**Mentor**
 
 - Oli Scherer ([GitHub](https://github.com/oli-obk/), [Zulip](https://rust-lang.zulipchat.com/#narrow/dm/124288-dm))
 
-
 **Zulip streams**
 
+- [Idea discussion](https://rust-lang.zulipchat.com/#narrow/channel/421156-gsoc/topic/Idea.3A.20Create.20a.20debugger.20for.20miri/with/580924110)
 - [miri](https://rust-lang.zulipchat.com/#narrow/channel/269128-miri)
 
 **Related Links**
