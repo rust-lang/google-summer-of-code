@@ -172,6 +172,7 @@ Hard.
 
 **Related links**
 - [Prior art in Go](https://go.dev/blog/rebuild)
+- [MCP for adding a repro-check tool](https://github.com/rust-lang/compiler-team/issues/962)
 
 ### Refactoring of `rustc_codegen_ssa` to make it more convenient for the GCC codegen
 
